@@ -1,0 +1,8 @@
+name: cave_a_simple
+description: Long, wide, gently changing bedding-controlled passage.
+corridor: {width: 6.2, height: 4.5, variation: 0.19, section: flattened}
+route:
+  - {straight: 22}
+  - {turn: 12, radius: 18}
+  - {straight: 25, section: asymmetric}
+geology: {amplitude: 0.43, strata: 0.18, formations: 18}

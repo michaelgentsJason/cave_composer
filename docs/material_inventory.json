@@ -1,0 +1,119 @@
+[
+  {
+    "path": "D:\\Desktop\\Cave_scan\\live_record_groundfloor_v3_20260823-184725\\reconstruction\\metashape\\exports\\insight9_groundfloor_photogrammetry.mtl",
+    "format": ".mtl",
+    "bytes": 758,
+    "maps": [
+      [
+        "map_Kd",
+        "insight9_groundfloor_photogrammetry.jpg"
+      ],
+      [
+        "map_Kd",
+        "insight9_groundfloor_photogrammetry1.jpg"
+      ],
+      [
+        "map_Kd",
+        "insight9_groundfloor_photogrammetry2.jpg"
+      ],
+      [
+        "map_Kd",
+        "insight9_groundfloor_photogrammetry3.jpg"
+      ]
+    ],
+    "classification": "likely baked photogrammetry atlas",
+    "has_explicit_roughness_map": false,
+    "has_explicit_normal_map": false
+  },
+  {
+    "path": "D:\\Desktop\\Cave_scan\\live_record_groundfloor_v3_20260823-184725\\reconstruction\\metashape\\exports\\insight9_groundfloor_photogrammetry.glb",
+    "format": ".glb",
+    "bytes": 227944692,
+    "materials": [
+      {
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 0
+          },
+          "metallicFactor": 0.0,
+          "roughnessFactor": 1.0
+        }
+      },
+      {
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicFactor": 0.0,
+          "roughnessFactor": 1.0
+        }
+      },
+      {
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 2
+          },
+          "metallicFactor": 0.0,
+          "roughnessFactor": 1.0
+        }
+      },
+      {
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 3
+          },
+          "metallicFactor": 0.0,
+          "roughnessFactor": 1.0
+        }
+      }
+    ],
+    "images": [
+      {
+        "bufferView": 5,
+        "mimeType": "image/jpeg"
+      },
+      {
+        "bufferView": 11,
+        "mimeType": "image/jpeg"
+      },
+      {
+        "bufferView": 17,
+        "mimeType": "image/jpeg"
+      },
+      {
+        "bufferView": 23,
+        "mimeType": "image/jpeg"
+      }
+    ],
+    "textures": [
+      {
+        "sampler": 0,
+        "source": 0
+      },
+      {
+        "sampler": 0,
+        "source": 1
+      },
+      {
+        "sampler": 0,
+        "source": 2
+      },
+      {
+        "sampler": 0,
+        "source": 3
+      }
+    ],
+    "classification": "PBR container; atlas versus tileable cannot be proven from container alone"
+  },
+  {
+    "path": "D:\\Desktop\\Cave_scan\\CAVERS_Dataset\\rec_handheld_2\\RS_COLOR\\data\\RS_COLOR_0.png",
+    "format": ".png",
+    "bytes": 2385895,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "mode": "RGB",
+    "classification": "image; photographic lighting and texture semantics require visual inspection"
+  }
+]

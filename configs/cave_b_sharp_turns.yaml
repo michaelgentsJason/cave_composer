@@ -1,0 +1,12 @@
+name: cave_b_sharp_turns
+description: Three controlled bends of 60, 90 and 120 degrees with straight approaches.
+corridor: {width: 3.7, height: 3.6, variation: 0.15, section: irregular}
+route:
+  - {straight: 15}
+  - {turn: 60, radius: 4}
+  - {straight: 10}
+  - {turn: -90, radius: 4}
+  - {straight: 12}
+  - {turn: 120, radius: 4.5}
+  - {straight: 20}
+geology: {amplitude: 0.35, strata: 0.17, formations: 18}

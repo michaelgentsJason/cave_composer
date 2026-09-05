@@ -1,0 +1,16 @@
+name: cave_g_loop
+description: A controlled bypass reconnects to the main route, creating one semantic loop.
+corridor: {width: 3.6, height: 3.8, variation: 0.12, section: irregular}
+route:
+  - {straight: 50}
+branches:
+  - at: 0.26
+    heading: 90
+    route:
+      - {straight: 13}
+      - {turn: -90, radius: 4}
+      - {straight: 12}
+      - {turn: -90, radius: 4}
+      - {straight: 10}
+    rejoin_at: 0.72
+geology: {amplitude: 0.3, strata: 0.12, formations: 10}

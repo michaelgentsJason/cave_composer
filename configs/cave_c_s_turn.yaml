@@ -1,0 +1,13 @@
+name: cave_c_s_turn
+description: Left, short straight, right, then a sharp left with changing sections.
+corridor: {width: 3.5, height: 4.1, variation: 0.16, section: fracture}
+route:
+  - {straight: 12}
+  - {turn: 70, radius: 5}
+  - {straight: 5}
+  - {turn: -100, radius: 5, section: asymmetric}
+  - {straight: 8}
+  - {turn: 110, radius: 4.5, section: tall}
+  - {straight: 13}
+geology: {amplitude: 0.36, strata: 0.15, formations: 12}
+material: {style: sandstone, seed: 101}

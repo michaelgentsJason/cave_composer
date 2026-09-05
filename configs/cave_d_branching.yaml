@@ -1,0 +1,19 @@
+name: cave_d_branching
+description: Main corridor with two side passages, junctions and dead ends.
+corridor: {width: 4.1, height: 3.7, variation: 0.18, section: asymmetric}
+route:
+  - {straight: 21}
+  - {turn: 35, radius: 8}
+  - {straight: 25}
+branches:
+  - at: 0.30
+    heading: 90
+    route:
+      - {straight: 13, width: 3.3}
+      - {turn: 55, radius: 4}
+      - {straight: 8}
+  - at: 0.67
+    heading: -95
+    route:
+      - {straight: 18, width: 3.0, section: fracture}
+geology: {amplitude: 0.4, strata: 0.17, formations: 20}

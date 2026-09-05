@@ -1,0 +1,11 @@
+name: cave_e_chamber
+description: Narrow entry, broad irregular multi-lobe chamber, restricted exit.
+corridor: {width: 3.0, height: 3.2, variation: 0.13, section: triangular}
+route:
+  - {straight: 22}
+  - {turn: 18, radius: 15}
+  - {straight: 24, section: fracture}
+chambers:
+  - {at: 0.49, radii: [8.2, 6.9, 4.6], lobes: 6, style: irregular}
+geology: {amplitude: 0.42, strata: 0.2, formations: 20}
+material: {style: sandstone, seed: 104}

@@ -1,0 +1,72 @@
+{
+  "milestone": "independent prototype completed BEFORE PLUME access",
+  "utc": "2026-09-05T01:05:46.900461+00:00",
+  "tests": "20 passed",
+  "scenes": {
+    "cave_a_simple": {
+      "validation": "VALID",
+      "intersection_audit": "PASS",
+      "mesh_hashes": {
+        "visual_mesh_sha256": "09e6b3dad7b40f8d19105c88e6bf17f57a042b0d1ee38a30a4a8cece3e0ea161",
+        "collision_mesh_sha256": "045c11e21e0a4e3068974b4c17c94dd2b2d217767b8654447ddc3a5d5210b71f"
+      }
+    },
+    "cave_b_sharp_turns": {
+      "validation": "VALID",
+      "intersection_audit": "PASS",
+      "mesh_hashes": {
+        "visual_mesh_sha256": "83d4e9980063575881d54537098dcad5eb1d8307afa2bf221ce922ac6a00847b",
+        "collision_mesh_sha256": "aa61e1c2d5e35d409e64e61010ebadd36dd0f2433ac77c51e1cabef1d4c4333c"
+      }
+    },
+    "cave_c_s_turn": {
+      "validation": "VALID",
+      "intersection_audit": "PASS",
+      "mesh_hashes": {
+        "visual_mesh_sha256": "a782e1692a826c19a7126540ae2f05ec4b2d594702b2667acaadd2b5ecd7217b",
+        "collision_mesh_sha256": "a7b3fe01ccf7de3685920a9e123103c16a25b280dcb79e93e68e9ecd539e1c58"
+      }
+    },
+    "cave_d_branching": {
+      "validation": "VALID",
+      "intersection_audit": "PASS",
+      "mesh_hashes": {
+        "visual_mesh_sha256": "f87ebb5aa42a7ff40b1982691cea5bef15478892810bdd9272ff00e616b21842",
+        "collision_mesh_sha256": "388976131fa879c5881512faed238a9d2eeb4d240972cc00f13d15318bfd67e5"
+      }
+    },
+    "cave_e_chamber": {
+      "validation": "VALID",
+      "intersection_audit": "PASS",
+      "mesh_hashes": {
+        "visual_mesh_sha256": "b0491bdf13c921c7a52c7c10ff3c45fd16471227bc88fe3369c3b14f039efc84",
+        "collision_mesh_sha256": "df6ece45917170fedb98347aafb9d6d03110f27ac040117981b9d5394d94aee8"
+      }
+    },
+    "cave_f_vertical": {
+      "validation": "VALID",
+      "intersection_audit": "PASS",
+      "mesh_hashes": {
+        "visual_mesh_sha256": "cde564e518cd4c875cd9eaf6c94de317b0c56e23192fcd75cd1a5c64b59a2d76",
+        "collision_mesh_sha256": "c6fb65177f1bfe97369432a565846de0e9bbe592e63ed8b262e9a4d1054ee89d"
+      }
+    }
+  },
+  "source_sha256": {
+    "cave_composer\\__init__.py": "07e405f028c75354c2a4401f7e9a2c001da1bf805d8accca844d28dc8152e084",
+    "cave_composer\\blender_audit.py": "1607bb565e6b8e1d391565397cf1312a4885c1f2a331dd68bd1c1caedbfce5c7",
+    "cave_composer\\blender_render.py": "9803e174552cb8a1809236466138b20ec74afaad7832206e6f69bc2f93937e10",
+    "cave_composer\\cli.py": "39842f0c180649dfc83abc0b2758604ecc4e0f2f701c86fc514bbc1b4fbd668d",
+    "cave_composer\\dataset.py": "d6b26baae661d4cdf87a0fe62ea56c6632a0333e801ed19fe944edca444577d2",
+    "cave_composer\\export.py": "74b478239c785e6bccbf4815636a7a2995f98726e57ce8ae34e914c47aef5ca8",
+    "cave_composer\\field.py": "6febbdfe03c33416cbdfb3b4261500872a3df322cbf3e9bc31f30be3d444d944",
+    "cave_composer\\language.py": "58a00075f2fa5ace90a3a827b8b24207c3ac9aad950902a0df4d2a2228f7e327",
+    "cave_composer\\materials.py": "849228cfc0db04e9193d68c39aed38601fa419dc9462c9728c1da1a3f5c49ee1",
+    "cave_composer\\metrics.py": "86116d16aa2abdf1086d5f27ebb8746463beaf6fd264d2e60b1728313d8c5473",
+    "cave_composer\\pipeline.py": "0ea638508a5548da4e9155beb3e4f29ac94c9697fe30e62515b88a33cf2a1408",
+    "cave_composer\\previews.py": "b4259797af3a0e2bb774c0a4622e610766df6f46acb645500967338c0f845db3",
+    "cave_composer\\routes.py": "8f1db461333bcb75fc7caf26c509334bd1bbb3a08b4f28843c1eaf57234b3f5e",
+    "cave_composer\\spec.py": "391c98439b113b2883984b570d228c722e067b71d25f439b68c05d4f56baa4dc",
+    "cave_composer\\validation.py": "f1e6d88fe4d5e42f4fce6489a2bf0b2723591ac124077dd2a792f2c9821f9d67"
+  }
+}

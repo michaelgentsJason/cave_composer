@@ -1,0 +1,12 @@
+name: cave_f_vertical
+description: Descending inclined rift, turn, deeper shelf and a sustained climb.
+corridor: {width: 3.9, height: 5.0, variation: 0.18, section: tall}
+route:
+  - {straight: 8}
+  - {straight: 14, slope: -22, section: fracture}
+  - {turn: 65, radius: 6, slope: -15}
+  - {straight: 8, slope: -8}
+  - {straight: 19, slope: 24, section: asymmetric}
+  - {straight: 8}
+geology: {amplitude: 0.4, strata: 0.22, formations: 16}
+material: {style: basalt, seed: 106}
