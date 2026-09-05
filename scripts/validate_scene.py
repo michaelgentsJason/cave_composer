@@ -8,7 +8,7 @@ from cave_composer.spec import load_spec
 from cave_composer.routes import build_routes,navigation_graph
 from cave_composer.field import CaveField
 from cave_composer.validation import validate
-from cave_composer.pipeline import dump,mesh_digest
+from cave_composer.pipeline import dump,mesh_digest,attach_intersection_audit
 
 p=argparse.ArgumentParser(); p.add_argument('scenes',nargs='+'); a=p.parse_args()
 failed=False
@@ -25,8 +25,7 @@ for scene in a.scenes:
     report['revalidation']={'mesh_sha256_verified':True,'collision_regenerated_identically':True,'validator_source_sha256':hashlib.sha256((Path(__file__).resolve().parents[1]/'cave_composer/validation.py').read_bytes()).hexdigest()}
     audit=folder/'metadata/intersection_audit.json'
     if audit.exists():
-        report['intersection_audit']=json.loads(audit.read_text()); report['checks']['bvh_no_nonadjacent_intersections']=report['intersection_audit']['status']=='PASS'
-        if not report['checks']['bvh_no_nonadjacent_intersections']: report['status']='INVALID'
+        attach_intersection_audit(report,json.loads(audit.read_text()))
     dump(folder/'metadata/validation.json',report)
     metrics=json.loads((folder/'metadata/metrics.json').read_text()); metrics['validation']=report['status']; dump(folder/'metadata/metrics.json',metrics)
     print(folder.name,report['status'],[k for k,v in report['checks'].items() if not v],flush=True)

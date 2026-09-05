@@ -34,6 +34,17 @@ def mesh_digest(mesh):
     return h.hexdigest()
 
 
+def attach_intersection_audit(report,audit):
+    """Attach the separate mesh audit without leaving a misleading pending label."""
+    report['intersection_audit']=audit
+    report['checks']['bvh_no_nonadjacent_intersections']=audit['status']=='PASS'
+    for kind,details in audit['meshes'].items():
+        report['mesh'][kind]['self_intersection']={
+            'method':audit['method'],
+            'nonadjacent_intersecting_pairs':details['nonadjacent_intersecting_pairs']}
+    report['status']='VALID' if all(report['checks'].values()) else 'INVALID'
+
+
 def generate(config,seed=42,output=None,render=False,blender=None,save_blend=False):
     if isinstance(seed,bool) or int(seed)!=seed or seed<0: raise ValueError('seed must be a nonnegative integer')
     spec=load_spec(config)
@@ -91,9 +102,7 @@ def generate(config,seed=42,output=None,render=False,blender=None,save_blend=Fal
             with (temp/'metadata/intersection_audit.log').open('w',encoding='utf-8') as log:
                 subprocess.run(audit_command,stdout=log,stderr=subprocess.STDOUT,check=True)
             audit=json.loads((temp/'metadata/intersection_audit.json').read_text())
-            validation['intersection_audit']=audit
-            validation['checks']['bvh_no_nonadjacent_intersections']=audit['status']=='PASS'
-            validation['status']='VALID' if all(validation['checks'].values()) else 'INVALID'
+            attach_intersection_audit(validation,audit)
             metrics['validation']=validation['status']
             dump(temp/'metadata/validation.json',validation)
             timings['render_seconds']=time.perf_counter()-t

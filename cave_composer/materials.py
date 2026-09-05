@@ -22,7 +22,8 @@ def write_material(spec, directory):
     value = np.zeros((n,n))
     # Periodic filtered random fields avoid the visible plaid of separable sine products.
     for sigma,amp in [(70,0.07),(27,0.06),(9,0.045),(3,0.025),(0.6,0.015)]:
-        band=gaussian_filter(rng.normal(size=(n,n)),sigma,mode='wrap')
+        anisotropy=spec.get('detail_anisotropy',1.0)
+        band=gaussian_filter(rng.normal(size=(n,n)),(sigma*anisotropy,sigma),mode='wrap')
         value += amp*(band-band.mean())/max(band.std(),1e-8)
     value = np.clip(0.5+value,0,1)
     low = np.minimum(value*2,1)[...,None]
@@ -33,10 +34,15 @@ def write_material(spec, directory):
     return palette
 
 
-def infer_image_prior(path, output):
+def infer_image_prior(path, output, roi=None):
     path=Path(path)
     original=Image.open(path).convert("RGB")
-    im=original.copy(); im.thumbnail((512,512))
+    if roi is not None:
+        if len(roi)!=4 or min(roi)<0 or roi[2]<=0 or roi[3]<=0 or roi[0]+roi[2]>original.width or roi[1]+roi[3]>original.height:
+            raise ValueError('ROI must be x, y, width, height inside the image')
+        im=original.crop((roi[0],roi[1],roi[0]+roi[2],roi[1]+roi[3]))
+    else: im=original.copy()
+    im.thumbnail((512,512))
     a=np.asarray(im,dtype=float)/255
     valid=a[(a.mean(2)>0.06)&(a.mean(2)<0.95)]
     if len(valid)<100: raise ValueError("Insufficient nonblack/nonwhite texture pixels")
@@ -46,7 +52,7 @@ def infer_image_prior(path, output):
     result={"schema_version":1,"style":"reference_palette","palette":palette.tolist(),
             "seed":100,"roughness":0.87,"prior_source":str(path.resolve()),
             "source_sha256":hashlib.sha256(path.read_bytes()).hexdigest(),
-            "image_dimensions":original.size,"high_frequency_proxy":float(np.abs(np.diff(gray,axis=0)).mean()),
+            "image_dimensions":original.size,"roi_xywh":roi,"high_frequency_proxy":float(np.abs(np.diff(gray,axis=0)).mean()),
             "roughness_inferred":False,"normal_inferred":False,
             "limitations":["RGB palette includes capture illumination and atlas padding", "No geometry or UV atlas transfer", "Roughness default; not measured", "Using held-out OOD scans for priors is appearance leakage"]}
     Path(output).write_text(json.dumps(result,indent=2),encoding="utf-8")

@@ -5,3 +5,5 @@ __pycache__/
 outputs/
 .venv/
 *.blend1
+build/
+dist/

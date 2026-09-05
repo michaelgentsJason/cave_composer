@@ -1,0 +1,614 @@
+{
+  "scope": "final offline v0; supersedes presentation/layout in independent checkpoint, which remains historical pre-PLUME evidence",
+  "scenes": [
+    {
+      "scene": "cave_a_simple",
+      "metrics": {
+        "total_length": 50.769870413530406,
+        "main_route_length": 50.769870413530406,
+        "command_exact_length": 50.76991118430775,
+        "num_turns": 1,
+        "turn_angles_degrees": [
+          12.0
+        ],
+        "max_turn_angle": 12.0,
+        "mean_curvature": 0.004244266196976332,
+        "max_curvature": 0.055556156383495356,
+        "num_sharp_turns": 0,
+        "junction_count": 0,
+        "branch_count": 0,
+        "dead_end_count": 0,
+        "loop_count": 0,
+        "vertical_range": 0.0,
+        "max_slope": 0.0,
+        "mean_width": 6.070273159673336,
+        "minimum_width": 3.8907830370922634,
+        "minimum_height": 3.740832741452238,
+        "chamber_count": 0,
+        "topological_complexity": 0,
+        "minimum_mesh_clearance": 1.3659330096099553,
+        "mean_forward_visibility": 21.12033578913404,
+        "minimum_forward_visibility": 4.563244316157536,
+        "mean_visible_route_lookahead": 25.056312846902507,
+        "width_measurement": "paired wall rays on transverse section axes, every fifth route sample; excludes cap-adjacent samples",
+        "turn_measurement": "command values; plan-view circular arc geometry; sampled arc chords slightly shorten total_length",
+        "visual_triangles": 96362,
+        "collision_triangles": 32136,
+        "validation": "VALID",
+        "generation_seconds": 21.693959900003392
+      },
+      "seed": 42,
+      "geometry_config_sha256": "9852faca3237c2f3d891d30e22c8627cf65aebbfada3fec2bbc3ca174abffbf1",
+      "visual_mesh_sha256": "09e6b3dad7b40f8d19105c88e6bf17f57a042b0d1ee38a30a4a8cece3e0ea161",
+      "collision_mesh_sha256": "045c11e21e0a4e3068974b4c17c94dd2b2d217767b8654447ddc3a5d5210b71f",
+      "validation_sha256": "7691a13ab3241b336147ebf95f2bf170708c39bf19a3756221509073f242061f"
+    },
+    {
+      "scene": "cave_b_sharp_turns",
+      "metrics": {
+        "total_length": 80.89263025004264,
+        "main_route_length": 80.89263025004264,
+        "command_exact_length": 80.89675347273536,
+        "num_turns": 3,
+        "turn_angles_degrees": [
+          60.0,
+          90.0,
+          120.0
+        ],
+        "max_turn_angle": 120.0,
+        "mean_curvature": 0.058541967568790765,
+        "max_curvature": 0.25005829090636417,
+        "num_sharp_turns": 3,
+        "junction_count": 0,
+        "branch_count": 0,
+        "dead_end_count": 0,
+        "loop_count": 0,
+        "vertical_range": 0.0,
+        "max_slope": 0.0,
+        "mean_width": 3.709138977232641,
+        "minimum_width": 2.5877302742820807,
+        "minimum_height": 2.987257259349831,
+        "chamber_count": 0,
+        "topological_complexity": 0,
+        "minimum_mesh_clearance": 1.246821853028693,
+        "mean_forward_visibility": 10.427030878001954,
+        "minimum_forward_visibility": 3.5990181004847,
+        "mean_visible_route_lookahead": 12.336843983470038,
+        "width_measurement": "paired wall rays on transverse section axes, every fifth route sample; excludes cap-adjacent samples",
+        "turn_measurement": "command values; plan-view circular arc geometry; sampled arc chords slightly shorten total_length",
+        "visual_triangles": 88892,
+        "collision_triangles": 29692,
+        "validation": "VALID",
+        "generation_seconds": 25.82435459998669
+      },
+      "seed": 42,
+      "geometry_config_sha256": "e36220531850ffea5afad76753d69f9443b0206f72c692fbe0aebc6df8b729f2",
+      "visual_mesh_sha256": "ff239201c01f16bfea39108211eec6ca7a3f25638057798f9fbf2af3fdcdd24c",
+      "collision_mesh_sha256": "06d5bbff03dde8494c6e1abc1fabe8deef3e45004af729e86a4bd07d750c8802",
+      "validation_sha256": "f00d2b7b909b2deb6ef10e174e15763c1e834d4f96dbe8f0e79e345cca04bd93"
+    },
+    {
+      "scene": "cave_c_s_turn",
+      "metrics": {
+        "total_length": 61.47100877544966,
+        "main_route_length": 61.47100877544966,
+        "command_exact_length": 61.47467843932373,
+        "num_turns": 3,
+        "turn_angles_degrees": [
+          70.0,
+          -100.0,
+          110.0
+        ],
+        "max_turn_angle": 110.0,
+        "mean_curvature": 0.08040680021091957,
+        "max_curvature": 0.22226280818698999,
+        "num_sharp_turns": 3,
+        "junction_count": 0,
+        "branch_count": 0,
+        "dead_end_count": 0,
+        "loop_count": 0,
+        "vertical_range": 0.0,
+        "max_slope": 0.0,
+        "mean_width": 3.454415447191663,
+        "minimum_width": 2.547657831071305,
+        "minimum_height": 2.747517533079495,
+        "chamber_count": 0,
+        "topological_complexity": 0,
+        "minimum_mesh_clearance": 1.2323099273492901,
+        "mean_forward_visibility": 7.470118657473506,
+        "minimum_forward_visibility": 3.730105329070401,
+        "mean_visible_route_lookahead": 9.86479131026859,
+        "width_measurement": "paired wall rays on transverse section axes, every fifth route sample; excludes cap-adjacent samples",
+        "turn_measurement": "command values; plan-view circular arc geometry; sampled arc chords slightly shorten total_length",
+        "visual_triangles": 64360,
+        "collision_triangles": 21496,
+        "validation": "VALID",
+        "generation_seconds": 21.960264299996197
+      },
+      "seed": 42,
+      "geometry_config_sha256": "dd2f5d0f3c9e4e21e81b630f5279c24bf9e1cbd3b1b49840457f90b3acee1e64",
+      "visual_mesh_sha256": "a782e1692a826c19a7126540ae2f05ec4b2d594702b2667acaadd2b5ecd7217b",
+      "collision_mesh_sha256": "a7b3fe01ccf7de3685920a9e123103c16a25b280dcb79e93e68e9ecd539e1c58",
+      "validation_sha256": "b43817d2902a6a88fd43d63e0d34c19c23ae0c295d379b9fb7a0db02af9f8d72"
+    },
+    {
+      "scene": "cave_d_branching",
+      "metrics": {
+        "total_length": 93.7255110747661,
+        "main_route_length": 50.88665899375372,
+        "command_exact_length": 50.886921905584124,
+        "num_turns": 2,
+        "turn_angles_degrees": [
+          35.0,
+          55.0
+        ],
+        "max_turn_angle": 55.0,
+        "mean_curvature": 0.017221757288386957,
+        "max_curvature": 0.2500568056125336,
+        "num_sharp_turns": 0,
+        "junction_count": 2,
+        "branch_count": 2,
+        "dead_end_count": 2,
+        "loop_count": 0,
+        "vertical_range": 0.0,
+        "max_slope": 0.0,
+        "mean_width": 5.026653573718727,
+        "minimum_width": 2.5280001275909703,
+        "minimum_height": 2.8063881102594532,
+        "chamber_count": 0,
+        "topological_complexity": 2,
+        "minimum_mesh_clearance": 1.2314140802530236,
+        "mean_forward_visibility": 15.563635268728941,
+        "minimum_forward_visibility": 4.215505757741502,
+        "mean_visible_route_lookahead": 15.943588696049375,
+        "width_measurement": "paired wall rays on transverse section axes, every fifth route sample; excludes cap-adjacent samples",
+        "turn_measurement": "command values; plan-view circular arc geometry; sampled arc chords slightly shorten total_length",
+        "visual_triangles": 106768,
+        "collision_triangles": 35406,
+        "validation": "VALID",
+        "generation_seconds": 30.8829327999847
+      },
+      "seed": 42,
+      "geometry_config_sha256": "41a872ef252c9f7a25e10be207451487643ac12a78383a10b22201e248929032",
+      "visual_mesh_sha256": "f87ebb5aa42a7ff40b1982691cea5bef15478892810bdd9272ff00e616b21842",
+      "collision_mesh_sha256": "388976131fa879c5881512faed238a9d2eeb4d240972cc00f13d15318bfd67e5",
+      "validation_sha256": "686324fbfafc0e077fab10886cf489f93f7b72d47525c7870de67ab9234c6814"
+    },
+    {
+      "scene": "cave_e_chamber",
+      "metrics": {
+        "total_length": 50.71231328183182,
+        "main_route_length": 50.71231328183182,
+        "command_exact_length": 50.71238898038469,
+        "num_turns": 1,
+        "turn_angles_degrees": [
+          18.0
+        ],
+        "max_turn_angle": 18.0,
+        "mean_curvature": 0.006309014132153788,
+        "max_curvature": 0.06666773759937049,
+        "num_sharp_turns": 0,
+        "junction_count": 0,
+        "branch_count": 0,
+        "dead_end_count": 0,
+        "loop_count": 0,
+        "vertical_range": 0.0,
+        "max_slope": 0.0,
+        "mean_width": 5.257851236933274,
+        "minimum_width": 2.5302177475300107,
+        "minimum_height": 2.515939773716241,
+        "chamber_count": 1,
+        "topological_complexity": 0,
+        "minimum_mesh_clearance": 1.23109743361016,
+        "mean_forward_visibility": 17.659440793375982,
+        "minimum_forward_visibility": 3.300357266312074,
+        "mean_visible_route_lookahead": 18.37960279599997,
+        "width_measurement": "paired wall rays on transverse section axes, every fifth route sample; excludes cap-adjacent samples",
+        "turn_measurement": "command values; plan-view circular arc geometry; sampled arc chords slightly shorten total_length",
+        "visual_triangles": 88928,
+        "collision_triangles": 29296,
+        "validation": "VALID",
+        "generation_seconds": 25.55384890001733
+      },
+      "seed": 42,
+      "geometry_config_sha256": "dccabcf16318f37ec2e6ead4f547b89dd57c0b01b5314146899560ba0fdcd739",
+      "visual_mesh_sha256": "b0491bdf13c921c7a52c7c10ff3c45fd16471227bc88fe3369c3b14f039efc84",
+      "collision_mesh_sha256": "df6ece45917170fedb98347aafb9d6d03110f27ac040117981b9d5394d94aee8",
+      "validation_sha256": "8b2033b2c4999906a2bb7ce3fe2c84a94fe6800ab3e8da69eb1b36207d245905"
+    },
+    {
+      "scene": "cave_f_vertical",
+      "metrics": {
+        "total_length": 64.04628932945954,
+        "main_route_length": 64.04628932945954,
+        "command_exact_length": 64.04690142609444,
+        "num_turns": 1,
+        "turn_angles_degrees": [
+          65.0
+        ],
+        "max_turn_angle": 65.0,
+        "mean_curvature": 0.04188991243336953,
+        "max_curvature": 1.8831166110883721,
+        "num_sharp_turns": 1,
+        "junction_count": 0,
+        "branch_count": 0,
+        "dead_end_count": 0,
+        "loop_count": 0,
+        "vertical_range": 8.181749413536647,
+        "max_slope": 24.000000000000398,
+        "mean_width": 3.775033986357551,
+        "minimum_width": 2.5073308111440284,
+        "minimum_height": 3.8356772957854277,
+        "chamber_count": 0,
+        "topological_complexity": 0,
+        "minimum_mesh_clearance": 1.2438989451511273,
+        "mean_forward_visibility": 11.10057213699603,
+        "minimum_forward_visibility": 3.508633433637274,
+        "mean_visible_route_lookahead": 15.776213123987858,
+        "width_measurement": "paired wall rays on transverse section axes, every fifth route sample; excludes cap-adjacent samples",
+        "turn_measurement": "command values; plan-view circular arc geometry; sampled arc chords slightly shorten total_length",
+        "visual_triangles": 97140,
+        "collision_triangles": 32640,
+        "validation": "VALID",
+        "generation_seconds": 55.821639600006165
+      },
+      "seed": 42,
+      "geometry_config_sha256": "aabf00a14bcbf275c762272830baf8548755bd460139df383f78bd6b63bc885a",
+      "visual_mesh_sha256": "cde564e518cd4c875cd9eaf6c94de317b0c56e23192fcd75cd1a5c64b59a2d76",
+      "collision_mesh_sha256": "c6fb65177f1bfe97369432a565846de0e9bbe592e63ed8b262e9a4d1054ee89d",
+      "validation_sha256": "6e6f12fbd2cdd5a1b442335f8715a1485aa38a07fe6e862c13f51152b36d643e"
+    }
+  ],
+  "acceptance": {
+    "scope": "offline v0 delivery; not simulator or learning validation",
+    "scenes": [
+      {
+        "scene": "cave_a_simple",
+        "status": "PASS",
+        "files_hashed": 32,
+        "mesh_identity_verified": true,
+        "collision_reproduced": true,
+        "previews": {
+          "overview": [
+            1200,
+            750
+          ],
+          "inside_01": [
+            1200,
+            750
+          ],
+          "inside_02": [
+            1200,
+            750
+          ],
+          "topology": [
+            1960,
+            1120
+          ]
+        },
+        "collision_clearance_lower_bound": 1.2171234858004256,
+        "bvh_status": "PASS",
+        "stonefish_xml_references": "PASS; runtime not tested"
+      },
+      {
+        "scene": "cave_b_sharp_turns",
+        "status": "PASS",
+        "files_hashed": 31,
+        "mesh_identity_verified": true,
+        "collision_reproduced": true,
+        "previews": {
+          "overview": [
+            1200,
+            750
+          ],
+          "inside_01": [
+            1200,
+            750
+          ],
+          "inside_02": [
+            1200,
+            750
+          ],
+          "topology": [
+            1960,
+            1120
+          ]
+        },
+        "collision_clearance_lower_bound": 1.0968218530286926,
+        "bvh_status": "PASS",
+        "stonefish_xml_references": "PASS; runtime not tested"
+      },
+      {
+        "scene": "cave_c_s_turn",
+        "status": "PASS",
+        "files_hashed": 32,
+        "mesh_identity_verified": true,
+        "collision_reproduced": true,
+        "previews": {
+          "overview": [
+            1200,
+            750
+          ],
+          "inside_01": [
+            1200,
+            750
+          ],
+          "inside_02": [
+            1200,
+            750
+          ],
+          "topology": [
+            1960,
+            1120
+          ]
+        },
+        "collision_clearance_lower_bound": 1.0823099273492898,
+        "bvh_status": "PASS",
+        "stonefish_xml_references": "PASS; runtime not tested"
+      },
+      {
+        "scene": "cave_d_branching",
+        "status": "PASS",
+        "files_hashed": 32,
+        "mesh_identity_verified": true,
+        "collision_reproduced": true,
+        "previews": {
+          "overview": [
+            1200,
+            750
+          ],
+          "inside_01": [
+            1200,
+            750
+          ],
+          "inside_02": [
+            1200,
+            750
+          ],
+          "topology": [
+            1960,
+            1120
+          ]
+        },
+        "collision_clearance_lower_bound": 1.0814140802530214,
+        "bvh_status": "PASS",
+        "stonefish_xml_references": "PASS; runtime not tested"
+      },
+      {
+        "scene": "cave_e_chamber",
+        "status": "PASS",
+        "files_hashed": 32,
+        "mesh_identity_verified": true,
+        "collision_reproduced": true,
+        "previews": {
+          "overview": [
+            1200,
+            750
+          ],
+          "inside_01": [
+            1200,
+            750
+          ],
+          "inside_02": [
+            1200,
+            750
+          ],
+          "topology": [
+            1960,
+            1120
+          ]
+        },
+        "collision_clearance_lower_bound": 1.081097433610158,
+        "bvh_status": "PASS",
+        "stonefish_xml_references": "PASS; runtime not tested"
+      },
+      {
+        "scene": "cave_f_vertical",
+        "status": "PASS",
+        "files_hashed": 32,
+        "mesh_identity_verified": true,
+        "collision_reproduced": true,
+        "previews": {
+          "overview": [
+            1200,
+            750
+          ],
+          "inside_01": [
+            1200,
+            750
+          ],
+          "inside_02": [
+            1200,
+            750
+          ],
+          "topology": [
+            1960,
+            1120
+          ]
+        },
+        "collision_clearance_lower_bound": 1.0949627749383601,
+        "bvh_status": "PASS",
+        "stonefish_xml_references": "PASS; runtime not tested"
+      }
+    ],
+    "reproducibility": [
+      {
+        "scene": "scene_000000",
+        "checks": {
+          "seed": true,
+          "geometry_config_sha256": true,
+          "visual_mesh_sha256": true,
+          "collision_mesh_sha256": true,
+          "visual/cave_visual.obj": true,
+          "collision/cave_collision.obj": true,
+          "visual/mesh.npz": true,
+          "collision/mesh.npz": true
+        }
+      },
+      {
+        "scene": "scene_000001",
+        "checks": {
+          "seed": true,
+          "geometry_config_sha256": true,
+          "visual_mesh_sha256": true,
+          "collision_mesh_sha256": true,
+          "visual/cave_visual.obj": true,
+          "collision/cave_collision.obj": true,
+          "visual/mesh.npz": true,
+          "collision/mesh.npz": true
+        }
+      },
+      {
+        "scene": "scene_000002",
+        "checks": {
+          "seed": true,
+          "geometry_config_sha256": true,
+          "visual_mesh_sha256": true,
+          "collision_mesh_sha256": true,
+          "visual/cave_visual.obj": true,
+          "collision/cave_collision.obj": true,
+          "visual/mesh.npz": true,
+          "collision/mesh.npz": true
+        }
+      },
+      {
+        "scene": "scene_000003",
+        "checks": {
+          "seed": true,
+          "geometry_config_sha256": true,
+          "visual_mesh_sha256": true,
+          "collision_mesh_sha256": true,
+          "visual/cave_visual.obj": true,
+          "collision/cave_collision.obj": true,
+          "visual/mesh.npz": true,
+          "collision/mesh.npz": true
+        }
+      }
+    ],
+    "batches": [
+      {
+        "name": "batch_final_parallel",
+        "requested": 4,
+        "valid": 4,
+        "workers": 2
+      },
+      {
+        "name": "batch_final_serial",
+        "requested": 4,
+        "valid": 4,
+        "workers": 1
+      },
+      {
+        "name": "ood_geometry_smoke",
+        "requested": 3,
+        "valid": 3,
+        "workers": 1
+      },
+      {
+        "name": "ood_composition_smoke",
+        "requested": 3,
+        "valid": 3,
+        "workers": 1
+      }
+    ],
+    "cavers": {
+      "geometry_byte_identity": {
+        "visual/cave_visual.obj": true,
+        "collision/cave_collision.obj": true,
+        "visual/mesh.npz": true,
+        "collision/mesh.npz": true
+      },
+      "source_files_unchanged": {
+        "D:\\Desktop\\Cave_scan\\CAVERS_Dataset\\rec_handheld_4\\RS_COLOR\\data\\RS_COLOR_2575.png": true,
+        "D:\\Desktop\\Cave_scan\\CAVERS_Dataset\\rec_handheld_5\\RS_COLOR\\data\\RS_COLOR_1929.png": true
+      },
+      "pbr_recovery": "PARTIAL; palette only, roughness assumed"
+    },
+    "status": "PASS"
+  },
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "22",
+    "time": "10.656",
+    "timestamp": "2026-09-06T00:08:30.567409+08:00",
+    "hostname": "Disguise"
+  },
+  "packed_blend_check": [
+    {
+      "scene": "cave_a_simple",
+      "full_visual_mesh": true,
+      "packed_textures": 1,
+      "status": "PASS"
+    },
+    {
+      "scene": "cave_b_sharp_turns",
+      "full_visual_mesh": true,
+      "packed_textures": 1,
+      "status": "PASS"
+    },
+    {
+      "scene": "cave_c_s_turn",
+      "full_visual_mesh": true,
+      "packed_textures": 1,
+      "status": "PASS"
+    },
+    {
+      "scene": "cave_d_branching",
+      "full_visual_mesh": true,
+      "packed_textures": 1,
+      "status": "PASS"
+    },
+    {
+      "scene": "cave_e_chamber",
+      "full_visual_mesh": true,
+      "packed_textures": 1,
+      "status": "PASS"
+    },
+    {
+      "scene": "cave_f_vertical",
+      "full_visual_mesh": true,
+      "packed_textures": 1,
+      "status": "PASS"
+    },
+    {
+      "scene": "cave_b_cavers",
+      "full_visual_mesh": true,
+      "packed_textures": 1,
+      "status": "PASS"
+    }
+  ],
+  "gallery_check": {
+    "browser": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "cards": 6,
+    "views_checked": 4,
+    "all_images_loaded": true,
+    "mobile_overflow": false,
+    "javascript_errors": [],
+    "status": "PASS"
+  },
+  "source_sha256": {
+    "cave_composer/__init__.py": "07e405f028c75354c2a4401f7e9a2c001da1bf805d8accca844d28dc8152e084",
+    "cave_composer/appearance.py": "09de95cd0282e8201072e9d468d2387b69e2c05cceaff0cd4106da32ebc87683",
+    "cave_composer/blender_audit.py": "1607bb565e6b8e1d391565397cf1312a4885c1f2a331dd68bd1c1caedbfce5c7",
+    "cave_composer/blender_render.py": "9803e174552cb8a1809236466138b20ec74afaad7832206e6f69bc2f93937e10",
+    "cave_composer/cli.py": "39842f0c180649dfc83abc0b2758604ecc4e0f2f701c86fc514bbc1b4fbd668d",
+    "cave_composer/dataset.py": "d6b26baae661d4cdf87a0fe62ea56c6632a0333e801ed19fe944edca444577d2",
+    "cave_composer/export.py": "74b478239c785e6bccbf4815636a7a2995f98726e57ce8ae34e914c47aef5ca8",
+    "cave_composer/field.py": "6febbdfe03c33416cbdfb3b4261500872a3df322cbf3e9bc31f30be3d444d944",
+    "cave_composer/language.py": "58a00075f2fa5ace90a3a827b8b24207c3ac9aad950902a0df4d2a2228f7e327",
+    "cave_composer/materials.py": "a0b561f586548e39558e11a65ee99d6815c1741d4e202bcfa41552126b592108",
+    "cave_composer/metrics.py": "86116d16aa2abdf1086d5f27ebb8746463beaf6fd264d2e60b1728313d8c5473",
+    "cave_composer/pipeline.py": "70fcaa9b4973570e8b13c193029e993a9a0bf23074b092a5c635ed9c86ac18e5",
+    "cave_composer/previews.py": "b4259797af3a0e2bb774c0a4622e610766df6f46acb645500967338c0f845db3",
+    "cave_composer/routes.py": "8f1db461333bcb75fc7caf26c509334bd1bbb3a08b4f28843c1eaf57234b3f5e",
+    "cave_composer/spec.py": "09f55c7a64c2df899be4c1ed3af4806d11b3e665d5ac22b3a3dcc8b824719a7e",
+    "cave_composer/stonefish.py": "99c56f925bea48d299a39bf8c820b64abb31b4220255bf1fd985b731ae1328f7",
+    "cave_composer/validation.py": "f1e6d88fe4d5e42f4fce6489a2bf0b2723591ac124077dd2a792f2c9821f9d67"
+  },
+  "stonefish": "PARTIAL",
+  "research": "PROMISING BUT INCOMPLETE",
+  "v0_status": "PASS"
+}

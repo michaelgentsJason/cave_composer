@@ -56,7 +56,7 @@ def load_spec(config):
     if unknown:
         raise ValueError(f"Unknown CaveSpec keys: {sorted(unknown)}")
     for key in ("corridor", "robot", "geology", "mesh", "material", "validation"):
-        allowed = set(DEFAULTS[key]) | ({"palette", "prior_source"} if key == "material" else set())
+        allowed = set(DEFAULTS[key]) | ({"palette", "prior_source", "detail_anisotropy"} if key == "material" else set())
         if set(raw.get(key, {})) - allowed:
             raise ValueError(f"Unknown {key} parameters")
     s = merge(DEFAULTS, raw)
@@ -87,6 +87,7 @@ def load_spec(config):
     number(s["geology"]["strata"], "strata", 0, 0.6)
     number(s["geology"]["formations"], "formations", 0, 200)
     number(s["material"]["roughness"], "roughness", 0, 1)
+    number(s['material'].get('detail_anisotropy',1),'detail_anisotropy',1,4)
     if 'palette' in s['material']:
         palette=s['material']['palette']
         if not isinstance(palette,list) or len(palette)!=3 or any(not isinstance(row,list) or len(row)!=3 for row in palette):

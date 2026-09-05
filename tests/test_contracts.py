@@ -91,13 +91,47 @@ def test_split_supports_and_seed_namespaces():
         for j in range(i): assert not sets[i]&sets[j]
 
 
-def test_bundle_roundtrip_and_no_overwrite(tmp_path):
+@pytest.fixture
+def sample_bundle(tmp_path):
     s={'name':'smoke','route':[{'straight':10}],'geology':{'amplitude':0.15,'strata':0.06,'formations':0},'mesh':{'visual_voxel':0.32,'collision_voxel':0.34}}
     output=tmp_path/'scene'; result=generate(s,4,output)
     assert result['status']=='VALID'
+    return output
+
+
+def test_bundle_roundtrip_and_no_overwrite(sample_bundle):
+    output=sample_bundle
     visual=trimesh.load(output/'visual/cave_visual.obj',force='mesh',process=False)
     assert len(visual.faces)>100
     graph=json.loads((output/'navigation/navigation_graph.json').read_text())
     assert graph['cycle_rank']==0
     assert (output/'previews/topology.png').exists()
-    with pytest.raises(FileExistsError): generate(s,4,output)
+    with pytest.raises(FileExistsError): generate(output/'metadata/config.yaml',4,output)
+
+
+def test_stonefish_rotation_and_xml_file_references(sample_bundle):
+    from cave_composer.stonefish import zup_to_ned,export_stonefish
+    import xml.etree.ElementTree as ET
+    points=np.array([[0,0,0],[1,2,3],[-2,3,-4]])
+    transformed=zup_to_ned(points,20)
+    assert transformed[1]==pytest.approx([1,-2,17])
+    assert np.linalg.norm(transformed[2]-transformed[1])==pytest.approx(np.linalg.norm(points[2]-points[1]))
+    target=sample_bundle
+    scene=export_stonefish(target);root=ET.parse(scene).getroot()
+    assert root.find('static/physical/mesh').attrib['convex']=='false'
+    for mesh in root.findall('.//mesh'): assert (target/mesh.attrib['filename']).exists()
+    assert (target/root.find('looks/look').attrib['texture']).exists()
+
+
+def test_image_roi_and_restyle_preserve_geometry(tmp_path,sample_bundle):
+    from PIL import Image
+    from cave_composer.materials import infer_image_prior
+    from cave_composer.appearance import restyle
+    image=tmp_path/'rock.png';Image.fromarray(np.full((30,30,3),[110,100,80],dtype=np.uint8)).save(image)
+    prior=infer_image_prior(image,tmp_path/'prior.json',[5,5,20,20])
+    assert prior['palette'][1]==pytest.approx(np.array([110,100,80])/255)
+    assert prior['roughness_inferred'] is False
+    with pytest.raises(ValueError): infer_image_prior(image,tmp_path/'bad.json',[20,20,20,20])
+    target=restyle(sample_bundle,{'style':'basalt','seed':99},tmp_path/'styled')
+    checks=json.loads((target/'metadata/appearance_experiment.json').read_text())['geometry_byte_identity']
+    assert all(checks.values())

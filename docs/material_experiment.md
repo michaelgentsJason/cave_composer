@@ -1,5 +1,10 @@
 # Read-only appearance prior experiment
 
+Follow-up: after the user identified the local CAVERS dataset as a real cave
+reference, a broader four-sequence review and a successful same-geometry
+appearance experiment were completed. See `cavers_material_experiment.md`.
+The observations below describe the earlier inventory, not a rejection of CAVERS.
+
 The requested `/media/hong/Ubun_Shared` is absent in both Windows and WSL.
 Searches of Desktop, Downloads and the local download directory did not find the
 six named Sketchfab assets. No download authentication was available or bypassed.
