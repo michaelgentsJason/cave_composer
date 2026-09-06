@@ -52,7 +52,7 @@ def load_spec(config):
     raw = yaml.safe_load(Path(config).read_text(encoding="utf-8")) if isinstance(config, (str, Path)) else deepcopy(config)
     if not isinstance(raw, dict):
         raise ValueError("CaveSpec must be a mapping")
-    unknown = set(raw) - (set(DEFAULTS) | {"route", "description", "ood_factors"})
+    unknown = set(raw) - (set(DEFAULTS) | {"route", "description", "ood_factors", "sampling"})
     if unknown:
         raise ValueError(f"Unknown CaveSpec keys: {sorted(unknown)}")
     for key in ("corridor", "robot", "geology", "mesh", "material", "validation"):
@@ -60,6 +60,10 @@ def load_spec(config):
         if set(raw.get(key, {})) - allowed:
             raise ValueError(f"Unknown {key} parameters")
     s = merge(DEFAULTS, raw)
+    if 'sampling' in s:
+        if not isinstance(s['sampling'], dict) or set(s['sampling']) != {'algorithm', 'family', 'layout_attempts', 'rejected_layouts', 'factor_scope'}:
+            raise ValueError('Invalid sampling provenance')
+        number(s['sampling']['layout_attempts'], 'sampling.layout_attempts', 1, 1000)
     if s["schema_version"] != 1:
         raise ValueError("Only schema_version: 1 is supported")
     check_commands(s.get("route"))

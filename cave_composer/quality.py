@@ -10,7 +10,8 @@ from .bundle import atomic_json
 
 MEASURES=['total_length','num_turns','branch_count','chamber_count','vertical_range',
           'minimum_width','minimum_mesh_clearance','mean_forward_visibility',
-          'visual_triangles','collision_triangles','generation_seconds']
+          'visual_triangles','collision_triangles','generation_seconds','junction_count',
+          'loop_count','dead_end_count','planned_path_length','planned_path_clearance','planning_seconds','layout_attempts']
 
 
 def write_dataset_report(root,manifest):
@@ -18,7 +19,7 @@ def write_dataset_report(root,manifest):
     valid=[r for r in manifest['records'] if r['status']=='VALID']
     stats={}
     for metric in MEASURES:
-        values=[r['metrics'][metric] for r in valid if metric in r.get('metrics',{})]
+        values=[r['metrics'][metric] for r in valid if r.get('metrics',{}).get(metric) is not None]
         if values:
             stats[metric]={'count':len(values),'min':float(np.min(values)),
                            'median':float(np.median(values)),'p95':float(np.quantile(values,.95)),
@@ -31,15 +32,16 @@ def write_dataset_report(root,manifest):
              'requested':manifest['requested'],'valid':manifest['valid'],'invalid':manifest['invalid'],
              'pending':manifest['pending'],'metrics_for_valid_scenes':stats,'failure_reasons':dict(failures),
              'latest_run':manifest['runs'][-1],
+             'topology_families':dict(Counter(r.get('metrics',{}).get('topology_family','unknown') for r in valid)),
              'scope':'offline generation and geometry checks; timings are observed, not controlled benchmarks'}
     atomic_json(root/'quality.json',summary)
-    fields=['index','seed','status','attempts','path',*MEASURES,'error','failed_checks']
+    fields=['index','seed','status','attempts','path','topology_family',*MEASURES,'error','failed_checks']
     with (root/'metrics.csv').open('w',encoding='utf-8',newline='') as stream:
         writer=csv.DictWriter(stream,fieldnames=fields)
         writer.writeheader()
         for record in manifest['records']:
             row={key:record.get(key,'') for key in fields}
-            row.update({k:v for k,v in record.get('metrics',{}).items() if k in MEASURES})
+            row.update({k:v for k,v in record.get('metrics',{}).items() if k in MEASURES or k=='topology_family'})
             row['failed_checks']='; '.join(record.get('failed_checks',[]))
             writer.writerow(row)
     cards=[]
@@ -50,7 +52,7 @@ def write_dataset_report(root,manifest):
                   if (folder/'previews'/f'{name}.png').exists()}
         links=[]
         for label,rel in [('config','metadata/config.yaml'),('validation','metadata/validation.json'),
-                          ('stages','metadata/run.json'),('Blender','cave.blend')]:
+                          ('planned path','navigation/planned_path.json'),('stages','metadata/run.json'),('Blender','cave.blend')]:
             if (folder/rel).exists():
                 links.append(f'<a href="{path}/{rel}">{label}</a>')
         image=''
@@ -59,7 +61,7 @@ def write_dataset_report(root,manifest):
             encoded=html.escape(json.dumps(previews),quote=True)
             image=f'<a class="preview" href="{initial}"><img data-previews="{encoded}" src="{initial}" loading="lazy" alt="{path}"></a>'
         metrics=record.get('metrics',{})
-        details=f"{metrics.get('total_length',0):.1f} m · {metrics.get('num_turns',0)} turns · {metrics.get('branch_count',0)} branches" if metrics else ''
+        details=f"{metrics.get('total_length',0):.1f} m · {metrics.get('num_turns',0)} turns · {metrics.get('branch_count',0)} branches · {metrics.get('loop_count',0)} loops" if metrics else ''
         error=html.escape(record.get('error',''))
         if record.get('failed_checks'):
             error+=' '+html.escape(', '.join(record['failed_checks']))

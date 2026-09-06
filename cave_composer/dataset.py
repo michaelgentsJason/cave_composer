@@ -12,7 +12,7 @@ from .spec import load_spec,merge
 from .pipeline import generate,digest
 from .bundle import atomic_json,dataset_lock,environment_signature,file_sha256,verify_bundle
 
-SPLITS={'train':11,'validation':23,'id_test':37,'ood_geometry':51,'ood_composition':67}
+SPLITS={'train':11,'validation':23,'id_test':37,'ood_geometry':51,'ood_composition':67,'ood_topology':83}
 
 
 def scene_seed(split,seed,index=0):
@@ -25,8 +25,13 @@ def scene_seed(split,seed,index=0):
     return (int(seed)+int(index))*128+SPLITS[split]
 
 
-def sample_config(split='train',difficulty='medium',seed=42):
+def sample_config(split='train',difficulty='medium',seed=42,sampler='legacy_v02',family='mixed'):
     split=split.lower()
+    if sampler == 'topology_v03':
+        from .sampling import sample_topology_config
+        return sample_topology_config(split,difficulty,scene_seed(split,seed),family)
+    if sampler != 'legacy_v02' or family != 'mixed' or split == 'ood_topology':
+        raise ValueError('Use topology_v03 for named families and topology OOD')
     if difficulty not in ('easy','medium','hard'): raise ValueError('difficulty must be easy, medium or hard')
     rng=np.random.default_rng(scene_seed(split,seed))
     factors=rng.integers(0,2,3).astype(bool) # sharp, narrow, descending
@@ -94,7 +99,7 @@ def _job(payload):
 def _distribution(value):
     d=yaml.safe_load(Path(value).read_text(encoding='utf-8')) if isinstance(value,(str,Path)) else value
     if not isinstance(d,dict): raise ValueError('Distribution must be a mapping')
-    unknown=set(d)-{'schema_version','split','difficulty','base_seed','overrides'}
+    unknown=set(d)-{'schema_version','split','difficulty','base_seed','overrides','sampler','family'}
     if unknown: raise ValueError(f'Unknown distribution keys: {sorted(unknown)}')
     if d.get('schema_version',1)!=1 or isinstance(d.get('schema_version'),bool):
         raise ValueError('Only distribution schema_version 1 is supported')
@@ -104,8 +109,11 @@ def _distribution(value):
     overrides=d.get('overrides',{})
     if not isinstance(overrides,dict) or set(overrides)-{'mesh','material'}:
         raise ValueError('Distribution overrides are limited to mesh/material; geometry changes require a new named distribution')
+    sampler=d.get('sampler','legacy_v02'); family=d.get('family','mixed')
+    if sampler not in ('legacy_v02','topology_v03'):
+        raise ValueError('Unknown sampler')
     return {'schema_version':1,'split':split,'difficulty':d.get('difficulty','medium'),
-            'base_seed':int(base),'overrides':overrides}
+            'base_seed':int(base),'overrides':overrides,'sampler':sampler,'family':family}
 
 
 def _existing_artifacts(root,name):
@@ -162,7 +170,9 @@ def generate_dataset(distribution,num_scenes=100,workers=1,output='outputs/datas
     environment_sha=digest(environment)
     contract={'distribution':d,'environment':environment,'render':bool(render),'save_blend':bool(save_blend),'renderer':renderer}
     fingerprint=digest(contract)
-    configs=[load_spec(merge(sample_config(d['split'],d['difficulty'],d['base_seed']+i),d['overrides'])) for i in range(num_scenes)]
+    configs=[load_spec(merge(sample_config(d['split'],d['difficulty'],d['base_seed']+i,
+                  **({'sampler':d['sampler'],'family':d['family']} if d['sampler']!='legacy_v02' or d['family']!='mixed' else {})),
+                  d['overrides'])) for i in range(num_scenes)]
     root=Path(output).resolve()
     manifest_path=root/'manifest.json'
     if root.exists():

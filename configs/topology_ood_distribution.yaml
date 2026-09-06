@@ -1,0 +1,6 @@
+schema_version: 1
+sampler: topology_v03
+family: multi_loop
+split: ood_topology
+difficulty: hard
+base_seed: 31000

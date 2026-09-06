@@ -77,6 +77,13 @@ def verify_bundle(folder):
     validation = json.loads((folder/'metadata/validation.json').read_text(encoding='utf-8'))
     if run['status'] != 'COMPLETE' or validation['status'] != 'VALID' or not all(validation['checks'].values()):
         raise ValueError(f'Bundle is not a completed VALID scene: {folder}')
+    if 'independent_planned_path' in validation['checks']:
+        planned_file=folder/'navigation/planned_path.json'
+        if not planned_file.is_file():
+            raise ValueError(f'Missing independent planned path: {folder}')
+        planned=json.loads(planned_file.read_text(encoding='utf-8'))
+        if planned['status']!='PASS' or any(planned.get(key,{}).get('status')!='PASS' for key in ['collision_certificate','visual_certificate']):
+            raise ValueError(f'Missing dual-mesh planned path certificate: {folder}')
     if run['render']:
         for name in ['overview.png', 'inside_01.png', 'inside_02.png', 'render_info.json']:
             if not (folder/'previews'/name).is_file():

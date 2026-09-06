@@ -20,6 +20,7 @@ from .validation import validate
 from .metrics import compute_metrics
 from .previews import topology_preview
 from .bundle import atomic_json,bundle_checksums,environment_signature
+from .planning import plan_navigation,certify_polyline
 
 
 def dump(path,data):
@@ -90,20 +91,39 @@ def generate(config,seed=42,output=None,render=False,blender=None,save_blend=Fal
         t=time.perf_counter(); visual,_,_=field.mesh(spec['mesh']['visual_voxel']); collision,grid,origin=field.mesh(spec['mesh']['collision_voxel']); timings['geometry_seconds']=time.perf_counter()-t
         stage('validation')
         t=time.perf_counter(); validation,clearances=validate(spec,routes,graph,field,visual,collision,grid,origin); timings['validation_seconds']=time.perf_counter()-t
+        stage('independent_navigation')
+        t=time.perf_counter()
+        planning=plan_navigation(collision,grid,origin,spec['mesh']['collision_voxel'],main[a],main[b],
+                                 spec['robot']['radius']+spec['robot']['margin'])
+        if planning['status']=='PASS':
+            planning['visual_certificate']=certify_polyline(visual,planning['points'],spec['robot']['radius']+spec['robot']['margin'])
+            if planning['visual_certificate']['status']!='PASS':
+                planning.update(status='FAIL',reason='candidate_failed_visual_mesh_certificate')
+        planning['seconds']=time.perf_counter()-t
+        dump(temp/'navigation/planned_path.json',planning)
+        validation['independent_navigation']={k:v for k,v in planning.items() if k!='points'}
+        validation['checks']['independent_planned_path']=planning['status']=='PASS'
+        validation['status']='VALID' if all(validation['checks'].values()) else 'INVALID'
+        timings['planning_seconds']=planning['seconds']
         dump(temp/'metadata/validation.json',validation)
         dump(temp/'navigation/clearance.json',{'visual':clearances['visual'].tolist(),'collision':clearances['collision'].tolist(),'ordering':'routes concatenated in centerline.json order'})
         stage('metrics')
         t=time.perf_counter(); metrics,visibility=compute_metrics(spec,routes,graph,collision,clearances['collision']); timings['metrics_seconds']=time.perf_counter()-t
         metrics.update({'visual_triangles':len(visual.faces),'collision_triangles':len(collision.faces),'validation':validation['status']})
+        metrics.update({'independent_path_found':planning['status']=='PASS','planning_seconds':planning['seconds'],
+                        'planned_path_length':planning.get('length_metres'),
+                        'planned_path_clearance':planning.get('collision_certificate',{}).get('continuous_clearance_lower_bound'),
+                        'topology_family':spec.get('sampling',{}).get('family','legacy_or_explicit'),
+                        'layout_attempts':spec.get('sampling',{}).get('layout_attempts',1)})
         dump(temp/'navigation/visibility_horizon.json',visibility)
         stage('material_and_export')
         write_material(spec['material'],temp/'materials')
         write_obj(visual,temp/'visual/cave_visual.obj',visual=True); write_obj(collision,temp/'collision/cave_collision.obj')
         for name,mesh in [('visual',visual),('collision',collision)]: np.savez_compressed(temp/name/'mesh.npz',vertices=mesh.vertices,faces=mesh.faces)
         stage('topology_preview')
-        topology_preview(routes,graph,visibility,temp/'previews',spec['name'])
+        topology_preview(routes,graph,visibility,temp/'previews',spec['name'],planning)
         geometry_spec={k:v for k,v in spec.items() if k not in ['name','description','material','split','ood_factors']}
-        provenance={'composer_version':'0.2.0','seed':int(seed),'geometry_config_sha256':digest(geometry_spec),
+        provenance={'composer_version':'0.3.0','seed':int(seed),'geometry_config_sha256':digest(geometry_spec),
                     'visual_mesh_sha256':mesh_digest(visual),'collision_mesh_sha256':mesh_digest(collision),
                     'appearance_sha256':digest(spec['material']),'platform':platform.platform(),'python':platform.python_version(),
                     'dependencies':{p:importlib.metadata.version(p) for p in ['numpy','scipy','scikit-image','trimesh','PyYAML']},

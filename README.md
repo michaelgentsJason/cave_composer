@@ -4,7 +4,18 @@ Controllable procedural cave worlds for robot navigation research. Explicit turn
 branches, chambers and slopes become geological voids, independently validated
 visual/collision meshes, navigation ground truth and geometric visibility metadata.
 
-**V0.2:** deterministic headless generation, incremental batch manifests,
+**V0.3:** variable route grammars (winding passages, branch networks, loops and
+chamber sequences), held-out two-cycle topology, and independent occupancy A*
+whose path is checked against both final meshes. See the
+[v0.3 guide](docs/pipeline_v03.md) and [ICRA evidence plan](docs/icra_generator_evidence_plan.md).
+
+[V0.3 results and gallery](PIPELINE_V03_REPORT.md): 27 complete scene bundles
+(26 first-pass successes and one retained same-seed retry), paired protection
+stress tests and 50 passing automated tests. A native query failure in the old
+Rtree runtime was reproduced; the project `.venv` uses Rtree 1.4.1, with 12
+successful metric replays and three complete scene reconstructions.
+
+Retained from **v0.2:** deterministic headless generation, incremental batch manifests,
 verified scene-level resume, same-seed retries with archived diagnostics, CAVERS
 appearance presets and automatic quality galleries. Six distinct v0 examples
 plus a loop example remain available as the initial geometry review.
@@ -25,6 +36,7 @@ python generate.py --config configs/cave_b_sharp_turns.yaml --seed 42 --output o
 python generate.py --config configs/cave_e_chamber.yaml --seed 43 --output outputs/my_chamber --render --blender /path/to/blender --save-blend
 python generate_dataset.py --distribution configs/train_distribution.yaml --num-scenes 100 --workers 4 --output outputs/train_100
 python generate_dataset.py --distribution configs/train_distribution.yaml --num-scenes 100 --workers 4 --output outputs/train_100 --resume
+python generate_dataset.py --distribution configs/topology_distribution.yaml --num-scenes 24 --workers 2 --output outputs/topology_24
 ```
 
 On this workstation supply `--blender D:/Blender/blender.exe`. Elsewhere use PATH,
@@ -55,6 +67,9 @@ the observed CAVERS rock palette without requiring the source dataset at runtime
 ## Inspect the delivered work
 
 - [Pipeline usage and recovery contract](docs/pipeline.md)
+- [V0.3 structural sampling and independent path verification](docs/pipeline_v03.md)
+- [V0.3 results, native-runtime diagnosis and review gallery](PIPELINE_V03_REPORT.md)
+- [ICRA hypotheses and required comparisons](docs/icra_generator_evidence_plan.md)
 - [V0.2 pipeline report](PIPELINE_V02_REPORT.md)
 - [V0 report (historical snapshot)](CAVE_COMPOSER_V0_REPORT.md)
 - [Interactive local gallery](outputs/final/gallery.html)
@@ -77,6 +92,7 @@ collision/cave_collision.obj + mesh.npz
 materials/rock_albedo.png + material.json
 navigation/centerline.json + navigation_graph.json + junction_graph.json
 navigation/spawn_points.json + goals.json + clearance.json + visibility_horizon.json
+navigation/planned_path.json        # independent search and dual-mesh certificates
 metadata/config.yaml + metrics.json + validation.json + provenance.json + checksums.json
 previews/topology.png + overview.png + inside_01.png + inside_02.png
 cave.blend                           # with --render --save-blend

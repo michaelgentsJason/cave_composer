@@ -6,6 +6,10 @@ Git clone 遇到连接重置，GitHub API 限流；随后成功读取官方论�
 并逐文件下载六个官方源码文件。文件摘要保存在 `plume_source_inventory.json`。
 这里只做论文与源码静态比较，没有运行 PLUME，也没有公平的速度/视觉基准。
 
+v0.3 更新：新增多结构族采样、留出双回环结构、独立 A* 搜索与双网格路径净空验证。
+这些变化强化导航任务条件与产物验收；没有改变下文“尚无 PLUME 运行对照”的证据边界。
+当前正式方法和投稿前实验要求见 [ICRA 证据计划](icra_generator_evidence_plan.md)。
+
 | Component | Our Composer v0 | PLUME：已查证范围 |
 |---|---|---|
 | topology | 显式命令、分支、重连环、语义图 | 概率图、外部图、多层图 [论文](https://arxiv.org/html/2508.20926v1#S3) |

@@ -136,6 +136,19 @@ def test_bundle_roundtrip_and_no_overwrite(sample_bundle):
     with pytest.raises(FileExistsError): generate(output/'metadata/config.yaml',4,output)
 
 
+def test_v03_bundle_requires_independent_dual_mesh_evidence(sample_bundle):
+    from cave_composer.bundle import verify_bundle,bundle_checksums,atomic_json
+    planned=sample_bundle/'navigation/planned_path.json'
+    witness=json.loads(planned.read_text())
+    assert witness['status']=='PASS'
+    assert witness['collision_certificate']['status']==witness['visual_certificate']['status']=='PASS'
+    # Even a freshly recomputed inventory cannot replace the required witness.
+    planned.unlink()
+    atomic_json(sample_bundle/'metadata/checksums.json',bundle_checksums(sample_bundle))
+    with pytest.raises(ValueError,match='Missing independent planned path'):
+        verify_bundle(sample_bundle)
+
+
 def test_stonefish_rotation_and_xml_file_references(sample_bundle):
     from cave_composer.stonefish import zup_to_ned,export_stonefish
     import xml.etree.ElementTree as ET

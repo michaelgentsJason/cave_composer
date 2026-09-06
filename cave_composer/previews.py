@@ -5,14 +5,18 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
-def topology_preview(routes,graph,visibility,directory,name):
+def topology_preview(routes,graph,visibility,directory,name,planning=None):
     directory=Path(directory)
     with plt.rc_context({'font.family':'DejaVu Sans','figure.facecolor':'#101c28','axes.facecolor':'#101c28','text.color':'#e3eaf1','axes.labelcolor':'#c3d0de','xtick.color':'#98abba','ytick.color':'#98abba','axes.edgecolor':'#4a5c6b','grid.color':'#344653'}):
         fig=plt.figure(figsize=(14,8),layout='constrained')
         ax=fig.add_subplot(121)
         for i,r in enumerate(routes):
             p=r['points']; ax.plot(*p[:,:2].T,color='#54d6c7' if i==0 else '#f2b45e',lw=2.5,label='Main route' if i==0 else r['id'])
-        p=routes[0]['points']; ax.scatter(*p[6,:2],c='#8be58b',s=70,label='Spawn'); ax.scatter(*p[-7,:2],c='#fa8a89',s=70,label='Goal')
+        if planning and planning.get('status')=='PASS':
+            searched=np.asarray(planning['points'])
+            ax.plot(*searched[:,:2].T,color='#f5a9f0',lw=1.4,ls='--',label='Independent A* path',zorder=4)
+        p=routes[0]['points']; a=min(6,len(p)//4); b=max(a+1,len(p)-7)
+        ax.scatter(*p[a,:2],c='#8be58b',s=70,label='Spawn'); ax.scatter(*p[b,:2],c='#fa8a89',s=70,label='Goal')
         for nid in graph['junctions']:
             q=graph['nodes'][nid]['position']; ax.scatter(*q[:2],c='#f8dc72',s=80,marker='D')
         for ch in graph['chambers']: ax.scatter(*ch['position'][:2],c='#b7a0ee',s=190,marker='o',alpha=0.6)

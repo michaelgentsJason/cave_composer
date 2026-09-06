@@ -42,3 +42,13 @@ review also exposed a field/mesh normal-direction disagreement. When the source
 field check is inconclusive, final-mesh inside probes now provide the independent
 orientation evidence; reversed outer walls and reversed inner rock components
 are covered by tests. This changes validation evidence, not the cave geometry.
+
+V0.3 adds a versioned topology grammar sampler and keeps legacy_v02 available.
+Four training families cover winding routes, branch trees, single-cycle bypasses
+and chamber sequences; two-cycle bypasses are reserved for topology OOD. A bounded
+layout screen records every candidate rejection before final mesh checks. Separately,
+six-neighbor clearance-weighted A* searches occupancy using only endpoints and robot
+dimensions. Its witness is independently checked against both final triangle meshes.
+This adds a check beyond the construction centerline, not a dynamics guarantee or a
+claim that A*, graph grammars or volume meshing are new. See pipeline_v03.md and
+icra_generator_evidence_plan.md for the experimental scope and remaining evidence.

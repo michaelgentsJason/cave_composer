@@ -60,11 +60,15 @@ def build_routes(spec):
             target = int(round(branch["rejoin_at"] * (len(main["points"])-1)))
             q = main["points"][target]
             last = route["points"][-1]
-            n = max(2, int(np.ceil(np.linalg.norm(q-last)/0.3)))
-            route["points"] = np.vstack([route["points"], np.linspace(last, q, n+1)[1:]])
-            for k in ("widths", "heights"):
-                route[k] = np.r_[route[k], np.full(n, route[k][-1])]
-            route["sections"] += [route["sections"][-1]]*n
+            distance = float(np.linalg.norm(q-last))
+            if distance > 1e-8:
+                n = max(2, int(np.ceil(distance/0.3)))
+                route["points"] = np.vstack([route["points"], np.linspace(last, q, n+1)[1:]])
+                for k in ("widths", "heights"):
+                    route[k] = np.r_[route[k], np.full(n, route[k][-1])]
+                route["sections"] += [route["sections"][-1]]*n
+            else:
+                route['points'][-1] = q
             route["join_end"] = target
         routes.append(route)
     for route in routes:
