@@ -16,6 +16,33 @@ def mesh_clearance(mesh, points):
     return np.asarray(distances)
 
 
+def normal_side_audit(mesh,max_samples=2000):
+    """Resolve field/mesh disagreement using parity inside tests on the final mesh.
+
+    Small offsets are adapted to triangle altitude; ambiguous thin/grazing probes
+    are recorded and cannot supply positive orientation evidence.
+    """
+    selected=np.linspace(0,len(mesh.faces)-1,min(max_samples,len(mesh.faces)),dtype=int)
+    triangles=mesh.triangles[selected]
+    centers=triangles.mean(axis=1)
+    normals=mesh.face_normals[selected]
+    edge_lengths=np.linalg.norm(triangles-np.roll(triangles,1,axis=1),axis=2)
+    altitude_third=2*mesh.area_faces[selected]/(3*edge_lengths.max(axis=1))
+    offsets=np.clip(altitude_third*.25,1e-5,.01)
+    plus=mesh.contains(centers+normals*offsets[:,None])
+    minus=mesh.contains(centers-normals*offsets[:,None])
+    decisive=plus!=minus
+    inward=plus&~minus
+    coverage=float(decisive.mean())
+    agreement=float(inward.sum()/max(1,decisive.sum()))
+    return {'status':'PASS' if coverage>.95 and agreement>.98 else 'FAIL',
+            'method':'final-mesh parity inside tests on both sides of sampled faces',
+            'samples':len(selected),'decisive':int(decisive.sum()),
+            'toward_void':int(inward.sum()),'away_from_void':int((~plus&minus).sum()),
+            'ambiguous':int((~decisive).sum()),'decisive_fraction':coverage,
+            'inward_fraction':agreement,'limitations':'sampled floating-point evidence, not an exact orientation proof'}
+
+
 def shortcut_audit(graph,mesh,safety,max_width):
     """Detect robot-clear direct connections between graph-distant route samples.
 
@@ -69,7 +96,15 @@ def validate(spec, routes, graph, field, visual, collision, grid, origin):
                'self_intersection':'regular-grid Lewiner construction; separate Blender BVH audit pending'}
         report['mesh'][name]=entry
         checks[name+'_mesh_sanity']=entry['watertight'] and entry['winding_consistent'] and entry['finite'] and entry['min_triangle_area']>1e-10
-        checks[name+'_inward_normals']=entry['inward_signed_volume']<0 and entry['inward_normal_fraction']>0.98
+        inward=entry['inward_normal_fraction']>0.98
+        # The analytic nearest-segment field is only an approximation to the
+        # extracted/repaired lattice. Low agreement must be checked on the mesh,
+        # rather than mistaking a field discrepancy for a flipped mesh normal.
+        if not inward and entry['inward_signed_volume']<0 and checks[name+'_mesh_sanity']:
+            entry['normal_side_audit']=normal_side_audit(mesh)
+            inward=entry['normal_side_audit']['status']=='PASS'
+        entry['normal_orientation_method']='field agreement; final-mesh side audit if inconclusive'
+        checks[name+'_inward_normals']=entry['inward_signed_volume']<0 and inward
         checks[name+'_route_clearance']=lower>safety
         # Inside/outside is not inferred from unsigned proximity alone.
         checks[name+'_route_inside']=bool(np.all(mesh.contains(points)))

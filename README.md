@@ -4,10 +4,16 @@ Controllable procedural cave worlds for robot navigation research. Explicit turn
 branches, chambers and slopes become geological voids, independently validated
 visual/collision meshes, navigation ground truth and geometric visibility metadata.
 
-**V0:** six distinct checked examples plus a loop example, deterministic headless
-generation, parallel dataset API, ID/OOD parameter distributions and Blender
-previews. Stonefish export is an interface prototype; simulator runtime remains
-unverified. No RL training or zero-shot generalization results are claimed.
+**V0.2:** deterministic headless generation, incremental batch manifests,
+verified scene-level resume, same-seed retries with archived diagnostics, CAVERS
+appearance presets and automatic quality galleries. Six distinct v0 examples
+plus a loop example remain available as the initial geometry review.
+
+[Automated pipeline guide (中文)](docs/pipeline.md)
+
+[V0.2 results and review gallery](PIPELINE_V02_REPORT.md): 24/24 generated
+geometries plus 2/2 CAVERS appearance variants passed the final smoke run;
+38 automated tests passed. These results do not establish thousand-scene throughput.
 
 ## Start
 
@@ -18,6 +24,7 @@ pip install -e ".[test]"
 python generate.py --config configs/cave_b_sharp_turns.yaml --seed 42 --output outputs/my_cave
 python generate.py --config configs/cave_e_chamber.yaml --seed 43 --output outputs/my_chamber --render --blender /path/to/blender --save-blend
 python generate_dataset.py --distribution configs/train_distribution.yaml --num-scenes 100 --workers 4 --output outputs/train_100
+python generate_dataset.py --distribution configs/train_distribution.yaml --num-scenes 100 --workers 4 --output outputs/train_100 --resume
 ```
 
 On this workstation supply `--blender D:/Blender/blender.exe`. Elsewhere use PATH,
@@ -33,14 +40,23 @@ scene = composer.generate("configs/cave_f_vertical.yaml", seed=17,
                           output="outputs/vertical_17")
 ```
 
-No existing output is overwritten. Invalid scenes keep diagnostics and produce an
-error / failed dataset record. They are never silently replaced with a new seed.
-Eight exploratory batch scenes and ten unique final-distribution smoke scenes
-were generated; this does not establish thousand-scene throughput.
+Completed scenes are reused only after config/environment and full-file checksum
+verification. `--resume` continues unfinished scenes or extends a batch when
+`--num-scenes` increases; `--retry-failed` explicitly retries failed seeds while
+archiving their previous artifacts. No seed is silently substituted.
+Installed batch entry point: `cave-dataset`. Add `--render --save-blend` and a
+Blender path for complete visual previews and editable packed scenes.
+
+Every batch produces `manifest.json`, `quality.json`, `metrics.csv` and an
+interactive local `index.html`. Per-scene `metadata/run.json` records stage
+timings and errors. The optional `configs/cavers_distribution.yaml` applies
+the observed CAVERS rock palette without requiring the source dataset at runtime.
 
 ## Inspect the delivered work
 
-- [Full report](CAVE_COMPOSER_V0_REPORT.md)
+- [Pipeline usage and recovery contract](docs/pipeline.md)
+- [V0.2 pipeline report](PIPELINE_V02_REPORT.md)
+- [V0 report (historical snapshot)](CAVE_COMPOSER_V0_REPORT.md)
 - [Interactive local gallery](outputs/final/gallery.html)
 - [Six-cave contact sheet](outputs/final/contact_sheet.jpg)
 - [Independent architecture](docs/architecture_v0.md), [final decision](docs/architecture_final.md)

@@ -34,3 +34,11 @@ Future substitutions that preserve the contract: sparse field bricks, adaptive
 collision meshing with post-validation, learned or fitted geological morphology,
 chunked PBR material baking, full recovered-topology comparison, dynamic formation
 objects and simulator-specific parallel scheduling. None is claimed implemented.
+
+V0.2 adds an incremental execution layer around the same geometry: atomic scene
+and dataset journals, config/source/dependency contracts, verified scene-level
+resume, retained same-seed retries and automatic quality indices. A 24-seed
+review also exposed a field/mesh normal-direction disagreement. When the source
+field check is inconclusive, final-mesh inside probes now provide the independent
+orientation evidence; reversed outer walls and reversed inner rock components
+are covered by tests. This changes validation evidence, not the cave geometry.

@@ -3,7 +3,7 @@ from pathlib import Path
 import json,shutil,subprocess,hashlib,time
 from .materials import write_material
 from .spec import load_spec,merge
-from .pipeline import dump,digest
+from .pipeline import dump,digest,attach_intersection_audit
 
 
 def restyle(source,material,output,blender=None):
@@ -32,8 +32,21 @@ def restyle(source,material,output,blender=None):
     if not all(checks.values()): raise RuntimeError('Restyling changed geometry bytes')
     dump(output/'metadata/provenance.json',before)
     dump(output/'metadata/appearance_experiment.json',{'geometry_byte_identity':checks,'material':config['material'],'result':'appearance prior only; no copied scan geometry or image atlas'})
+    journal=output/'metadata/run.json'
+    if journal.exists():
+        run=json.loads(journal.read_text(encoding='utf-8'))
+        run.update(config_sha256=digest(config),operation='restyle',render=bool(blender),save_blend=bool(blender),status='RUNNING')
+        dump(journal,run)
     if blender:
         with (output/'metadata/restyle_render.log').open('w') as log:
             subprocess.run([blender,'--background','--python-exit-code','1','--python',str(Path(__file__).parent/'blender_render.py'),'--','--scene',str(output),'--save-blend'],stdout=log,stderr=subprocess.STDOUT,check=True)
+        with (output/'metadata/intersection_audit.log').open('w') as log:
+            subprocess.run([blender,'--background','--python-exit-code','1','--python',str(Path(__file__).parent/'blender_audit.py'),'--','--scene',str(output)],stdout=log,stderr=subprocess.STDOUT,check=True)
+        validation=json.loads((output/'metadata/validation.json').read_text(encoding='utf-8'))
+        attach_intersection_audit(validation,json.loads((output/'metadata/intersection_audit.json').read_text(encoding='utf-8')))
+        dump(output/'metadata/validation.json',validation)
+    if journal.exists():
+        run['status']='COMPLETE'
+        dump(journal,run)
     dump(output/'metadata/checksums.json',{str(p.relative_to(output)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(output.rglob('*')) if p.is_file() and p.name!='checksums.json'})
     return output

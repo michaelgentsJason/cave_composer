@@ -75,5 +75,8 @@ have disjoint distributions. Realistic OOD scans remain external.
 
 Dataset distribution accepts split, difficulty, base_seed and mesh/material
 overrides. No rejected seed is silently substituted. Parallel workers write to
-separate directories. Eight-scene and serial/parallel determinism smoke tests
-are not evidence of 1,000-environment training throughput.
+separate directories. Manifest schema 2 supports incremental progress, verified
+scene-level resume and explicit same-seed retries, including archived failure
+artifacts. Its config/code/dependency/render contract remains fixed across a
+resumed run. See [pipeline usage](pipeline.md). Smoke tests do not establish
+1,000-environment throughput.

@@ -1,5 +1,5 @@
 """Controllable cave worlds; no Blender import required for geometry generation."""
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 
 def generate(config, seed=42, output=None, **kwargs):

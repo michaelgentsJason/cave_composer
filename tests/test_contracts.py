@@ -7,7 +7,7 @@ from cave_composer.spec import load_spec
 from cave_composer.routes import build_routes,navigation_graph
 from cave_composer.field import CaveField
 from cave_composer.pipeline import generate,mesh_digest
-from cave_composer.validation import mesh_clearance,shortcut_audit,validate
+from cave_composer.validation import mesh_clearance,shortcut_audit,validate,normal_side_audit
 from cave_composer.dataset import sample_config,scene_seed
 
 
@@ -78,6 +78,33 @@ def test_nonlocal_shortcut_detector_rejects_open_room_hairpin():
     assert audit['status']=='FAIL' and audit['shortcuts']
 
 
+@pytest.mark.parametrize('flip_inner',[False,True])
+def test_normal_side_audit_checks_nested_rock_orientation(flip_inner):
+    outer=trimesh.creation.box(extents=[10,10,10]);outer.invert()
+    rock=trimesh.creation.box(extents=[2,2,2])
+    if flip_inner:rock.invert()
+    mesh=trimesh.util.concatenate([outer,rock])
+    assert mesh.is_watertight and mesh.is_winding_consistent and mesh.volume<0
+    audit=normal_side_audit(mesh)
+    assert audit['status']==('FAIL' if flip_inner else 'PASS')
+    if flip_inner:assert audit['away_from_void']>0
+
+
+def test_normals_use_final_mesh_when_field_is_inconclusive():
+    spec=load_spec({'route':[{'straight':9}],'geology':{'amplitude':.15,'formations':0}})
+    routes=build_routes(spec);field=CaveField(spec,routes,5)
+    mesh,grid,origin=field.mesh(.34)
+    # An uninformative source field cannot itself certify orientation. Actual
+    # final-mesh side probes must resolve the otherwise valid scene.
+    inconclusive=lambda points:np.zeros(len(points))
+    report,_=validate(spec,routes,navigation_graph(routes,[]),inconclusive,mesh,mesh,grid,origin)
+    assert report['status']=='VALID'
+    assert report['mesh']['collision']['normal_side_audit']['status']=='PASS'
+    reversed_mesh=mesh.copy();reversed_mesh.invert()
+    bad,_=validate(spec,routes,navigation_graph(routes,[]),inconclusive,mesh,reversed_mesh,grid,origin)
+    assert bad['status']=='INVALID' and not bad['checks']['collision_inward_normals']
+
+
 def test_split_supports_and_seed_namespaces():
     sets=[]
     for split in ['train','validation','id_test','ood_geometry','ood_composition']:
@@ -135,3 +162,5 @@ def test_image_roi_and_restyle_preserve_geometry(tmp_path,sample_bundle):
     target=restyle(sample_bundle,{'style':'basalt','seed':99},tmp_path/'styled')
     checks=json.loads((target/'metadata/appearance_experiment.json').read_text())['geometry_byte_identity']
     assert all(checks.values())
+    from cave_composer.bundle import verify_bundle
+    assert verify_bundle(target)['operation']=='restyle'

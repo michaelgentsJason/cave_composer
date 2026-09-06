@@ -1,0 +1,432 @@
+{
+  "version": "0.2.0",
+  "scope": "automated cave generation only",
+  "scenes": [
+    {
+      "split": "cavers",
+      "scene": "scene_000000",
+      "seed": 3072011,
+      "status": "VALID",
+      "checksums_sha256": "5b45b4169bd1f4a9f734a2fb0e8863b7391292eddd1a0d094f0f444ff08a1b41"
+    },
+    {
+      "split": "cavers",
+      "scene": "scene_000001",
+      "seed": 3072139,
+      "status": "VALID",
+      "checksums_sha256": "17837ec9a31c3279e0dcb7a16c791ec22f050355c4a03198f142bb0e6d46e965"
+    },
+    {
+      "split": "id_test",
+      "scene": "scene_000000",
+      "seed": 3072037,
+      "status": "VALID",
+      "checksums_sha256": "60d6460014c49657aa37c50efba9ab077fc0d0406532485aab95408cb3f6dfc8"
+    },
+    {
+      "split": "id_test",
+      "scene": "scene_000001",
+      "seed": 3072165,
+      "status": "VALID",
+      "checksums_sha256": "c09623efc1279217de27b055aa8f2ffa7ac12dcb94838860a804603f2eb977b1"
+    },
+    {
+      "split": "id_test",
+      "scene": "scene_000002",
+      "seed": 3072293,
+      "status": "VALID",
+      "checksums_sha256": "ceed16254163ebabebd17dea809c2710b18a91e6a0f10fb03b21966ab3b529e3"
+    },
+    {
+      "split": "id_test",
+      "scene": "scene_000003",
+      "seed": 3072421,
+      "status": "VALID",
+      "checksums_sha256": "a216f3c0019c565d7be460e50b9f23a8c4d48ba10529575fc48948fddcc1e044"
+    },
+    {
+      "split": "ood_composition",
+      "scene": "scene_000000",
+      "seed": 3072067,
+      "status": "VALID",
+      "checksums_sha256": "66e3cf0298a35cc12ed1745496d3a519ca2fa14bd02c5447630a909576c45f11"
+    },
+    {
+      "split": "ood_composition",
+      "scene": "scene_000001",
+      "seed": 3072195,
+      "status": "VALID",
+      "checksums_sha256": "1358bfb7e36fa28c37e060e08e584b0439380dce3492102fdd01f8636c5b7b64"
+    },
+    {
+      "split": "ood_composition",
+      "scene": "scene_000002",
+      "seed": 3072323,
+      "status": "VALID",
+      "checksums_sha256": "f9972bae88b9fcd14b27d841d6927af94ce1473fe3726a6239359feaa9bbe669"
+    },
+    {
+      "split": "ood_composition",
+      "scene": "scene_000003",
+      "seed": 3072451,
+      "status": "VALID",
+      "checksums_sha256": "db91e7bcd8df057f1fcc4ca3b300fc46b5e41b2ad9a7cc6bf0a52a02fcc268ad"
+    },
+    {
+      "split": "ood_geometry",
+      "scene": "scene_000000",
+      "seed": 3072051,
+      "status": "VALID",
+      "checksums_sha256": "3c8392e4fca7494c36f18ea8a48b7bd40f6f3331878952f3fe441e2ac8996740"
+    },
+    {
+      "split": "ood_geometry",
+      "scene": "scene_000001",
+      "seed": 3072179,
+      "status": "VALID",
+      "checksums_sha256": "f2cd15ae0c554ad6d0200d39729c7a789dbfca71e7456fa4755a2b1d0dba05a0"
+    },
+    {
+      "split": "ood_geometry",
+      "scene": "scene_000002",
+      "seed": 3072307,
+      "status": "VALID",
+      "checksums_sha256": "7e8e0b806d6adcdd98a30c4163743a52e32e8ce54dbcea1e22d872fce909a20a"
+    },
+    {
+      "split": "ood_geometry",
+      "scene": "scene_000003",
+      "seed": 3072435,
+      "status": "VALID",
+      "checksums_sha256": "49e0ff90c80683c5e47a2a4038abd93084c34a655ef64e83841f329585a808be"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000000",
+      "seed": 3072011,
+      "status": "VALID",
+      "checksums_sha256": "c133077695b0eabf895573f7c64a1f083710a355686cd28c4da13d99a805432e"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000001",
+      "seed": 3072139,
+      "status": "VALID",
+      "checksums_sha256": "fbb6faf0c974678e85936cc01f38437b17db5ea978cf7430aa0d3e5eb86de1ed"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000002",
+      "seed": 3072267,
+      "status": "VALID",
+      "checksums_sha256": "40ee9ef6daea76db2374cf1cf99f02a214b099a88a697a8d8beac969090d36e2"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000003",
+      "seed": 3072395,
+      "status": "VALID",
+      "checksums_sha256": "080c485c2ea6a97629f59cf3ad20093f2117a6501ce85f2c507842e80b8f7c13"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000004",
+      "seed": 3072523,
+      "status": "VALID",
+      "checksums_sha256": "6218196e8a3a09a52b22a49a178fec5ea126b3d444df155b2cbeb5a7337bdb03"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000005",
+      "seed": 3072651,
+      "status": "VALID",
+      "checksums_sha256": "5828d15833ec6125e2af3ef629dc5a58d460e2668cc05f4786f4efc0334aee62"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000006",
+      "seed": 3072779,
+      "status": "VALID",
+      "checksums_sha256": "cfdf69e393308c506ad8490296accea62c6397f808723f232cb46105b9ec8cb2"
+    },
+    {
+      "split": "train",
+      "scene": "scene_000007",
+      "seed": 3072907,
+      "status": "VALID",
+      "checksums_sha256": "c3f1930bb945be6c2f9fa1d303fdaace1c0d09f8429b299ae4ad4fb83226c9e8"
+    },
+    {
+      "split": "validation",
+      "scene": "scene_000000",
+      "seed": 3072023,
+      "status": "VALID",
+      "checksums_sha256": "7f40f6e41fb4a4d5a8e9befbd1f583f6c63f61c1a3be19fb062098f4cccafb44"
+    },
+    {
+      "split": "validation",
+      "scene": "scene_000001",
+      "seed": 3072151,
+      "status": "VALID",
+      "checksums_sha256": "69671259fe9e64f243d29cc3cd42a6c88fa699a06e29079d680c84f5feae6890"
+    },
+    {
+      "split": "validation",
+      "scene": "scene_000002",
+      "seed": 3072279,
+      "status": "VALID",
+      "checksums_sha256": "bbf558c28d9fa7c1a2ebf5996e1779fb9fde04c1428af1441ecea0fb59fb05ad"
+    },
+    {
+      "split": "validation",
+      "scene": "scene_000003",
+      "seed": 3072407,
+      "status": "VALID",
+      "checksums_sha256": "6107993e3c84fbe9281dd1c9c40f54e51f71bce248e70d2ad10ad25bc57bd8ad"
+    }
+  ],
+  "normal_regression_geometry_unchanged": {
+    "visual/cave_visual.obj": true,
+    "visual/mesh.npz": true,
+    "collision/cave_collision.obj": true,
+    "collision/mesh.npz": true
+  },
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "38",
+    "time": "31.145",
+    "timestamp": "2026-09-06T01:06:01.569582+08:00",
+    "hostname": "Disguise"
+  },
+  "acceptance": {
+    "splits": [
+      {
+        "split": "train",
+        "requested": 8,
+        "valid": 8,
+        "invalid": 0,
+        "errors": 0,
+        "existing_meshes_untouched": 4,
+        "latest_run": {
+          "started_utc": "2026-09-05T17:03:33.162867+00:00",
+          "workers": 2,
+          "resume": true,
+          "retry_failed": false,
+          "reused": 4,
+          "scheduled": 4,
+          "completed": 4,
+          "finished_utc": "2026-09-05T17:04:31.428330+00:00",
+          "wall_seconds": 58.3646437000134
+        }
+      },
+      {
+        "split": "validation",
+        "requested": 4,
+        "valid": 4,
+        "invalid": 0,
+        "errors": 0,
+        "existing_meshes_untouched": 0,
+        "latest_run": {
+          "started_utc": "2026-09-05T17:04:31.726047+00:00",
+          "workers": 2,
+          "resume": false,
+          "retry_failed": false,
+          "reused": 0,
+          "scheduled": 4,
+          "completed": 4,
+          "finished_utc": "2026-09-05T17:05:31.295082+00:00",
+          "wall_seconds": 59.57032040000195
+        }
+      },
+      {
+        "split": "id_test",
+        "requested": 4,
+        "valid": 4,
+        "invalid": 0,
+        "errors": 0,
+        "existing_meshes_untouched": 0,
+        "latest_run": {
+          "started_utc": "2026-09-05T17:05:31.474180+00:00",
+          "workers": 2,
+          "resume": false,
+          "retry_failed": false,
+          "reused": 0,
+          "scheduled": 4,
+          "completed": 4,
+          "finished_utc": "2026-09-05T17:06:27.747779+00:00",
+          "wall_seconds": 56.276671800005715
+        }
+      },
+      {
+        "split": "ood_geometry",
+        "requested": 4,
+        "valid": 4,
+        "invalid": 0,
+        "errors": 0,
+        "existing_meshes_untouched": 0,
+        "latest_run": {
+          "started_utc": "2026-09-05T17:06:27.929499+00:00",
+          "workers": 2,
+          "resume": false,
+          "retry_failed": false,
+          "reused": 0,
+          "scheduled": 4,
+          "completed": 4,
+          "finished_utc": "2026-09-05T17:07:33.637276+00:00",
+          "wall_seconds": 65.70983209996484
+        }
+      },
+      {
+        "split": "ood_composition",
+        "requested": 4,
+        "valid": 4,
+        "invalid": 0,
+        "errors": 0,
+        "existing_meshes_untouched": 0,
+        "latest_run": {
+          "started_utc": "2026-09-05T17:07:33.820163+00:00",
+          "workers": 2,
+          "resume": false,
+          "retry_failed": false,
+          "reused": 0,
+          "scheduled": 4,
+          "completed": 4,
+          "finished_utc": "2026-09-05T17:08:48.971408+00:00",
+          "wall_seconds": 75.15281559998402
+        }
+      }
+    ],
+    "appearance": {
+      "requested": 2,
+      "valid": 2,
+      "invalid": 0,
+      "pairs": [
+        {
+          "scene": "scene_000000",
+          "geometry_byte_identity": {
+            "visual/cave_visual.obj": true,
+            "visual/mesh.npz": true,
+            "collision/cave_collision.obj": true,
+            "collision/mesh.npz": true
+          },
+          "albedo_changed": true
+        },
+        {
+          "scene": "scene_000001",
+          "geometry_byte_identity": {
+            "visual/cave_visual.obj": true,
+            "visual/mesh.npz": true,
+            "collision/cave_collision.obj": true,
+            "collision/mesh.npz": true
+          },
+          "albedo_changed": true
+        }
+      ]
+    },
+    "rendered": true,
+    "elapsed_seconds": 415.5780441999668,
+    "scope": "pipeline stability smoke test; not a throughput benchmark or simulator test"
+  },
+  "environment": {
+    "python": "3.12.7",
+    "dependencies": {
+      "numpy": "1.26.4",
+      "scipy": "1.15.1",
+      "scikit-image": "0.24.0",
+      "trimesh": "5.1.0",
+      "rtree": "1.0.1",
+      "Pillow": "10.4.0",
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.9.2"
+    },
+    "source_sha256": {
+      "__init__.py": "e1bcdb0cadaf3f5b894a5bd4e2d173cff83ceef3997f7a627f8940b07a3be808",
+      "appearance.py": "99cca49d9488b45c5b6f488d5a4f0a501109ad16723783d22f8cdf4b6af64135",
+      "blender_audit.py": "1607bb565e6b8e1d391565397cf1312a4885c1f2a331dd68bd1c1caedbfce5c7",
+      "blender_render.py": "9803e174552cb8a1809236466138b20ec74afaad7832206e6f69bc2f93937e10",
+      "bundle.py": "7c0751da9398305592ab9c06ea1a28273a0e4b16c7b749d6ec9b9b83e0962488",
+      "cli.py": "e0862d6ff937d56f66dadc91d6133b7e030310a7e893f596c7ebec86e4c7687a",
+      "dataset.py": "d66c73f4c4d11d123079c8f126fefdda08eb879cbe7603130631e08b5cd96e7b",
+      "export.py": "74b478239c785e6bccbf4815636a7a2995f98726e57ce8ae34e914c47aef5ca8",
+      "field.py": "6febbdfe03c33416cbdfb3b4261500872a3df322cbf3e9bc31f30be3d444d944",
+      "language.py": "58a00075f2fa5ace90a3a827b8b24207c3ac9aad950902a0df4d2a2228f7e327",
+      "materials.py": "a0b561f586548e39558e11a65ee99d6815c1741d4e202bcfa41552126b592108",
+      "metrics.py": "86116d16aa2abdf1086d5f27ebb8746463beaf6fd264d2e60b1728313d8c5473",
+      "pipeline.py": "ec184e2d4274a0c38a4ffb11d8fee491a2b0dbbc270e7e1b43833a9204630ad1",
+      "previews.py": "b4259797af3a0e2bb774c0a4622e610766df6f46acb645500967338c0f845db3",
+      "quality.py": "79340616a2fa7179395b2324b40c2cee0005000e35cad283c2ba5769a68404b5",
+      "routes.py": "8f1db461333bcb75fc7caf26c509334bd1bbb3a08b4f28843c1eaf57234b3f5e",
+      "spec.py": "09f55c7a64c2df899be4c1ed3af4806d11b3e665d5ac22b3a3dcc8b824719a7e",
+      "stonefish.py": "99c56f925bea48d299a39bf8c820b64abb31b4220255bf1fd985b731ae1328f7",
+      "validation.py": "7d089a11b9c6a2ff8066d5e97802ed4d8321d88da7ed1e06ac0e96d1b66373a6"
+    }
+  },
+  "gallery": {
+    "status": "PASS",
+    "collections": [
+      {
+        "collection": "cavers",
+        "scenes": 2,
+        "views": 4,
+        "filters": "PASS",
+        "mobile_layout": "PASS"
+      },
+      {
+        "collection": "id_test",
+        "scenes": 4,
+        "views": 4,
+        "filters": "PASS",
+        "mobile_layout": "PASS"
+      },
+      {
+        "collection": "ood_composition",
+        "scenes": 4,
+        "views": 4,
+        "filters": "PASS",
+        "mobile_layout": "PASS"
+      },
+      {
+        "collection": "ood_geometry",
+        "scenes": 4,
+        "views": 4,
+        "filters": "PASS",
+        "mobile_layout": "PASS"
+      },
+      {
+        "collection": "train",
+        "scenes": 8,
+        "views": 4,
+        "filters": "PASS",
+        "mobile_layout": "PASS"
+      },
+      {
+        "collection": "validation",
+        "scenes": 4,
+        "views": 4,
+        "filters": "PASS",
+        "mobile_layout": "PASS"
+      }
+    ],
+    "javascript_errors": []
+  },
+  "restyle_render_check": {
+    "status": "PASS",
+    "source_rendered": false,
+    "restyled_rendered": true,
+    "geometry_identity": {
+      "visual\\mesh.npz": true,
+      "visual\\cave_visual.obj": true,
+      "collision\\mesh.npz": true,
+      "collision\\cave_collision.obj": true
+    },
+    "journal_verified": true
+  },
+  "wheel": {
+    "filename": "cave_composer-0.2.0-py3-none-any.whl",
+    "sha256": "f370fbcdac9bd6670ddbe4b36334a40276846ce672125f7814813ba2212d303b",
+    "all_package_sources_match": true
+  }
+}
