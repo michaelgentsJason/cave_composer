@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.glb binary
+*.npz binary
+*.blend binary
+# Preserve all delivered asset-package bytes (including checksum JSON files).
+exports/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+exports/**/*.obj binary

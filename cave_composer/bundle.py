@@ -95,6 +95,37 @@ def verify_bundle(folder):
     return run
 
 
+def verify_portal_export(folder, source=None):
+    """Verify persisted open geometry before reuse; extra previews are allowed."""
+    folder = Path(folder)
+    required = ['metadata/portal_validation.json', 'metadata/source_config.json',
+                'visual/mesh.npz', 'visual/cave_visual.obj', 'visual/cave_visual.mtl',
+                'collision/mesh.npz', 'collision/cave_collision.obj',
+                'navigation/centerline.json', 'navigation/portal_path.json',
+                'materials/material.json', 'materials/rock_albedo.png']
+    recorded = json.loads((folder/'metadata/checksums.json').read_text(encoding='utf-8'))
+    if any(name not in recorded for name in required):
+        raise ValueError('Portal inventory is missing required geometry, material or navigation files')
+    for name, expected in recorded.items():
+        path = (folder/name).resolve()
+        if folder.resolve() not in path.parents or not path.is_file() or file_sha256(path) != expected:
+            raise ValueError(f'Portal integrity mismatch: {name}')
+    report = json.loads((folder/'metadata/portal_validation.json').read_text(encoding='utf-8'))
+    if report.get('status') != 'PASS' or report.get('artifact_type') != 'open_portal_export':
+        raise ValueError('Portal export did not pass validation')
+    for kind in ['visual', 'collision']:
+        mesh = report.get('meshes', {}).get(kind, {})
+        if (len(mesh.get('boundary_loops', [])) != 2 or
+                any(mesh.get(key, {}).get('status') != 'PASS' for key in
+                    ['closed_reference_interior_certificate', 'crossing_certificate'])):
+            raise ValueError(f'Portal export lacks complete {kind} certificates')
+    if source is not None:
+        source = Path(source)
+        if file_sha256(source/'metadata/checksums.json') != report.get('source_checksums_sha256'):
+            raise ValueError('Portal export belongs to a different source bundle')
+    return report
+
+
 @contextmanager
 def dataset_lock(root):
     """An OS-managed lock releases on process death; no stale PID removal is needed."""

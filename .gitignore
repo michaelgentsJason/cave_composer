@@ -7,3 +7,4 @@ outputs/
 *.blend1
 build/
 dist/
+exports/*.zip

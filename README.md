@@ -4,6 +4,15 @@ Controllable procedural cave worlds for robot navigation research. Explicit turn
 branches, chambers and slopes become geological voids, independently validated
 visual/collision meshes, navigation ground truth and geometric visibility metadata.
 
+**Ready-to-view textured examples:** [easy / medium / hard gallery](exports/caves_difficulty_v01/index.html)
+and [download guide](exports/caves_difficulty_v01/README.md). Three scenes are included
+in this repository as **GLB with embedded 4K textures** and **OBJ + MTL + PNG**.
+Each has real entrance/exit openings and a checked crossing path. Open the gallery
+HTML locally after cloning; GitHub itself shows HTML source rather than running it.
+
+The optional [portal export](docs/portal_export.md) preserves the closed reference
+and checks the open surface separately. [Paper figure prompt](docs/figures/cave_composer_pipeline_gpt_image2_prompt.md).
+
 **V0.3:** variable route grammars (winding passages, branch networks, loops and
 chamber sequences), held-out two-cycle topology, and independent occupancy A*
 whose path is checked against both final meshes. See the
@@ -111,6 +120,27 @@ python scripts/validate_scene.py outputs/my_cave
 python -m pytest -q
 ```
 
+Verify the included textured examples without Blender or the original generation
+workspace (the command does not modify the delivered files):
+
+```bash
+python scripts/verify_textured_exports.py --root exports/caves_difficulty_v01
+```
+
+Generate a closed reference first, then optionally open its terminal portals and
+bake portable textured exports. Supply a new output directory for each step:
+
+```bash
+python scripts/export_portals.py --scene outputs/my_cave --output outputs/my_open_cave
+blender --background --python-exit-code 1 --python cave_composer/blender_audit.py -- --scene outputs/my_open_cave
+blender --background --python-exit-code 1 --python scripts/export_textured_cave.py -- --scene outputs/my_open_cave --output exports/my_cave --name cave
+```
+
+Portal export rejects terminal clipping planes that cross other routes. Geometry
+integrity and certificates are checked before reuse. The included samples carry
+a local reference mesh, config and navigation path for portable verification;
+absolute paths in historical provenance are descriptive only.
+
 ## Limits
 
 Dense grids have a configurable allocation ceiling; limit workers by available
@@ -122,6 +152,6 @@ parser, or measured PBR recovery is implemented. Blender shader bump is not
 exported as a Stonefish normal map. Material statistics from a dataset prevent
 calling that same dataset entirely untouched appearance OOD.
 
-The source is prepared as an independent repository. No remote publication has
-been performed. An owner-selected license is still needed before public release;
-external CAVERS/Sketchfab assets are not bundled into the source repository.
+External CAVERS/Sketchfab assets are not bundled into the source repository.
+The included examples use independently generated geometry and procedural
+sandstone textures. This repository does not yet include an owner-selected license.
