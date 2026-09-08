@@ -4,6 +4,14 @@ Controllable procedural cave worlds for robot navigation research. Explicit turn
 branches, chambers and slopes become geological voids, independently validated
 visual/collision meshes, navigation ground truth and geometric visibility metadata.
 
+[![Double-loop cave with eight registered interior views](docs/figures/showcase/cave_showcase.png)](docs/figures/showcase/cave_showcase.png)
+
+**Double-loop showcase:** [full-resolution images](docs/figures/showcase/README.md)
+· [paper PDF](docs/figures/showcase/cave_showcase.pdf)
+· [reproduction guide](docs/cave_showcase_v01.md).
+Actual Blender renders of one generated cave with 100 floor stones and three
+checkerboard props. The map is sampled from the mesh; it is not a sensor recording.
+
 **Ready-to-view textured examples:** [easy / medium / hard gallery](exports/caves_difficulty_v01/index.html)
 and [download guide](exports/caves_difficulty_v01/README.md). Three scenes are included
 in this repository as **GLB with embedded 4K textures** and **OBJ + MTL + PNG**.
@@ -140,6 +148,14 @@ Portal export rejects terminal clipping planes that cross other routes. Geometry
 integrity and certificates are checked before reuse. The included samples carry
 a local reference mesh, config and navigation path for portable verification;
 absolute paths in historical provenance are descriptive only.
+
+## Registered cave showcase
+
+The [double-loop showcase workflow](docs/cave_showcase_v01.md) reuses an existing
+cave and adds explicit floor stones and checkerboard props, then checks the
+portal path against both scene meshes. It produces a registered map with eight
+actual Blender views, an offline interactive HTML page, a paper PDF/PNG and a
+packed Blender scene. Generated files live in `outputs/cave_showcase_v01/`.
 
 ## Limits
 
