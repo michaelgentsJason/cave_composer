@@ -13,10 +13,24 @@ Actual Blender renders of one generated cave with 100 floor stones and three
 checkerboard props. The map is sampled from the mesh; it is not a sensor recording.
 
 **Ready-to-view textured examples:** [easy / medium / hard gallery](exports/caves_difficulty_v01/index.html)
-and [download guide](exports/caves_difficulty_v01/README.md). Three scenes are included
+and [download guide](exports/caves_difficulty_v01/README.md). **30 scenes (15 easy,
+10 medium, 5 hard)** are included
 in this repository as **GLB with embedded 4K textures** and **OBJ + MTL + PNG**.
 Each has real entrance/exit openings and a checked crossing path. Open the gallery
 HTML locally after cloning; GitHub itself shows HTML source rather than running it.
+
+**New structural diversity:** continuous cubic meanders, curved dead ends,
+asymmetric single/double loops, chamber chains and varying elevation. The medium
+and hard collection replaces the earlier repeated layouts; easy assets are
+unchanged. See the [implementation and checks](docs/organic_cave_diversity_v02.md).
+Difficulty labels describe geometry, not measured policy performance.
+
+[![Five hard caves with different branch and loop structures](docs/figures/diversity/gallery_hard.png)](docs/figures/diversity/gallery_hard.png)
+
+Click a route thumbnail in the local gallery for the full layout and, for new
+medium/hard scenes, a main-passage elevation profile. On Windows,
+`powershell -ExecutionPolicy Bypass -File scripts/open_gallery.ps1` opens the gallery
+through a loopback HTTP server. The included asset collection occupies about 2 GB.
 
 The optional [portal export](docs/portal_export.md) preserves the closed reference
 and checks the open surface separately. [Paper figure prompt](docs/figures/cave_composer_pipeline_gpt_image2_prompt.md).
@@ -44,6 +58,11 @@ geometries plus 2/2 CAVERS appearance variants passed the final smoke run;
 38 automated tests passed. These results do not establish thousand-scene throughput.
 
 ## Start
+
+**Navigation task extension:** [multi-task and stereo RGB workflow](docs/pipeline_v04_tasks.md)
+adds independently checked branch goals, reusable occupancy planning, portable reset
+contracts, calibrated stereo render checks and cave-level reference-data split audits.
+The current audit covers 36 tasks on three existing caves; it is not a policy-training result.
 
 Python 3.10+ (tested with 3.12.7), Blender for renders (tested with 5.2.1).
 

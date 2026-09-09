@@ -33,10 +33,23 @@ def check_commands(commands, name="route"):
     if not isinstance(commands, list) or not commands:
         raise ValueError(f"{name} must contain route commands")
     for c in commands:
-        unknown = set(c) - {"straight", "turn", "radius", "slope", "width", "height", "section"}
-        if unknown or (("straight" in c) == ("turn" in c)):
+        unknown = set(c) - {"straight", "turn", "curve", "radius", "slope", "width", "height", "section"}
+        if unknown or sum(key in c for key in ('straight', 'turn', 'curve')) != 1:
             raise ValueError(f"Invalid {name} command: {c}")
-        if "straight" in c:
+        if 'curve' in c:
+            if 'radius' in c or 'slope' in c:
+                raise ValueError('Curve elevation is specified by its control points')
+            controls = c['curve']
+            if not isinstance(controls, list) or len(controls) != 3:
+                raise ValueError('curve requires three local cubic Bezier control points after the current origin')
+            for point in controls:
+                if not isinstance(point, list) or len(point) != 3:
+                    raise ValueError('curve control points must be XYZ triplets')
+                for value in point:
+                    number(value, 'curve control coordinate', -500, 500)
+            if math.hypot(*controls[0][:2]) < 1e-6 or math.hypot(*(controls[2][i] - controls[1][i] for i in range(2))) < 1e-6:
+                raise ValueError('Curve endpoint tangents must have nonzero horizontal components')
+        elif "straight" in c:
             number(c["straight"], "straight", 0.5, 500)
         else:
             number(c["turn"], "turn", -180, 180)

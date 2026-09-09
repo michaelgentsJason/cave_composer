@@ -10,6 +10,40 @@ def build_route(commands, corridor, origin=(0, 0, 0), heading=0, step=0.30):
     events = []
     width, height = corridor["width"], corridor["height"]
     for ci, c in enumerate(commands):
+        if 'curve' in c:
+            # Cubic Bezier controls use the current forward/left/world-up frame.
+            # Arc-length resampling gives the same maximum polyline step contract
+            # as the legacy straight/circular commands, without corner seams.
+            controls = np.vstack([np.zeros(3), np.asarray(c['curve'], dtype=float)])
+            polygon_length = np.linalg.norm(np.diff(controls, axis=0), axis=1).sum()
+            dense_count = max(64, int(np.ceil(polygon_length / step)) * 12)
+            t = np.linspace(0, 1, dense_count + 1)[:, None]
+            dense = (1-t)**3*controls[0] + 3*(1-t)**2*t*controls[1] + 3*(1-t)*t**2*controls[2] + t**3*controls[3]
+            arc = np.r_[0, np.cumsum(np.linalg.norm(np.diff(dense, axis=0), axis=1))]
+            if arc[-1] < .01 or np.any(np.diff(arc) < 1e-10):
+                raise ValueError('Degenerate cubic route')
+            samples = np.linspace(0, arc[-1], max(2, int(np.ceil(arc[-1] / step))) + 1)
+            local = np.column_stack([np.interp(samples, arc, dense[:, k]) for k in range(3)])
+            rotation = np.array([[np.cos(yaw), -np.sin(yaw), 0], [np.sin(yaw), np.cos(yaw), 0], [0, 0, 1]])
+            world = local @ rotation.T + pos
+            start_index = len(points) - 1
+            points.extend(world[1:])
+            width_end, height_end = c.get('width', width), c.get('height', height)
+            f = samples[1:] / samples[-1]
+            smooth = f*f*(3-2*f)
+            widths.extend(width*(1-smooth) + width_end*smooth)
+            heights.extend(height*(1-smooth) + height_end*smooth)
+            sections.extend([c.get('section', corridor['section'])] * len(f))
+            end_tangent = controls[3] - controls[2]
+            yaw_change = np.arctan2(end_tangent[1], end_tangent[0])
+            events.append({'command': ci, 'start_index': start_index, 'end_index': len(points)-1,
+                           'type': 'curve', 'angle_degrees': float(np.rad2deg(yaw_change)), 'radius': None,
+                           'slope_degrees': float(np.rad2deg(np.arctan2(world[-1, 2]-world[0, 2], np.linalg.norm(world[-1, :2]-world[0, :2])))),
+                           'length': float(arc[-1]), 'length_method': 'dense cubic arc-length approximation'})
+            pos = world[-1].copy()
+            yaw += yaw_change
+            width, height = width_end, height_end
+            continue
         slope = np.deg2rad(c.get("slope", 0))
         angle = np.deg2rad(c.get("turn", 0))
         radius = c.get("radius", 4)

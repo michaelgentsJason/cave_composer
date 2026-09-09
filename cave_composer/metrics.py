@@ -50,7 +50,8 @@ def compute_metrics(spec,routes,graph,collision,clearance):
             'minimum_mesh_clearance':float(clearance.min()),'mean_forward_visibility':float(horizon.mean()),
             'minimum_forward_visibility':float(horizon.min()),'mean_visible_route_lookahead':float(np.mean(lookahead)),
             'width_measurement':'paired wall rays on transverse section axes, every fifth route sample; excludes cap-adjacent samples',
-            'turn_measurement':'command values; plan-view circular arc geometry; sampled arc chords slightly shorten total_length'}
+            'command_length_is_exact':not any(e['type']=='curve' for e in main['events']),
+            'turn_measurement':'circular command angles only; cubic curves excluded from turn counts and included in sampled curvature; curve length is numerically approximated'}
     visibility={'s_metres':main['s'][indices].tolist(),'forward_ray_metres':horizon.tolist(),'visible_route_arc_metres':lookahead,
                 'ray_max_range':80,'fov_degrees':90,'target_step_metres_approx':0.9,'origin_step_metres_approx':1.5,
                 'model':'opaque geometry only, tangent ray plus contiguous visible route samples; no water model'}

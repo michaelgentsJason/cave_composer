@@ -30,6 +30,38 @@ def terminal_planes(points):
     return points[[0, -1]], normals / lengths[:, None]
 
 
+def inset_terminal_routes(routes, inset=0.):
+    """Trim only straight terminal stubs; never move a cut through a branch.
+
+    A small recorded inset lets the exporter choose a cleaner section of the
+    SAME cave instead of rebuilding a valid cave after a terminal micro-hole.
+    """
+    if not np.isfinite(inset) or not 0 <= inset <= 1.5:
+        raise ValueError('Terminal inset must be finite in [0, 1.5] metres')
+    routes = [np.asarray(r, dtype=float) for r in routes]
+    main = routes[0]
+    origins, normals = terminal_planes(main)
+    if inset == 0:
+        return origins, normals, routes
+    for endpoint, normal, sequence in zip(origins, normals, [main, main[::-1]]):
+        distances = (sequence-endpoint)@normal
+        reaches = np.flatnonzero(distances >= inset+.3)
+        if not len(reaches):
+            raise ValueError('Terminal stub too short for inset')
+        stub = sequence[:reaches[0]+1]-endpoint
+        if np.max(np.linalg.norm(stub-(stub@normal)[:,None]*normal,axis=1)) > 1e-5:
+            raise ValueError('Terminal inset requires a straight stub')
+    origins = origins + inset*normals
+    keep = np.all(np.column_stack([(main-p)@n >= -1e-8 for p,n in zip(origins,normals)]),axis=1)
+    indices = np.flatnonzero(keep)
+    if len(indices)<1 or np.any(np.diff(indices)!=1):
+        raise ValueError('Inset cuts a nonterminal portion of the main route')
+    middle = main[indices]
+    middle = middle[np.linalg.norm(middle-origins[0],axis=1)>1e-8]
+    middle = middle[np.linalg.norm(middle-origins[1],axis=1)>1e-8]
+    return origins, normals, [np.vstack([origins[0],middle,origins[1]]),*routes[1:]]
+
+
 def boundary_loops(mesh, origins, normals, tolerance=1e-5):
     edges, counts = np.unique(mesh.edges_sorted, axis=0, return_counts=True)
     if np.any(counts > 2):
@@ -132,7 +164,7 @@ def surface_path_certificate(mesh, points, safety, sample_step=.20):
             'method': 'distance to open triangles minus half maximum sample spacing; no open-mesh contains test'}
 
 
-def export_portals(source, output, outside_distance=3.):
+def export_portals(source, output, outside_distance=3., terminal_inset=0.):
     source, output = Path(source).resolve(), Path(output).resolve()
     if not np.isfinite(outside_distance) or outside_distance <= 0:
         raise ValueError('Outside approach distance must be positive and finite')
@@ -147,8 +179,10 @@ def export_portals(source, output, outside_distance=3.):
     if planned.get('status') != 'PASS':
         raise ValueError('Source must contain a successful independent path')
     routes = [np.asarray(r['points']) for r in nav['routes']]
-    origins, normals = terminal_planes(routes[0])
+    origins, normals, screen_routes = inset_terminal_routes(routes, terminal_inset)
     interior = np.vstack([origins[0], planned['points'], origins[1]])
+    if terminal_inset and any(np.min((interior-p)@n)<-1e-6 for p,n in zip(origins,normals)):
+        raise ValueError('Terminal inset would place the planned path outside the cave')
     exterior = origins - outside_distance * normals
     through = np.vstack([exterior[0], interior, exterior[1]])
     safety = config['robot']['radius'] + config['robot']['margin']
@@ -157,6 +191,7 @@ def export_portals(source, output, outside_distance=3.):
               'source_files': {p: file_sha256(source / p) for p in [
                   'visual/mesh.npz', 'collision/mesh.npz', 'navigation/planned_path.json', 'metadata/config.json']},
               'method': 'uncapped terminal halfspace clipping of both final reference meshes',
+              'terminal_inset_metres': float(terminal_inset),
               'meshes': {}, 'portals': [
                   {'name': name, 'center': p.tolist(), 'inward': n.tolist(), 'outside_point': e.tolist()}
                   for name, p, n, e in zip(['entrance', 'exit'], origins, normals, exterior)],
@@ -171,7 +206,7 @@ def export_portals(source, output, outside_distance=3.):
         reference_certificate = certify_polyline(reference, interior, safety)
         if reference_certificate['status'] != 'PASS':
             raise ValueError(f'{kind}: interior approach fails closed-reference certificate')
-        mesh, loops = open_terminal_mesh(reference, origins, normals, routes)
+        mesh, loops = open_terminal_mesh(reference, origins, normals, screen_routes)
         crossing = surface_path_certificate(mesh, through, safety)
         if crossing['status'] != 'PASS':
             raise ValueError(f'{kind}: crossing path too close to open surface')

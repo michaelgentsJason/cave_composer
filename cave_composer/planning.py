@@ -78,11 +78,54 @@ def _search(safe, clearance, start, goal, voxel, safety, max_expansions):
     return None, expanded, None
 
 
+class NavigationSpace:
+    """Reusable conservative occupancy for independent multi-query planning.
+
+    Owns derived arrays; changes to the caller's grid cannot stale the cache.
+    No construction routes or graphs enter this object.
+    """
+    def __init__(self, grid, origin, voxel, safety):
+        grid = np.asarray(grid)
+        origin = np.asarray(origin, dtype=float)
+        if grid.ndim != 3 or min(grid.shape) < 2 or not np.isfinite(grid).all():
+            raise ValueError('Expected a finite 3D occupancy grid')
+        if origin.shape != (3,) or not np.isfinite(origin).all():
+            raise ValueError('Expected a finite 3D grid origin')
+        if not np.isfinite(voxel) or voxel <= 0 or not np.isfinite(safety) or safety <= 0:
+            raise ValueError('Voxel size and safety must be finite and positive')
+        self.origin, self.voxel, self.safety = origin.copy(), float(voxel), float(safety)
+        self.shape = grid.shape
+        began = time.perf_counter()
+        # Treat space outside the supplied grid as occupied, even if a caller
+        # provides an all-free boundary. This also makes EDT well-defined.
+        padded = np.pad(grid > 0, 1, constant_values=False)
+        self.clearance = ndimage.distance_transform_edt(padded, sampling=voxel)[1:-1, 1:-1, 1:-1].copy() - voxel*np.sqrt(3)/2
+        self.safe = self.clearance > safety + voxel/2
+        self.labels, self.components = ndimage.label(self.safe)
+        self.seconds = time.perf_counter() - began
+        for array in [self.origin, self.clearance, self.safe, self.labels]:
+            array.flags.writeable = False
+
+    def plan(self, mesh, start, goal, max_expansions=500000):
+        return _plan_in_space(mesh, self, start, goal, max_expansions)
+
+
 def plan_navigation(mesh, grid, origin, voxel, start, goal, safety, max_expansions=500000):
     """Return an independently found and mesh-certified start-to-goal witness."""
+    space = NavigationSpace(grid, origin, voxel, safety)
+    report = space.plan(mesh, start, goal, max_expansions)
+    report['seconds'] += space.seconds
+    return report
+
+
+def _plan_in_space(mesh, space, start, goal, max_expansions):
     began = time.perf_counter()
-    origin = np.asarray(origin)
+    origin, voxel, safety = space.origin, space.voxel, space.safety
     start, goal = np.asarray(start, dtype=float), np.asarray(goal, dtype=float)
+    if start.shape != (3,) or goal.shape != (3,) or not np.isfinite([start, goal]).all():
+        raise ValueError('Endpoints must be finite 3D points')
+    if isinstance(max_expansions, bool) or int(max_expansions) != max_expansions or max_expansions < 1:
+        raise ValueError('Search budget must be a positive integer')
     a, b = np.rint((np.stack([start, goal]) - origin) / voxel).astype(int)
     report = {'status': 'FAIL', 'method': '6-neighbor clearance-weighted A*',
               'input': 'collision occupancy and endpoints only; no centerline or semantic graph',
@@ -94,17 +137,13 @@ def plan_navigation(mesh, grid, origin, voxel, start, goal, safety, max_expansio
             report['reason'] = reason
         report['seconds'] = time.perf_counter() - began
         return report
-    if np.any(a < 0) or np.any(b < 0) or np.any(a >= grid.shape) or np.any(b >= grid.shape):
+    if np.any(a < 0) or np.any(b < 0) or np.any(a >= space.shape) or np.any(b >= space.shape):
         return finish('endpoint_outside_grid')
-    clearance = ndimage.distance_transform_edt(grid > 0, sampling=voxel) - voxel * np.sqrt(3) / 2
-    # Extra half-edge allowance protects axis-aligned transitions between nodes.
-    safe = clearance > safety + voxel / 2
+    clearance, safe = space.clearance, space.safe
     if not safe[tuple(a)] or not safe[tuple(b)]:
         return finish('endpoint_not_in_conservative_robot_space')
-    labels, _ = ndimage.label(safe)
-    if labels[tuple(a)] != labels[tuple(b)]:
+    if space.labels[tuple(a)] != space.labels[tuple(b)]:
         return finish('no_connection_in_conservative_grid')
-    del labels
     chain, expanded, objective = _search(safe, clearance, a, b, voxel, safety, max_expansions)
     report['expanded_nodes'] = expanded
     if chain is None:

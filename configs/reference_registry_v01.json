@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "id": "cavers_all_recordings_and_derivatives",
+      "source_group": "Cueva_de_la_Victoria_Malaga",
+      "group_confirmed": true,
+      "group_evidence": "https://zenodo.org/records/19367714",
+      "role": "prior",
+      "used_for_development": true,
+      "content_sha256": [],
+      "reason": "Prior color reference use and development inspection; all recordings remain in one cave-level source group. Content hashes are populated in the local profiling report."
+    }
+  ],
+  "final_test_selection": "PENDING: designate independent, previously unused cave assets before freezing the protocol."
+}

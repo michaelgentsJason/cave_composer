@@ -44,15 +44,23 @@ def portable_reference(folder):
     return vertices, triangles, config['robot']['radius'] + config['robot']['margin'], report['texture_resolution']
 
 
-def verify(root, report_path=None):
+def verify(root, report_path=None, entries=None):
     if not __debug__:
         raise RuntimeError('Run verification without -O; assertion checks must remain enabled')
     root = Path(root).resolve()
     records = []
-    for tier in ['easy', 'medium', 'hard']:
-        folder = root / tier
+    if entries is None:
+        manifest = root / 'batch_manifest.json'
+        entries = json.loads(manifest.read_text(encoding='utf-8'))['assets'] if manifest.exists() else [
+            {'difficulty': tier, 'folder': tier, 'name': f'cave_{tier}'}
+            for tier in ['easy', 'medium', 'hard']]
+    for entry in entries:
+        tier, name = entry['difficulty'], entry['name']
+        folder = (root / entry['folder']).resolve()
+        if root not in folder.parents or Path(name).name != name or any(c in name for c in '/\\:'):
+            raise ValueError('Asset paths must stay inside the export root')
         reference, triangles, safety, resolution = portable_reference(folder)
-        raw = (folder / f'cave_{tier}.glb').read_bytes()
+        raw = (folder / f'{name}.glb').read_bytes()
         magic, version, total = struct.unpack_from('<4sII', raw)
         assert magic == b'glTF' and version == 2 and total == len(raw)
         size, kind = struct.unpack_from('<II', raw, 12)
@@ -77,7 +85,7 @@ def verify(root, report_path=None):
         for material in gltf['materials']:
             assert 'baseColorTexture' in material['pbrMetallicRoughness']
             assert 'normalTexture' in material and material.get('doubleSided') is True
-        obj_path = folder / f'cave_{tier}.obj'
+        obj_path = folder / f'{name}.obj'
         text = obj_path.read_text()
         assert 'vt ' in text and 'usemtl ' in text
         mtl_name = next(l.split(maxsplit=1)[1] for l in text.splitlines() if l.startswith('mtllib '))
@@ -93,10 +101,10 @@ def verify(root, report_path=None):
         origins = np.array([p['center'] for p in portal['portals']])
         normals = np.array([p['inward'] for p in portal['portals']])
         points = json.loads((folder / 'navigation_z_up.json').read_text())['points']
-        row = {'difficulty': tier, 'status': 'PASS', 'embedded_glb_images': embedded,
+        row = {'difficulty': tier, 'name': name, 'folder': entry['folder'], 'status': 'PASS', 'embedded_glb_images': embedded,
                'obj_relative_texture_paths': texture_refs, 'formats': {}}
         for ext in ['glb', 'obj']:
-            mesh = load_world_mesh(folder / f'cave_{tier}.{ext}')
+            mesh = load_world_mesh(folder / f'{name}.{ext}')
             cleanup = json.loads((folder / 'precision_cleanup.json').read_text())[ext]
             assert cleanup['triangles_before'] == triangles
             assert len(mesh.faces) == cleanup['triangles_after']
@@ -111,7 +119,7 @@ def verify(root, report_path=None):
                                   'geometry_max_position_difference_m': float(delta),
                                   'crossing_certificate': certificate}
         records.append(row)
-        print(tier, 'textures, geometry, two portals, crossing path PASS', flush=True)
+        print(name, 'textures, geometry, two portals, crossing path PASS', flush=True)
     if report_path is not None:
         Path(report_path).write_text(json.dumps(records, indent=2), encoding='utf-8')
     return records

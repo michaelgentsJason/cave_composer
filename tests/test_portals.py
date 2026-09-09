@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 import trimesh
 
-from cave_composer.portals import boundary_loops, open_terminal_mesh, surface_path_certificate, terminal_planes
+from cave_composer.portals import boundary_loops, open_terminal_mesh, surface_path_certificate, terminal_planes, inset_terminal_routes
 
 
 def box_case():
@@ -54,3 +54,26 @@ def test_reject_open_reference():
     opened, _ = open_terminal_mesh(mesh, origins, normals, [route])
     with pytest.raises(ValueError, match='closed'):
         open_terminal_mesh(opened, origins, normals, [route])
+
+
+def test_terminal_inset_preserves_source_and_two_openings():
+    mesh, route, _, _ = box_case()
+    before=route.copy()
+    origins,normals,trimmed=inset_terminal_routes([route],.7)
+    assert np.array_equal(route,before)
+    assert np.allclose(origins[:,0],[-3.3,3.3])
+    opened,loops=open_terminal_mesh(mesh,origins,normals,trimmed)
+    assert len(loops)==2
+    assert surface_path_certificate(opened,[[-8,0,0],[8,0,0]],.55)['status']=='PASS'
+    branch=np.array([[0.,0,0],[-3.8,1,0]])
+    with pytest.raises(ValueError,match='another intended route'):
+        open_terminal_mesh(mesh,origins,normals,[trimmed[0],branch])
+
+
+def test_terminal_inset_rejects_curved_or_invalid_stubs():
+    bent=np.array([[0.,0,0],[.3,0,0],[.6,.1,0],[1,.3,0],[3,2,0]])
+    with pytest.raises(ValueError,match='straight stub'):
+        inset_terminal_routes([bent],.7)
+    for invalid in [-1,2,float('nan')]:
+        with pytest.raises(ValueError,match='inset'):
+            inset_terminal_routes([bent],invalid)
