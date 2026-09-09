@@ -1,0 +1,17 @@
+{
+  "asset": "exports/caves_difficulty_v01/hard/scene_005",
+  "seed": 1080501,
+  "source_name": "cave_hard_005",
+  "total_route_length_m": 264.53431912594203,
+  "main_route_length_m": 128.25414224013542,
+  "loops": 2,
+  "dead_ends": 2,
+  "source_mesh_sha256": "453a622aad55250da339551aae1fea19948f8889e00780bb650cf2c19723ee64",
+  "asset_sha256": {
+    "config.json": "256e22c2e8baffe719fcc811be2a7cb50037db04d8761da5866184526ec767d9",
+    "reference_visual.npz": "453a622aad55250da339551aae1fea19948f8889e00780bb650cf2c19723ee64",
+    "cave_hard_005.glb": "665449920726be7e45daff1866966fe3b8adeaec417f2a04c0dc1fdfdc1722e0"
+  },
+  "map_rotation_degrees": -23,
+  "geometry_regenerated": false
+}

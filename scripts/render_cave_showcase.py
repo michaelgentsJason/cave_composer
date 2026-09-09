@@ -33,7 +33,8 @@ def render(folder, samples=80, only=None):
             scene.cycles.device = 'GPU'
     except Exception:
         pass
-    scene.render.resolution_x, scene.render.resolution_y = 1800, 1125
+    camera_spec = json.loads((folder / 'views/cameras.json').read_text())
+    scene.render.resolution_x, scene.render.resolution_y = camera_spec['resolution']
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = 'PNG'
     scene.view_settings.view_transform = 'AgX'
@@ -42,7 +43,7 @@ def render(folder, samples=80, only=None):
     scene.world.node_tree.nodes['Background'].inputs[0].default_value = (.52, .65, .78, 1)
     scene.world.node_tree.nodes['Background'].inputs[1].default_value = .45
     rock = material(folder / 'scene')
-    rock.name = 'Original limestone / procedural albedo and bump'
+    rock.name = 'Source cave material / procedural albedo and bump'
     # Supplemental small-scale grain and roughness only; no geometric displacement.
     nodes, links = rock.node_tree.nodes, rock.node_tree.links
     bsdf = nodes['Principled BSDF']
@@ -158,18 +159,18 @@ def render(folder, samples=80, only=None):
         view['matrix_world'] = [list(row) for row in scene.camera.matrix_world]
     (folder / 'views/render_metadata.json').write_text(json.dumps(dict(
         engine='Cycles', blender=bpy.app.version_string, device=scene.cycles.device,
-        samples=samples, resolution=[1800, 1125], views=views,
-        appearance='Original procedural limestone texture + procedural bump; neutral inspection lighting; no participating water medium.',
+        samples=samples, resolution=camera_spec['resolution'], views=views,
+        appearance='Source procedural cave texture + procedural bump; neutral inspection lighting; no participating water medium.',
         geometry='Original generated cave, terminal caps opened; explicit rock and board assets, intact ceiling.'), indent=2), encoding='utf-8')
-    scene.frame_start, scene.frame_end = 1, 8
+    scene.frame_start, scene.frame_end = 1, len(views)
     scene.frame_set(1)
     cave.select_set(True)
     bpy.context.view_layer.objects.active = cave
     info = bpy.data.texts.new('READ ME - registered cave showcase')
-    info.write('Cave Composer: eight real camera views of the same scene.\n'
-               'Timeline frames 1-8 switch cameras and work lights. Numpad 0: camera view.\n'
+    info.write(f'Cave Composer: {len(views)} registered camera views of the same scene.\n'
+               f'Timeline frames 1-{len(views)} switch cameras and work lights. Numpad 0: camera view.\n'
                'Shift+`: walk navigation. Assets are separate named objects.\n'
-               'Procedural limestone, explicit floor stones, three checkerboard props.\n'
+               'Source cave material, explicit floor stones, three checkerboard props.\n'
                'Geometry in meters, Z up. Open entrance and exit, intact roof.\n'
                'Not a SLAM reconstruction, sensor recording, or robot execution experiment.\n')
     for screen in bpy.data.screens:

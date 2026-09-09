@@ -4,7 +4,13 @@ Controllable procedural cave worlds for robot navigation research. Explicit turn
 branches, chambers and slopes become geological voids, independently validated
 visual/collision meshes, navigation ground truth and geometric visibility metadata.
 
-[![Double-loop cave with eight registered interior views](docs/figures/showcase/cave_showcase.png)](docs/figures/showcase/cave_showcase.png)
+[![Hard cave with twelve registered interior views](docs/figures/showcase_hard_v02/figures/cave_showcase.png)](docs/figures/showcase_hard_v02/figures/cave_showcase.png)
+
+**New hard-cave showcase:** [paper figures and interactive demo](docs/figures/showcase_hard_v02/README.md)
+· [PDF](docs/figures/showcase_hard_v02/figures/cave_showcase.pdf)
+· [reproduction guide](docs/cave_showcase_hard_v02.md).
+Twelve actual Blender views of hard_005, with 100 floor stones and three checkerboard
+props, registered to a mesh-sampled map. Yellow lines show designed passage centerlines.
 
 **Double-loop showcase:** [full-resolution images](docs/figures/showcase/README.md)
 · [paper PDF](docs/figures/showcase/cave_showcase.pdf)

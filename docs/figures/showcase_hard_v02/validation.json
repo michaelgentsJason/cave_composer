@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "required_radius": 0.55,
+  "original_source": "hard_organic_005",
+  "asset_count": 103,
+  "rock_count": 100,
+  "board_count": 3,
+  "assets_only_path": {
+    "status": "PASS",
+    "samples": 951,
+    "sample_max_step": 0.2,
+    "minimum_sampled_clearance": 0.6893800625599661,
+    "continuous_clearance_lower_bound": 0.5893800625599661,
+    "required_radius": 0.55,
+    "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+  },
+  "combined_mesh_path": {
+    "visual": {
+      "status": "PASS",
+      "samples": 951,
+      "sample_max_step": 0.2,
+      "minimum_sampled_clearance": 0.6893800625599661,
+      "continuous_clearance_lower_bound": 0.5893800625599661,
+      "required_radius": 0.55,
+      "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+    },
+    "collision": {
+      "status": "PASS",
+      "samples": 951,
+      "sample_max_step": 0.2,
+      "minimum_sampled_clearance": 0.6893800625599661,
+      "continuous_clearance_lower_bound": 0.5893800625599661,
+      "required_radius": 0.55,
+      "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+    }
+  },
+  "minimum_asset_to_construction_route_bound": 0.6271487004272321,
+  "camera_surface_distances": [
+    1.3801644230301666,
+    1.6130094700857092,
+    1.2612783102878362,
+    1.3279789415616974,
+    1.5197802212249008,
+    1.2904207445715306,
+    1.0701924874480795,
+    1.2610780469168485,
+    1.3082046496579727,
+    1.4833150358451148,
+    1.2589157066244192,
+    1.255131847883266
+  ],
+  "scope": "Existing independent interior A* with verified terminal connectors and straight exterior approaches. No dynamics or sensor simulation."
+}

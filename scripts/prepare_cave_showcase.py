@@ -22,7 +22,7 @@ def save_json(path, value):
     path.write_text(json.dumps(value, indent=2), encoding='utf-8')
 
 
-def prepare(folder):
+def prepare(folder, specifications=None, resolution=(1800, 1125)):
     folder = Path(folder).resolve()
     scene = folder / 'scene'
     verify_portal_export(scene)
@@ -102,7 +102,7 @@ def prepare(folder):
 
     # Camera locations belong to the original construction routes; they are not
     # a claimed executed robot trajectory. Look targets follow local bends.
-    specifications = [
+    specifications = specifications or [
         (0, 18, 45, 'Entrance junction'),
         (1, 24, 49, 'First loop approach'),
         (1, 107, 131, 'First loop return'),
@@ -190,7 +190,7 @@ def prepare(folder):
     np.savez_compressed(folder / 'assets/collision.npz', vertices=combined_assets.vertices, faces=combined_assets.faces)
     save_json(folder / 'assets/manifest.json', dict(seed=20260908, coordinate_system='meters, Z up',
         assets=assets, navigation_protection='Bounding balls exclude all construction-route segments; actual combined meshes checked on portal path.'))
-    save_json(folder / 'views/cameras.json', dict(views=views, resolution=[1800, 1125],
+    save_json(folder / 'views/cameras.json', dict(views=views, resolution=list(resolution),
         convention='world meters Z up; Blender camera looks along local -Z with local Y up'))
     save_json(folder / 'validation.json', dict(status='PASS', required_radius=safety,
         original_source=config['name'], asset_count=len(assets),

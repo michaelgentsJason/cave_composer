@@ -1,0 +1,237 @@
+{
+  "views": [
+    {
+      "id": 1,
+      "title": "Entrance passage",
+      "route": "main",
+      "route_index": 34,
+      "position": [
+        10.127659574468085,
+        0.0,
+        0.0
+      ],
+      "target": [
+        16.531004768637644,
+        -0.6704864898005807,
+        0.00012002847443822797
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_01.png"
+    },
+    {
+      "id": 2,
+      "title": "Main junction",
+      "route": "main",
+      "route_index": 134,
+      "position": [
+        37.79092988443303,
+        -5.98666492468691,
+        0.8896652141254722
+      ],
+      "target": [
+        44.34929476078166,
+        -6.277257184882962,
+        1.2823427767799798
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_02.png"
+    },
+    {
+      "id": 3,
+      "title": "Chamber approach",
+      "route": "main",
+      "route_index": 241,
+      "position": [
+        68.00699143254363,
+        -0.5541681508517335,
+        4.952134495236239
+      ],
+      "target": [
+        74.22649044773313,
+        1.596792444192877,
+        5.062890614056856
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_03.png"
+    },
+    {
+      "id": 4,
+      "title": "Open exit",
+      "route": "main",
+      "route_index": 418,
+      "position": [
+        117.36597811711005,
+        15.225140789677544,
+        6.388466997309842
+      ],
+      "target": [
+        121.23831854264196,
+        15.225140789677544,
+        6.388466997309842
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_04.png"
+    },
+    {
+      "id": 5,
+      "title": "First bypass",
+      "route": "branch_0",
+      "route_index": 31,
+      "position": [
+        22.87798266990008,
+        -13.852694432767219,
+        0.4783720608855647
+      ],
+      "target": [
+        28.505754482488634,
+        -17.096092685968067,
+        0.7631268813161166
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_05.png"
+    },
+    {
+      "id": 6,
+      "title": "First loop bend",
+      "route": "branch_0",
+      "route_index": 81,
+      "position": [
+        36.75588132319231,
+        -18.22317272427435,
+        1.071994679319136
+      ],
+      "target": [
+        43.25762860863814,
+        -17.39667803049773,
+        1.3076069078820982
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_06.png"
+    },
+    {
+      "id": 7,
+      "title": "First loop return",
+      "route": "branch_0",
+      "route_index": 129,
+      "position": [
+        50.1479313577822,
+        -13.984494340863446,
+        1.6081937734998704
+      ],
+      "target": [
+        53.01599750244699,
+        -8.264010795227975,
+        1.8742657209440405
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_07.png"
+    },
+    {
+      "id": 8,
+      "title": "Second bypass",
+      "route": "branch_1",
+      "route_index": 35,
+      "position": [
+        75.91412950094087,
+        -7.92733111719191,
+        5.325798691883477
+      ],
+      "target": [
+        82.3011910216685,
+        -9.23699912293889,
+        5.5385172194186625
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_08.png"
+    },
+    {
+      "id": 9,
+      "title": "Second loop bend",
+      "route": "branch_1",
+      "route_index": 86,
+      "position": [
+        90.5362077445948,
+        -6.737422673216317,
+        5.8161510475788685
+      ],
+      "target": [
+        95.57706985120825,
+        -2.540670107590324,
+        6.024561882691055
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_09.png"
+    },
+    {
+      "id": 10,
+      "title": "Second loop return",
+      "route": "branch_1",
+      "route_index": 134,
+      "position": [
+        98.86093602233817,
+        4.41505490007598,
+        6.272965497557021
+      ],
+      "target": [
+        97.98351069776265,
+        10.861673680597544,
+        6.46362607338394
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_10.png"
+    },
+    {
+      "id": 11,
+      "title": "Long blind branch",
+      "route": "branch_2",
+      "route_index": 54,
+      "position": [
+        78.80619015695785,
+        19.064289399846,
+        5.6161398763277806
+      ],
+      "target": [
+        80.47831638495,
+        25.415624584057582,
+        5.979042584532551
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_11.png"
+    },
+    {
+      "id": 12,
+      "title": "Short blind branch",
+      "route": "branch_3",
+      "route_index": 35,
+      "position": [
+        32.015001822248465,
+        3.6576080745006756,
+        1.7192758248286855
+      ],
+      "target": [
+        34.53266688198501,
+        9.578328100441713,
+        2.669245101051778
+      ],
+      "lens_mm": 19,
+      "sensor_width_mm": 36,
+      "image": "views/view_12.png"
+    }
+  ],
+  "resolution": [
+    1600,
+    1200
+  ],
+  "convention": "world meters Z up; Blender camera looks along local -Z with local Y up"
+}

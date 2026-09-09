@@ -14,7 +14,7 @@ from cave_composer.bundle import verify_portal_export, file_sha256
 from cave_composer.portals import surface_path_certificate
 
 
-def verify(folder):
+def verify(folder, plate_size=(6000, 3600)):
     folder = Path(folder).resolve()
     scene = folder / 'scene'
     verify_portal_export(scene)
@@ -52,7 +52,8 @@ def verify(folder):
         assert abs(checks[kind]['continuous_clearance_lower_bound'] -
                    report['combined_mesh_path'][kind]['continuous_clearance_lower_bound']) < 1e-8
     cameras = json.loads((folder / 'views/registered_views.json').read_text())['views']
-    assert len(cameras) == 8
+    camera_spec = json.loads((folder / 'views/cameras.json').read_text())
+    assert len(cameras) == len(camera_spec['views'])
     for v in cameras:
         position, target = np.asarray(v['position']), np.asarray(v['target'])
         matrix = np.asarray(v['matrix_world'])
@@ -62,10 +63,10 @@ def verify(folder):
         assert np.dot(-matrix[:3, 2], direction) > .99999
         assert all(0 < x < 100 for x in v['map_percent'])
         with Image.open(folder / v['image']) as image:
-            assert image.size == (1800, 1125)
+            assert image.size == tuple(camera_spec['resolution'])
             image.verify()
     with Image.open(folder / 'figures/cave_showcase.png') as image:
-        assert image.size == (6000, 3600)
+        assert image.size == tuple(plate_size)
         image.verify()
     for name in ['index.html', 'cave_showcase.blend', 'figures/cave_showcase.pdf', 'figures/caption.txt']:
         assert (folder / name).stat().st_size > 100
@@ -80,8 +81,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--folder', default='outputs/cave_showcase_v01')
     parser.add_argument('--report', type=Path)
+    parser.add_argument('--plate-size', type=int, nargs=2, default=(6000, 3600))
     args = parser.parse_args()
-    result = verify(args.folder)
+    result = verify(args.folder, args.plate_size)
     if args.report:
         args.report.write_text(json.dumps(result, indent=2), encoding='utf-8')
     print(json.dumps(result, indent=2))

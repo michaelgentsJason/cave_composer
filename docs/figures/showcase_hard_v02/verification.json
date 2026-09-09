@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "assets": 103,
+  "registered_views": 12,
+  "required_radius": 0.55,
+  "combined_mesh_path": {
+    "visual": {
+      "status": "PASS",
+      "samples": 951,
+      "sample_max_step": 0.2,
+      "minimum_sampled_clearance": 0.6893800625599661,
+      "continuous_clearance_lower_bound": 0.5893800625599661,
+      "required_radius": 0.55,
+      "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+    },
+    "collision": {
+      "status": "PASS",
+      "samples": 951,
+      "sample_max_step": 0.2,
+      "minimum_sampled_clearance": 0.6893800625599661,
+      "continuous_clearance_lower_bound": 0.5893800625599661,
+      "required_radius": 0.55,
+      "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+    }
+  },
+  "checks": [
+    "portal integrity",
+    "closed reference hash",
+    "watertight asset components",
+    "all-route bounding-ball exclusion",
+    "exported asset collision arrays",
+    "actual dual-mesh path distances",
+    "camera locations and orientations",
+    "image sizes"
+  ],
+  "distinct_images": 12,
+  "covered_routes": 5,
+  "pdf_pages": 1,
+  "plate_resolution": [
+    7200,
+    3600
+  ],
+  "browser_errors": [],
+  "browser_checks": [
+    "All images load offline",
+    "12 map buttons match images",
+    "Modal and keyboard navigation",
+    "Mobile width"
+  ],
+  "scope": "Registered synthetic render showcase; not a navigation policy or calibration experiment"
+}
