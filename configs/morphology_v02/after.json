@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "name": "morphology_wide_after",
+  "split": "morphology_development",
+  "corridor": {
+    "width": 7.5,
+    "height": 6.0,
+    "variation": 0.1,
+    "section": "irregular"
+  },
+  "robot": {
+    "radius": 0.35,
+    "margin": 0.2
+  },
+  "geology": {
+    "amplitude": 0.22,
+    "strata": 0.1,
+    "formations": 4
+  },
+  "mesh": {
+    "visual_voxel": 0.2,
+    "collision_voxel": 0.34,
+    "max_voxels": 18000000
+  },
+  "material": {
+    "style": "limestone",
+    "seed": 97011,
+    "roughness": 0.83,
+    "texture_library": "materials/reference_rock_v01/library.json",
+    "texture_library_sha256": "d3e1711323adf05b62213f723c11d7940df6117568cb8e105d08218865138000",
+    "texture_id": "porth_yr_ogof_-_sump_9_patch_03",
+    "texture_period_metres": 1.2
+  },
+  "branches": [],
+  "chambers": [],
+  "bottlenecks": [],
+  "validation": {
+    "max_slope_degrees": 40.0
+  },
+  "description": "Wider paired morphology inspection: aperture +25 percent; same route, seeds, texture and matched cameras.",
+  "route": [
+    {
+      "straight": 14
+    },
+    {
+      "turn": 30,
+      "radius": 8
+    },
+    {
+      "straight": 14
+    },
+    {
+      "turn": -30,
+      "radius": 8
+    },
+    {
+      "straight": 14
+    }
+  ],
+  "morphology": {
+    "cross_section": {
+      "amplitude": 0.32,
+      "eccentricity": 0.18,
+      "length_scale": 8
+    },
+    "roughness": {
+      "contrast": 0.85,
+      "length_scale": 9
+    },
+    "features": [
+      {
+        "id": "side_pocket",
+        "kind": "side_cavity",
+        "at": 0.24,
+        "length": 4.5,
+        "span": 4.25,
+        "depth": 3.5,
+        "side": -1
+      },
+      {
+        "id": "hanging_ledge",
+        "kind": "overhang",
+        "at": 0.36,
+        "length": 4.5,
+        "span": 1.75,
+        "depth": 3.5,
+        "side": 1
+      },
+      {
+        "id": "ceiling_step",
+        "kind": "ceiling_drop",
+        "at": 0.5,
+        "length": 3.0,
+        "span": 6.875,
+        "depth": 1.8125
+      },
+      {
+        "id": "floor_step",
+        "kind": "floor_rise",
+        "at": 0.59,
+        "length": 3.5,
+        "span": 5.625,
+        "depth": 1.5
+      },
+      {
+        "id": "debris_cluster",
+        "kind": "rockfall",
+        "at": 0.73,
+        "length": 5,
+        "span": 5.625,
+        "depth": 1.875,
+        "side": -1,
+        "count": 7
+      },
+      {
+        "id": "wall_pillar",
+        "kind": "wall_intrusion",
+        "at": 0.84,
+        "length": 2.8,
+        "span": 5.0,
+        "depth": 2.5,
+        "side": 1
+      }
+    ]
+  }
+}

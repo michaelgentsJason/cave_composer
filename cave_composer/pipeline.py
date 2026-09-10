@@ -51,6 +51,9 @@ def attach_intersection_audit(report,audit):
 def generate(config,seed=42,output=None,render=False,blender=None,save_blend=False):
     if isinstance(seed,bool) or int(seed)!=seed or seed<0: raise ValueError('seed must be a nonnegative integer')
     spec=load_spec(config)
+    if 'texture_library' in spec['material']:
+        from .reference_material import read_library
+        read_library(spec['material'])
     if save_blend and not render: raise ValueError('save_blend requires render=True')
     executable=None
     if render:
@@ -117,6 +120,8 @@ def generate(config,seed=42,output=None,render=False,blender=None,save_blend=Fal
                         'layout_attempts':spec.get('sampling',{}).get('layout_attempts',1)})
         dump(temp/'navigation/visibility_horizon.json',visibility)
         stage('material_and_export')
+        if field.morphology:
+            dump(temp/'metadata/morphology.json',field.morphology.report())
         write_material(spec['material'],temp/'materials')
         write_obj(visual,temp/'visual/cave_visual.obj',visual=True); write_obj(collision,temp/'collision/cave_collision.obj')
         for name,mesh in [('visual',visual),('collision',collision)]: np.savez_compressed(temp/name/'mesh.npz',vertices=mesh.vertices,faces=mesh.faces)

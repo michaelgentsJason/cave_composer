@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "kind": "reviewed_reference_texture_library",
+  "entries": [
+    {
+      "id": "font_del_truffe_small_part_of_sump_2_patch_06",
+      "source_id": "font_del_truffe_small_part_of_sump_2",
+      "source_group": "font_del_truffe",
+      "center": [
+        2302,
+        2474
+      ],
+      "crop_xywh": [
+        2230,
+        2402,
+        144,
+        144
+      ],
+      "uv_coverage": 1.0,
+      "source_image_sha256": "df21eed23e92ba17432c89808e2943352d9d17d80dff1077940527a951654c7b",
+      "attribution": {
+        "author": "cave-dive-make (https://sketchfab.com/cave-dive-make)",
+        "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+        "source": "https://sketchfab.com/3d-models/font-del-truffe-small-part-of-sump-2-b15476c708f7424ba77b0cd0a4c411e0",
+        "title": "Font del Truffe, small part of Sump 2"
+      },
+      "tile": "font_del_truffe_small_part_of_sump_2_patch_06.png",
+      "tile_sha256": "f822757ddf580099a71e802f67f1e8b714bdc21b314405c06491453fbec88a0b",
+      "review_status": "approved_rock_appearance",
+      "dimensions": [
+        144,
+        144
+      ],
+      "operations": [
+        "UV occupancy filtering",
+        "manual visual crop approval",
+        "periodic smooth-component removal"
+      ],
+      "normal_source": "procedural, not measured",
+      "roughness_source": "configured, not measured",
+      "intrinsic_albedo_recovered": false
+    },
+    {
+      "id": "porth_yr_ogof_-_sump_9_patch_03",
+      "source_id": "porth_yr_ogof_-_sump_9",
+      "source_group": "porth_yr_ogof",
+      "center": [
+        1118,
+        1724
+      ],
+      "crop_xywh": [
+        1006,
+        1612,
+        224,
+        224
+      ],
+      "uv_coverage": 1.0,
+      "source_image_sha256": "43579b8b5598bfc7f4efc9a82a11573a4af02d379162b7b45762234de35ab412",
+      "attribution": {
+        "author": "cave-dive-make (https://sketchfab.com/cave-dive-make)",
+        "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+        "source": "https://sketchfab.com/3d-models/porth-yr-ogof-sump-9-3cf9f626271f47c2be9dc7e7ad1ecf9e",
+        "title": "Porth Yr Ogof - Sump 9"
+      },
+      "tile": "porth_yr_ogof_-_sump_9_patch_03.png",
+      "tile_sha256": "6723a5955af77c7892bed4a417932f182d93ad8d8558097b87266ef9cb5ee9ab",
+      "review_status": "approved_rock_appearance",
+      "dimensions": [
+        224,
+        224
+      ],
+      "operations": [
+        "UV occupancy filtering",
+        "manual visual crop approval",
+        "periodic smooth-component removal"
+      ],
+      "normal_source": "procedural, not measured",
+      "roughness_source": "configured, not measured",
+      "intrinsic_albedo_recovered": false
+    },
+    {
+      "id": "porth_yr_ogof_-_sump_9_patch_05",
+      "source_id": "porth_yr_ogof_-_sump_9",
+      "source_group": "porth_yr_ogof",
+      "center": [
+        3065,
+        2498
+      ],
+      "crop_xywh": [
+        2962,
+        2395,
+        206,
+        206
+      ],
+      "uv_coverage": 1.0,
+      "source_image_sha256": "43579b8b5598bfc7f4efc9a82a11573a4af02d379162b7b45762234de35ab412",
+      "attribution": {
+        "author": "cave-dive-make (https://sketchfab.com/cave-dive-make)",
+        "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+        "source": "https://sketchfab.com/3d-models/porth-yr-ogof-sump-9-3cf9f626271f47c2be9dc7e7ad1ecf9e",
+        "title": "Porth Yr Ogof - Sump 9"
+      },
+      "tile": "porth_yr_ogof_-_sump_9_patch_05.png",
+      "tile_sha256": "8614a619efd33f0921eea71652dc49701f415ef43e8019908043df7bca3d17e1",
+      "review_status": "approved_rock_appearance",
+      "dimensions": [
+        206,
+        206
+      ],
+      "operations": [
+        "UV occupancy filtering",
+        "manual visual crop approval",
+        "periodic smooth-component removal"
+      ],
+      "normal_source": "procedural, not measured",
+      "roughness_source": "configured, not measured",
+      "intrinsic_albedo_recovered": false
+    },
+    {
+      "id": "porth_yr_ogof_-_upper_cave_water_chamber_patch_04",
+      "source_id": "porth_yr_ogof_-_upper_cave_water_chamber",
+      "source_group": "porth_yr_ogof",
+      "center": [
+        2243,
+        2897
+      ],
+      "crop_xywh": [
+        2177,
+        2831,
+        132,
+        132
+      ],
+      "uv_coverage": 1.0,
+      "source_image_sha256": "47c65c26f59171c9ca4d2e19226bb0276c6a1f43b7b8dd807f5cb4a2cb9bf924",
+      "attribution": {
+        "author": "cave-dive-make (https://sketchfab.com/cave-dive-make)",
+        "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+        "source": "https://sketchfab.com/3d-models/porth-yr-ogof-upper-cave-water-chamber-10056f5a22c6477db660e58b2a7c526f",
+        "title": "Porth Yr Ogof - Upper Cave Water Chamber"
+      },
+      "tile": "porth_yr_ogof_-_upper_cave_water_chamber_patch_04.png",
+      "tile_sha256": "b87d770ee0c8561fe0c097152c18b63c661c5fd504b67796c7e4ceaffff186c7",
+      "review_status": "approved_rock_appearance",
+      "dimensions": [
+        132,
+        132
+      ],
+      "operations": [
+        "UV occupancy filtering",
+        "manual visual crop approval",
+        "periodic smooth-component removal"
+      ],
+      "normal_source": "procedural, not measured",
+      "roughness_source": "configured, not measured",
+      "intrinsic_albedo_recovered": false
+    }
+  ],
+  "scope": "Rock-appearance patches from scan atlases; residual capture illumination remains; not measured PBR",
+  "source_role": "development_prior"
+}

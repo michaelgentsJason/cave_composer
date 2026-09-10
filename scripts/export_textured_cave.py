@@ -28,6 +28,10 @@ def export(source, output, name, resolution=4096):
     output.mkdir(parents=True)
     textures = output / 'textures'
     textures.mkdir()
+    # Attribution travels with portable derivatives, not only with the source bundle.
+    if (source/'materials/ATTRIBUTION.txt').exists():
+        shutil.copy2(source/'materials/ATTRIBUTION.txt',output/'ATTRIBUTION.txt')
+        shutil.copy2(source/'materials/material.json',output/'material_provenance.json')
     bpy.ops.wm.read_factory_settings(use_empty=True)
     scene = bpy.context.scene
     scene.render.engine = 'CYCLES'

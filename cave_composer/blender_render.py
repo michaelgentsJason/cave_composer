@@ -31,7 +31,7 @@ def material(folder):
     n=mat.node_tree.nodes; links=mat.node_tree.links; bsdf=n.get('Principled BSDF')
     bsdf.inputs['Roughness'].default_value=settings['roughness']
     texcoord=n.new('ShaderNodeTexCoord')
-    scale=n.new('ShaderNodeVectorMath'); scale.operation='SCALE'; scale.inputs[3].default_value=0.25
+    scale=n.new('ShaderNodeVectorMath'); scale.operation='SCALE'; scale.inputs[3].default_value=1/settings.get('texture_period_metres',4)
     links.new(texcoord.outputs['Object'],scale.inputs[0])
     tex=n.new('ShaderNodeTexImage'); tex.image=bpy.data.images.load(str(folder/'materials/rock_albedo.png'))
     tex.projection='BOX'; tex.projection_blend=0.22

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "split": "train",
+  "difficulty": "medium",
+  "base_seed": 98200,
+  "sampler": "morphology_v01",
+  "family": "branching",
+  "overrides": {
+    "material": {
+      "texture_library": "materials/reference_rock_v01/library.json",
+      "texture_library_sha256": "d3e1711323adf05b62213f723c11d7940df6117568cb8e105d08218865138000",
+      "texture_period_metres": 1.2,
+      "roughness": 0.83
+    }
+  }
+}

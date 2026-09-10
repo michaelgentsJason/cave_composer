@@ -1,5 +1,18 @@
 # Automated Cave Composer
 
+**Latest wider caves:** [7.5 m × 6.0 m morphology comparison](exports/morphology_v02/index.html)
+and [release notes](docs/morphology_v02.md). The gallery includes matched textured
+and clay views, verified GLB/OBJ downloads and measured cross-sections.
+
+[![Wider irregular cave interior](exports/morphology_v02/after/textured_02.png)](exports/morphology_v02/after/textured_02.png)
+
+**Structural morphology:** [audit, controls and measured comparison](docs/morphology_v01.md)
+with a [matched before/after geometry gallery](exports/morphology_v01/index.html).
+
+**Reference textures:** [integration guide](docs/reference_texture_pipeline_v01.md)
+and [textured easy demo](exports/easy_reference_texture_v01/index.html), using
+reviewed scan-image patches with reproducible appearance selection.
+
 Controllable procedural cave worlds for robot navigation research. Explicit turns,
 branches, chambers and slopes become geological voids, independently validated
 visual/collision meshes, navigation ground truth and geometric visibility metadata.

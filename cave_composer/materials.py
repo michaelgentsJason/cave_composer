@@ -14,6 +14,9 @@ PALETTES = {
 
 
 def write_material(spec, directory):
+    if 'texture_library' in spec:
+        from .reference_material import write_reference_material
+        return write_reference_material(spec,directory)
     directory = Path(directory); directory.mkdir(parents=True,exist_ok=True)
     palette = np.array(spec.get("palette", PALETTES.get(spec["style"],PALETTES["limestone"])))
     rng = np.random.default_rng(int(spec["seed"]))
@@ -30,7 +33,7 @@ def write_material(spec, directory):
     high = np.maximum(value*2-1,0)[...,None]
     rgb = (palette[0]*(1-low)+palette[1]*low)*(1-high)+palette[2]*high
     Image.fromarray(np.uint8(np.clip(rgb,0,1)*255)).save(directory/"rock_albedo.png")
-    (directory/"material.json").write_text(json.dumps({**spec,"palette":palette.tolist(),"water_baked":False,"texture_period_metres":4,"method":"periodic multiscale procedural albedo; box/planar projection"},indent=2),encoding="utf-8")
+    (directory/"material.json").write_text(json.dumps({**spec,"palette":palette.tolist(),"water_baked":False,"texture_period_metres":spec.get('texture_period_metres',4),"method":"periodic multiscale procedural albedo; box/planar projection"},indent=2),encoding="utf-8")
     return palette
 
 

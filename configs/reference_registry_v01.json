@@ -10,6 +10,49 @@
       "used_for_development": true,
       "content_sha256": [],
       "reason": "Prior color reference use and development inspection; all recordings remain in one cave-level source group. Content hashes are populated in the local profiling report."
+    },
+    {
+      "id": "sketchfab_font_del_truffe_small_part_of_sump_2",
+      "source_group": "font_del_truffe",
+      "group_confirmed": false,
+      "group_evidence": "https://sketchfab.com/3d-models/font-del-truffe-small-part-of-sump-2-b15476c708f7424ba77b0cd0a4c411e0",
+      "role": "prior",
+      "used_for_development": true,
+      "content_sha256": [
+        "d6b86a3509beb724bba9884da2aa64605ed74dc17e0feefbc3cc2bdb45db0643",
+        "df21eed23e92ba17432c89808e2943352d9d17d80dff1077940527a951654c7b",
+        "f822757ddf580099a71e802f67f1e8b714bdc21b314405c06491453fbec88a0b"
+      ],
+      "reason": "Reviewed texture patches now used in generator appearance library and easy development example; no trained policy. Same-cave scans are not untouched test sources."
+    },
+    {
+      "id": "sketchfab_porth_yr_ogof_-_sump_9",
+      "source_group": "porth_yr_ogof",
+      "group_confirmed": false,
+      "group_evidence": "https://sketchfab.com/3d-models/porth-yr-ogof-sump-9-3cf9f626271f47c2be9dc7e7ad1ecf9e",
+      "role": "prior",
+      "used_for_development": true,
+      "content_sha256": [
+        "9c680f63e1695de585f5edd9aee97d50293defd94dbca31dbdf8f6c4a4c42294",
+        "43579b8b5598bfc7f4efc9a82a11573a4af02d379162b7b45762234de35ab412",
+        "6723a5955af77c7892bed4a417932f182d93ad8d8558097b87266ef9cb5ee9ab",
+        "8614a619efd33f0921eea71652dc49701f415ef43e8019908043df7bca3d17e1"
+      ],
+      "reason": "Reviewed texture patches now used in generator appearance library and easy development example; no trained policy. Same-cave scans are not untouched test sources."
+    },
+    {
+      "id": "sketchfab_porth_yr_ogof_-_upper_cave_water_chamber",
+      "source_group": "porth_yr_ogof",
+      "group_confirmed": false,
+      "group_evidence": "https://sketchfab.com/3d-models/porth-yr-ogof-upper-cave-water-chamber-10056f5a22c6477db660e58b2a7c526f",
+      "role": "prior",
+      "used_for_development": true,
+      "content_sha256": [
+        "5a12e7c340e8e0dfaa90f98bf316c419df3fcb558ae4649b7540d7cc6135b705",
+        "47c65c26f59171c9ca4d2e19226bb0276c6a1f43b7b8dd807f5cb4a2cb9bf924",
+        "b87d770ee0c8561fe0c097152c18b63c661c5fd504b67796c7e4ceaffff186c7"
+      ],
+      "reason": "Reviewed texture patches now used in generator appearance library and easy development example; no trained policy. Same-cave scans are not untouched test sources."
     }
   ],
   "final_test_selection": "PENDING: designate independent, previously unused cave assets before freezing the protocol."

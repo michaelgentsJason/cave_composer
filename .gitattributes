@@ -9,3 +9,7 @@ exports/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 exports/**/*.obj binary
 # Keep the checksum-bearing paper/demo package byte-identical after cloning.
 docs/figures/showcase_hard_v02/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Texture-library manifests are pinned by their exact SHA-256 bytes.
+materials/reference_rock_v01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Matplotlib vector exports retain generator formatting and checksum-bearing bytes.
+exports/**/section_comparison.svg -diff -whitespace

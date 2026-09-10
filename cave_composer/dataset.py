@@ -27,9 +27,15 @@ def scene_seed(split,seed,index=0):
 
 def sample_config(split='train',difficulty='medium',seed=42,sampler='legacy_v02',family='mixed'):
     split=split.lower()
-    if sampler == 'topology_v03':
+    if sampler in ('topology_v03','morphology_v01'):
         from .sampling import sample_topology_config
-        return sample_topology_config(split,difficulty,scene_seed(split,seed),family)
+        config=sample_topology_config(split,difficulty,scene_seed(split,seed),family)
+        if sampler=='morphology_v01':
+            from .morphology import sample_morphology
+            config['morphology']=sample_morphology(config,scene_seed(split,seed),difficulty)
+            config['sampling']['algorithm']='morphology_v01'
+            config['sampling']['factor_scope']+='; morphology prior shared across splits, not a separate morphology-OOD claim'
+        return load_spec(config)
     if sampler != 'legacy_v02' or family != 'mixed' or split == 'ood_topology':
         raise ValueError('Use topology_v03 for named families and topology OOD')
     if difficulty not in ('easy','medium','hard'): raise ValueError('difficulty must be easy, medium or hard')
@@ -107,10 +113,11 @@ def _distribution(value):
     base=d.get('base_seed',42)
     scene_seed(split,base)
     overrides=d.get('overrides',{})
-    if not isinstance(overrides,dict) or set(overrides)-{'mesh','material'}:
-        raise ValueError('Distribution overrides are limited to mesh/material; geometry changes require a new named distribution')
     sampler=d.get('sampler','legacy_v02'); family=d.get('family','mixed')
-    if sampler not in ('legacy_v02','topology_v03'):
+    allowed={'mesh','material'}|({'morphology'} if sampler=='morphology_v01' else set())
+    if not isinstance(overrides,dict) or set(overrides)-allowed:
+        raise ValueError('Distribution overrides are limited to mesh/material; geometry changes require a new named distribution')
+    if sampler not in ('legacy_v02','topology_v03','morphology_v01'):
         raise ValueError('Unknown sampler')
     return {'schema_version':1,'split':split,'difficulty':d.get('difficulty','medium'),
             'base_seed':int(base),'overrides':overrides,'sampler':sampler,'family':family}

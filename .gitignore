@@ -8,3 +8,5 @@ outputs/
 build/
 dist/
 exports/*.zip
+# Local downloaded reference scans; reviewed attributed patches are published separately.
+/sketchfab_caves/

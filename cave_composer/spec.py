@@ -65,11 +65,11 @@ def load_spec(config):
     raw = yaml.safe_load(Path(config).read_text(encoding="utf-8")) if isinstance(config, (str, Path)) else deepcopy(config)
     if not isinstance(raw, dict):
         raise ValueError("CaveSpec must be a mapping")
-    unknown = set(raw) - (set(DEFAULTS) | {"route", "description", "ood_factors", "sampling"})
+    unknown = set(raw) - (set(DEFAULTS) | {"route", "description", "ood_factors", "sampling", "morphology"})
     if unknown:
         raise ValueError(f"Unknown CaveSpec keys: {sorted(unknown)}")
     for key in ("corridor", "robot", "geology", "mesh", "material", "validation"):
-        allowed = set(DEFAULTS[key]) | ({"palette", "prior_source", "detail_anisotropy"} if key == "material" else set())
+        allowed = set(DEFAULTS[key]) | ({"palette", "prior_source", "detail_anisotropy", "texture_library", "texture_library_sha256", "texture_id", "texture_period_metres"} if key == "material" else set())
         if set(raw.get(key, {})) - allowed:
             raise ValueError(f"Unknown {key} parameters")
     s = merge(DEFAULTS, raw)
@@ -104,6 +104,20 @@ def load_spec(config):
     number(s["geology"]["strata"], "strata", 0, 0.6)
     number(s["geology"]["formations"], "formations", 0, 200)
     number(s["material"]["roughness"], "roughness", 0, 1)
+    mat=s['material']
+    if any(k in mat for k in ['texture_library','texture_library_sha256','texture_id']):
+        if not isinstance(mat.get('texture_library'),str) or not mat['texture_library']:
+            raise ValueError('Reference textures require texture_library')
+        fingerprint=mat.get('texture_library_sha256','')
+        if not isinstance(fingerprint,str) or len(fingerprint)!=64 or any(c not in '0123456789abcdef' for c in fingerprint):
+            raise ValueError('Reference textures require a pinned SHA256')
+        if 'texture_id' in mat and (not isinstance(mat['texture_id'],str) or not mat['texture_id']):
+            raise ValueError('texture_id must be a nonempty string')
+        number(mat['seed'],'material.seed',0,2**32-1)
+        if int(mat['seed'])!=mat['seed']:raise ValueError('material.seed must be an integer')
+        if 'palette' in mat:raise ValueError('Reference textures and palette override are mutually exclusive')
+    if 'texture_period_metres' in mat:
+        number(mat['texture_period_metres'],'texture_period_metres',.1,20)
     number(s['material'].get('detail_anisotropy',1),'detail_anisotropy',1,4)
     if 'palette' in s['material']:
         palette=s['material']['palette']
@@ -138,4 +152,7 @@ def load_spec(config):
         number(b["length"], "bottleneck.length", 1, 30)
         for d in ("width", "height"):
             number(b[d], f"bottleneck.{d}", safety * 2 + 0.2, 15)
+    if 'morphology' in s:
+        from .morphology import validate_morphology
+        validate_morphology(s['morphology'],number,{'main'}|{f'branch_{i}' for i in range(len(s['branches']))})
     return s

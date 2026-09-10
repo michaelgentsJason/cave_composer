@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "name": "morphology_wide_rockfall_only",
+  "split": "morphology_development",
+  "corridor": {
+    "width": 7.5,
+    "height": 6.0,
+    "variation": 0.1,
+    "section": "irregular"
+  },
+  "robot": {
+    "radius": 0.35,
+    "margin": 0.2
+  },
+  "geology": {
+    "amplitude": 0.22,
+    "strata": 0.1,
+    "formations": 4
+  },
+  "mesh": {
+    "visual_voxel": 0.2,
+    "collision_voxel": 0.34,
+    "max_voxels": 18000000
+  },
+  "material": {
+    "style": "limestone",
+    "seed": 97011,
+    "roughness": 0.83,
+    "texture_library": "materials/reference_rock_v01/library.json",
+    "texture_library_sha256": "d3e1711323adf05b62213f723c11d7940df6117568cb8e105d08218865138000",
+    "texture_id": "porth_yr_ogof_-_sump_9_patch_03",
+    "texture_period_metres": 1.2
+  },
+  "branches": [],
+  "chambers": [],
+  "bottlenecks": [],
+  "validation": {
+    "max_slope_degrees": 40.0
+  },
+  "description": "Wider paired morphology inspection: aperture +25 percent; same route, seeds, texture and matched cameras.",
+  "route": [
+    {
+      "straight": 14
+    },
+    {
+      "turn": 30,
+      "radius": 8
+    },
+    {
+      "straight": 14
+    },
+    {
+      "turn": -30,
+      "radius": 8
+    },
+    {
+      "straight": 14
+    }
+  ],
+  "morphology": {
+    "features": [
+      {
+        "id": "debris_cluster",
+        "kind": "rockfall",
+        "at": 0.73,
+        "length": 5,
+        "span": 5.625,
+        "depth": 1.875,
+        "side": -1,
+        "count": 7
+      }
+    ]
+  }
+}

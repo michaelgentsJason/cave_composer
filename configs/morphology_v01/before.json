@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "name": "morphology_before",
+  "split": "morphology_development",
+  "corridor": {
+    "width": 6.0,
+    "height": 4.8,
+    "variation": 0.1,
+    "section": "irregular"
+  },
+  "robot": {
+    "radius": 0.35,
+    "margin": 0.2
+  },
+  "geology": {
+    "amplitude": 0.22,
+    "strata": 0.1,
+    "formations": 4
+  },
+  "mesh": {
+    "visual_voxel": 0.2,
+    "collision_voxel": 0.34,
+    "max_voxels": 18000000
+  },
+  "material": {
+    "style": "limestone",
+    "seed": 97011,
+    "roughness": 0.83,
+    "texture_library": "materials/reference_rock_v01/library.json",
+    "texture_library_sha256": "d3e1711323adf05b62213f723c11d7940df6117568cb8e105d08218865138000",
+    "texture_id": "porth_yr_ogof_-_sump_9_patch_03",
+    "texture_period_metres": 1.2
+  },
+  "branches": [],
+  "chambers": [],
+  "bottlenecks": [],
+  "validation": {
+    "max_slope_degrees": 40.0
+  },
+  "description": "Paired structural-morphology inspection: fixed layout, texture, seeds and cameras.",
+  "route": [
+    {
+      "straight": 14
+    },
+    {
+      "turn": 30,
+      "radius": 8
+    },
+    {
+      "straight": 14
+    },
+    {
+      "turn": -30,
+      "radius": 8
+    },
+    {
+      "straight": 14
+    }
+  ]
+}

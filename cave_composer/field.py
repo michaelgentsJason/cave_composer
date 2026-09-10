@@ -65,6 +65,17 @@ class CaveField:
             lower = np.minimum(lower, center-radii-2)
             upper = np.maximum(upper, center+radii+2)
         self.bounds = np.array([lower, upper])
+        self.morphology = None
+        if spec.get('morphology'):
+            from .morphology import Morphology
+            self.morphology=Morphology(spec['morphology'],self,seed)
+            cross=spec['morphology'].get('cross_section',{})
+            extra=(cross.get('amplitude',0)+cross.get('eccentricity',0))*max(self.w.max(),self.h.max())*2
+            # Zero-strength modules preserve the old lattice and mesh byte-for-byte.
+            self.bounds += np.array([[-extra]*3,[extra]*3])
+            for point in self.morphology.extra_bounds():
+                self.bounds[0]=np.minimum(self.bounds[0],point)
+                self.bounds[1]=np.maximum(self.bounds[1],point)
 
     def __call__(self, points):
         points = np.asarray(points, dtype=float).reshape(-1,3)
@@ -80,15 +91,19 @@ class CaveField:
             u = np.einsum("nkj,nkj->nk",delta,self.side[idx])
             v = np.einsum("nkj,nkj->nk",delta,self.up[idx])
             enddist = t-tclip
+            section_gain=1.
+            if self.morphology:
+                u,v,section_gain=self.morphology.section_coordinates(u,v,idx,tclip)
             p = self.power[idx]
             tilt = self.asym[idx]*v
             w = self.w[idx]*(1 + self.asym[idx]*0.4*np.tanh(v))
             rho = (np.abs((u+tilt)/w)**p + np.abs(v/self.h[idx])**p + np.abs(enddist/np.minimum(w,self.h[idx]))**p)**(1/p)
-            base = np.max((1-rho)*np.minimum(w,self.h[idx]),axis=1)
+            base = np.max((1-rho/section_gain)*np.minimum(w,self.h[idx]),axis=1)
             distance = np.sqrt(np.min(np.sum(delta*delta,axis=2),axis=1))
             for center, radii in self.lobes:
                 ell = (1-np.sqrt(np.sum(((q-center)/radii)**2,axis=1)))*radii.min()
                 base = np.maximum(base,ell)
+            if self.morphology:base=self.morphology.apply_features(q,base,solid=False)
             x,y,z = q.T
             ph = self.phase
             # Tilted bedding creates continuous shelves across branches; two erosion scales
@@ -98,11 +113,13 @@ class CaveField:
                      +0.16*np.sin(x*3.7-y*2.8+z*1.8+ph[8]))
             bedding = np.tanh(3*np.sin(z*4.1+x*0.23+y*0.11+ph[9]))
             fracture = np.exp(-(np.sin(x*0.63-y*0.47+z*0.2+ph[10])/0.14)**2)
-            f = base + self.spec["geology"]["amplitude"]*(macro+0.22*fracture) + self.spec["geology"]["strata"]*bedding
+            multiplier=self.morphology.roughness_multiplier(q) if self.morphology else 1.
+            f = base + self.spec["geology"]["amplitude"]*multiplier*(macro+0.22*fracture) + self.spec["geology"]["strata"]*bedding
             for center,radii in self.rocks:
                 rock = (np.sum(np.abs((q-center)/radii)**1.65,axis=1)**(1/1.65)-1)*radii.min()
                 rock += 0.065*np.sin(x*5.1+y*3.7)*np.sin(z*4.2-x*1.8)
                 f = np.minimum(f,rock)
+            if self.morphology:f=self.morphology.apply_features(q,f,solid=True)
             f = np.maximum(f, self.protected_radius-distance)
             out[start:start+len(q)] = f
         return out

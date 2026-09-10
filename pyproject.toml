@@ -15,6 +15,7 @@ cave-dataset = "cave_composer.cli:dataset_main"
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
+reference-import = ["opencv-python-headless>=4.8"]
 
 [tool.setuptools.packages.find]
 include = ["cave_composer*"]
