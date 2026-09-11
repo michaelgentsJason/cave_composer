@@ -1,0 +1,17 @@
+[
+  {
+    "file": "flashsac_rss2026.html",
+    "url": "https://www.roboticsproceedings.org/rss22/p099.html",
+    "sha256": "ae4d6a62037a83e14045ac55646333111e4fd8e05f37ae93c3b00f608c5584c0",
+    "verified_utc": "2026-09-10T13:30:43.031665+00:00",
+    "status": "official_proceedings_bibtex_verified"
+  },
+  {
+    "file": "tobin2017_crossref.bib",
+    "url": "https://api.crossref.org/works/10.1109/IROS.2017.8202133/transform/application/x-bibtex",
+    "sha256": "b847253a1cce9f59eac6dd8961f1099f1652e8143a51513b0535298b72c1f37e",
+    "verified_utc": "2026-09-10T13:31:43.176746+00:00",
+    "status": "published_metadata_verified",
+    "fallback_reason": "DBLP returned HTML challenge; used CrossRef BibTeX and IEEE publisher record"
+  }
+]

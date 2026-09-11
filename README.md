@@ -1,5 +1,17 @@
 # Automated Cave Composer
 
+**Reproduce the complete release:** [clean installation, checks, asset rebuilds and paper](reproducibility/README.md).
+The latest release includes the final-mesh/portal checks, the frozen
+[eight-cave / 24-task interface pack](exports/cavern_pretraining_v02/README.md),
+archived pilot inputs and failures, and the [current paper PDF](overleaf/main.pdf).
+Use the pinned Python 3.12 environment in `requirements-lock.txt` for reproduction.
+
+**CAVERN research workspace:** [paper draft and build instructions](overleaf/README.md),
+[claim/evidence ledger](overleaf/CLAIM_EVIDENCE.yaml), and
+[offline training handoff](research_workspace/README.md).
+The manuscript separates checked generator artifacts from pending simulator
+and policy evidence. Cave Composer APIs and existing assets keep their names.
+
 **Latest wider caves:** [7.5 m × 6.0 m morphology comparison](exports/morphology_v02/index.html)
 and [release notes](docs/morphology_v02.md). The gallery includes matched textured
 and clay views, verified GLB/OBJ downloads and measured cross-sections.
@@ -135,7 +147,8 @@ the observed CAVERS rock palette without requiring the source dataset at runtime
 - [PLUME comparison](docs/plume_comparison.md)
 - [Stonefish interface](docs/stonefish_interface.md)
 
-Generated binaries live under ignored `outputs/`; run the configs to recreate
+Generated binaries normally live under ignored `outputs/`; selected historical
+pilot/task evidence is tracked for this release. Run configs to recreate
 them after cloning. `docs/independent_checkpoint.json` and Git commit `7bf8111`
 record the independent implementation before PLUME was accessed.
 
@@ -207,5 +220,6 @@ exported as a Stonefish normal map. Material statistics from a dataset prevent
 calling that same dataset entirely untouched appearance OOD.
 
 External CAVERS/Sketchfab assets are not bundled into the source repository.
-The included examples use independently generated geometry and procedural
-sandstone textures. This repository does not yet include an owner-selected license.
+The included examples use independently generated geometry, procedural materials
+and the attributed reference patches described above. This repository does not
+yet include an owner-selected license.

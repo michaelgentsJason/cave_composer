@@ -1,0 +1,22 @@
+request_00_full PASS 6.0
+request_00_restricted PASS 5.5
+request_01_full PASS 6.2
+Traceback (most recent call last):
+  File "D:\Desktop\cave-composer\outputs\github_release_v03\checkout\scripts\export_c2_portable_v02.py", line 21, in main
+    with (logs/(sid+'_audit.log')).open('w',encoding='utf-8') as log:subprocess.run(audit,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=90)
+                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['D:/Blender/blender.exe', '--background', '--python-exit-code', '1', '--python', 'cave_composer/blender_audit.py', '--', '--scene', 'outputs\\pretraining_rebuild\\open_assets\\request_01_restricted']' returned non-zero exit status 1.
+request_01_restricted FAIL 0.7
+request_02_full PASS 6.0
+request_02_restricted PASS 5.5
+request_03_full PASS 6.1
+request_03_restricted PASS 5.8
+request_00_full textures, geometry, two portals, crossing path PASS
+request_00_restricted textures, geometry, two portals, crossing path PASS
+request_01_full textures, geometry, two portals, crossing path PASS
+request_02_full textures, geometry, two portals, crossing path PASS
+request_02_restricted textures, geometry, two portals, crossing path PASS
+request_03_full textures, geometry, two portals, crossing path PASS
+request_03_restricted textures, geometry, two portals, crossing path PASS

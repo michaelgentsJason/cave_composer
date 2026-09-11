@@ -1,0 +1,209 @@
+{
+  "status": "PASS",
+  "checks": {
+    "claim_artifact_bindings": 26,
+    "frozen_release": {
+      "status": "PASS",
+      "scenes": 8,
+      "fixed_episodes": 24,
+      "primary_episodes": 16,
+      "manifest_sha256": "0ba40c65e6ed375fdb22f2b8244dbf9742b9039c889718afa527dca476a3e2e5",
+      "training_approved": false,
+      "simulator_lab_vehicle_runtime_pending": true
+    },
+    "same_seed_mesh_and_material": "PASS",
+    "sampled_tasks": {
+      "requested": 3,
+      "accepted": 3
+    },
+    "portal_export": "PASS",
+    "new_textured_glb_obj": [
+      {
+        "difficulty": "reproduction",
+        "name": "cave",
+        "folder": "portable",
+        "status": "PASS",
+        "embedded_glb_images": [
+          {
+            "mime": "image/png",
+            "size": [
+              1024,
+              1024
+            ],
+            "sha256": "3aac9596865628e7471b5d8cd65a6e2d50071ba8bf82609bb7cdf181f2cfc339"
+          },
+          {
+            "mime": "image/png",
+            "size": [
+              1024,
+              1024
+            ],
+            "sha256": "85897bf2e38836db4f7842903071d6d4d439c0eddc71fc66527b90d133fdd0ea"
+          }
+        ],
+        "obj_relative_texture_paths": [
+          "textures/basecolor.png",
+          "textures/normal.png"
+        ],
+        "formats": {
+          "glb": {
+            "triangles": 120178,
+            "openings": 2,
+            "geometry_max_position_difference_m": 5.785366462132784e-07,
+            "crossing_certificate": {
+              "status": "PASS",
+              "samples": 367,
+              "numerical_allowance": 1e-06,
+              "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+              "sample_max_step": 0.2,
+              "minimum_sampled_clearance": 1.3709360782200788,
+              "continuous_clearance_lower_bound": 1.2709350782200788,
+              "required_radius": 0.55,
+              "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+            }
+          },
+          "obj": {
+            "triangles": 120178,
+            "openings": 2,
+            "geometry_max_position_difference_m": 1.1529450103073974e-06,
+            "crossing_certificate": {
+              "status": "PASS",
+              "samples": 367,
+              "numerical_allowance": 1e-06,
+              "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+              "sample_max_step": 0.2,
+              "minimum_sampled_clearance": 1.3709362183011589,
+              "continuous_clearance_lower_bound": 1.2709352183011589,
+              "required_radius": 0.55,
+              "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+            }
+          }
+        }
+      }
+    ],
+    "difficulty_assets": 30,
+    "pilot_analysis_and_table": "PASS",
+    "paper": "PASS"
+  },
+  "commands": [
+    {
+      "name": "scene_a",
+      "command": [
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\venv\\Scripts\\python.exe",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\generate.py",
+        "--config",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\configs\\morphology_v02\\after.json",
+        "--seed",
+        "97001",
+        "--output",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\scene_a"
+      ],
+      "returncode": 0,
+      "seconds": 36.483196100001805
+    },
+    {
+      "name": "scene_b",
+      "command": [
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\venv\\Scripts\\python.exe",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\generate.py",
+        "--config",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\configs\\morphology_v02\\after.json",
+        "--seed",
+        "97001",
+        "--output",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\scene_b"
+      ],
+      "returncode": 0,
+      "seconds": 36.575707500000135
+    },
+    {
+      "name": "tasks",
+      "command": [
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\venv\\Scripts\\python.exe",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\scripts\\build_navigation_tasks.py",
+        "--scene",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\scene_a",
+        "--output",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\tasks",
+        "--count",
+        "3",
+        "--seed",
+        "88200"
+      ],
+      "returncode": 0,
+      "seconds": 8.484457000013208
+    },
+    {
+      "name": "portals",
+      "command": [
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\venv\\Scripts\\python.exe",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\scripts\\export_portals.py",
+        "--scene",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\scene_a",
+        "--output",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\open"
+      ],
+      "returncode": 0,
+      "seconds": 5.263615800009575
+    },
+    {
+      "name": "blender_audit",
+      "command": [
+        "D:/Blender/blender.exe",
+        "--background",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\cave_composer\\blender_audit.py",
+        "--",
+        "--scene",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\open"
+      ],
+      "returncode": 0,
+      "seconds": 6.130857799988007
+    },
+    {
+      "name": "portable_export",
+      "command": [
+        "D:/Blender/blender.exe",
+        "--background",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\scripts\\export_textured_cave.py",
+        "--",
+        "--scene",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\open",
+        "--output",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\portable",
+        "--name",
+        "cave",
+        "--resolution",
+        "1024"
+      ],
+      "returncode": 0,
+      "seconds": 8.878571799999918
+    },
+    {
+      "name": "analysis",
+      "command": [
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\venv\\Scripts\\python.exe",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\scripts\\analyze_c1_pilot_v02.py",
+        "--output",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\outputs\\reproduction_full_v03\\analysis"
+      ],
+      "returncode": 0,
+      "seconds": 3.270801999999094
+    },
+    {
+      "name": "paper",
+      "command": [
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\venv\\Scripts\\python.exe",
+        "D:\\Desktop\\cave-composer\\outputs\\github_release_v03\\checkout\\scripts\\build_cavern_paper.py"
+      ],
+      "returncode": 0,
+      "seconds": 3.30663249999634
+    }
+  ],
+  "scope": "Release reproducibility and geometric checks; no training or policy evaluation"
+}

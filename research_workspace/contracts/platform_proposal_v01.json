@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "profile_id": "stereo_localization_assisted_draft_v01",
+  "status": "UNCONFIRMED",
+  "authority": "Proposed after author authorized a draft; not the collaborator's actual configuration",
+  "simulator": {"framework": "Isaac Lab", "engine": "Isaac Sim", "versions": "UNCONFIRMED", "runtime_evidence": null},
+  "coordinates": {"units": "metres", "world": "right-handed Z-up", "body": "X forward, Y left, Z up", "camera_optical": "X right, Y down, Z forward", "quaternion": "wxyz"},
+  "actor_observations": [
+    {"key": "rgb_left", "status": "UNCONFIRMED", "proposal": "synchronized RGB, uint8 HWC; resolution and intrinsics fixed in approved rig"},
+    {"key": "rgb_right", "status": "UNCONFIRMED", "proposal": "same timing, exposure, material and processing as left view"},
+    {"key": "goal_position_body", "status": "UNCONFIRMED", "proposal": "3D relative goal, body frame, metres", "derivation": "requires localization; initial simulation proposal uses ground-truth body pose", "claim_condition": "localization-assisted visual navigation, not RGB-only navigation"},
+    {"key": "imu", "status": "UNCONFIRMED", "proposal": "angular velocity and specific force; frames, bias/noise and rates require approval"},
+    {"key": "pressure", "status": "UNCONFIRMED", "proposal": "pressure sensor; reference pressure and depth conversion require approval"},
+    {"key": "previous_action", "status": "UNCONFIRMED", "proposal": "previous normalized command, zeros after reset"}
+  ],
+  "actor_excluded_by_default": ["occupancy", "planned_path", "construction_centerline", "navigation_graph", "depth", "ground_truth_disparity", "scene_id"],
+  "privileged": {"fields": ["global_pose", "goal_world", "witness_paths", "meshes", "occupancy", "collision_events"], "use": "reset, validation and metrics; critic access needs a separately declared profile"},
+  "actions": {"status": "UNCONFIRMED", "proposal": "normalized body twist [vx, vy, vz, wx, wy, wz]", "shape": [6], "range": [-1, 1], "physical_units": ["m/s", "m/s", "m/s", "rad/s", "rad/s", "rad/s"], "scales": "UNCONFIRMED", "controller_and_vehicle_dynamics": "UNCONFIRMED"},
+  "task_budget": {"status": "UNCONFIRMED", "proposal_max_steps": 1500, "control_rate_hz": "UNCONFIRMED", "termination_precedence": ["out_of_bounds", "collision", "success", "timeout"]},
+  "training": {"algorithms": ["FlashSAC", "recurrent_visual_PPO"], "relationship": "separate baselines; one shared policy per algorithm/config/seed across caves", "heterogeneous_instances": true, "sampler_proposal": "uniform over caves, then uniformly over accepted tasks", "visual_encoders_and_memory": "UNCONFIRMED", "active_collaborator_manifest": "UNCONFIRMED"},
+  "evaluation": {"checkpoint_selection": "generated validation only, fixed before final tests", "freeze": ["checkpoint", "normalizer", "observation preprocessing", "inference rule", "task list", "asset hashes"], "real_task_scope": "preselected local segments", "intervention": "no in-episode resets, manual correction or dense expert waypoints"}
+}

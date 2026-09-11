@@ -11,12 +11,24 @@ from scipy import ndimage
 from .validation import mesh_clearance
 
 
+def distance_allowance(mesh):
+    """Explicit engineering tolerance, not an interval-arithmetic error proof."""
+    return max(1e-6, 64*np.finfo(float).eps*max(1., float(np.abs(mesh.vertices).max())))
+
+
 def certify_polyline(mesh, points, safety, sample_step=.25):
     if not np.isfinite(safety) or safety<=0 or not np.isfinite(sample_step) or sample_step<=0:
         raise ValueError('Safety radius and sample step must be finite and positive')
     points = np.asarray(points, dtype=float)
     if points.ndim != 2 or points.shape[1] != 3 or len(points) < 2 or not np.isfinite(points).all():
         raise ValueError('A path must contain at least two finite 3D points')
+    # Parity has no reliable cavity meaning for an open reference. Never let an
+    # implementation-specific contains() result turn this into a passing check.
+    if (not len(mesh.faces) or not np.isfinite(mesh.vertices).all()
+            or not mesh.is_watertight or not mesh.is_winding_consistent):
+        return {'status': 'FAIL', 'reason': 'closed_reference_protocol_not_applicable',
+                'protocol_applicable': False, 'samples_inside': None,
+                'required_radius': float(safety)}
     samples = [points[0]]
     maximum_step = 0.
     for a, b in zip(points[:-1], points[1:]):
@@ -26,9 +38,12 @@ def certify_polyline(mesh, points, safety, sample_step=.25):
         samples.extend(np.linspace(a, b, count + 1)[1:])
     samples = np.asarray(samples)
     distances = mesh_clearance(mesh, samples)
-    lower = float(distances.min() - maximum_step / 2)
+    epsilon = distance_allowance(mesh)
+    lower = float(distances.min() - maximum_step / 2 - epsilon)
     inside = bool(np.all(mesh.contains(samples)))
     return {'status': 'PASS' if inside and lower > safety else 'FAIL',
+            'protocol_applicable': True, 'numerical_allowance': epsilon,
+            'numerical_scope': 'floating-point proximity and parity; not a rigorous rounding-error certificate',
             'samples_inside': inside, 'samples': len(samples),
             'sample_max_step': maximum_step, 'minimum_sampled_clearance': float(distances.min()),
             'continuous_clearance_lower_bound': lower, 'required_radius': float(safety),

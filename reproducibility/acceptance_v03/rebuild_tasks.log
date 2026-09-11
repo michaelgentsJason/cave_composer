@@ -1,0 +1,26 @@
+task_0000 main_to_main PASS
+task_0001 main_to_main PASS
+D:\Desktop\cave-composer\outputs\github_release_v03\venv\Lib\site-packages\trimesh\triangles.py:659: RuntimeWarning: invalid value encountered in divide
+  v = (d1[is_ab] / (d1[is_ab] - d3[is_ab])).reshape((-1, 1))
+request_00_full PASS
+task_0000 main_to_main PASS
+task_0001 main_to_main PASS
+request_00_restricted PASS
+task_0000 main_to_main PASS
+task_0001 main_to_branch PASS
+request_01_full PASS
+task_0000 main_to_main PASS
+task_0001 main_to_main PASS
+request_01_restricted PASS
+task_0000 main_to_main PASS
+task_0001 main_to_main PASS
+request_02_full PASS
+task_0000 main_to_main PASS
+task_0001 main_to_main PASS
+request_02_restricted PASS
+task_0000 main_to_main PASS
+task_0001 main_to_main PASS
+request_03_full PASS
+task_0000 main_to_main PASS
+task_0001 main_to_main PASS
+request_03_restricted PASS

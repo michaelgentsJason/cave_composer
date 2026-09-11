@@ -1,0 +1,32 @@
+{
+  "figure": "cave_showcase.pdf",
+  "latex_label": "fig:cave-showcase",
+  "source_relative_to_repo": "docs/figures/showcase_hard_v02/figures/cave_showcase.pdf",
+  "sha256": "df3db9e73ff6692b14670638094c92faff4e04fe2341d87da7536d41b64e23df",
+  "source_copy_identical": true,
+  "source_scene": {
+    "asset": "exports/caves_difficulty_v01/hard/scene_005",
+    "seed": 1080501,
+    "source_name": "cave_hard_005",
+    "total_route_length_m": 264.53431912594203,
+    "main_route_length_m": 128.25414224013542,
+    "loops": 2,
+    "dead_ends": 2,
+    "source_mesh_sha256": "453a622aad55250da339551aae1fea19948f8889e00780bb650cf2c19723ee64",
+    "asset_sha256": {
+      "config.json": "256e22c2e8baffe719fcc811be2a7cb50037db04d8761da5866184526ec767d9",
+      "reference_visual.npz": "453a622aad55250da339551aae1fea19948f8889e00780bb650cf2c19723ee64",
+      "cave_hard_005.glb": "665449920726be7e45daff1866966fe3b8adeaec417f2a04c0dc1fdfdc1722e0"
+    },
+    "map_rotation_degrees": -23,
+    "geometry_regenerated": false
+  },
+  "content": {
+    "interior_views": "12 Blender Cycles renders",
+    "overview": "Samples from side-facing mesh triangles; not a sensor reconstruction",
+    "yellow_lines": "Construction centerlines; not executed trajectories or independent searched paths",
+    "red_markers": "Registered camera centers",
+    "appearance": "Procedural material, inspection lighting, rocks and checkerboard props; no participating water medium"
+  },
+  "role": "Qualitative illustration of a previously generated cave; not a new experiment or policy result"
+}

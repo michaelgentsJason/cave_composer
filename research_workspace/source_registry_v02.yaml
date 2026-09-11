@@ -1,0 +1,109 @@
+schema_version: 2
+authority: Metadata-only audit supplement; never rewrites historical source roles.
+previous_registry: configs/reference_registry_v01.json
+unknown_relationship_policy: ineligible_until_resolved
+grouping_rule: Physical cave identity groups scans, crops, texture derivatives and
+  all formats.
+final_ood_content_read_for_generator_tuning_this_round: false
+sources:
+- group_id: cavers_physical_cave
+  identity: Cueva de la Victoria, Malaga (existing registry; user relationship confirmation
+    incomplete)
+  identity_confirmed: false
+  asset_ids:
+  - CAVERS
+  prior_or_development_used: true
+  use_evidence: configs/reference_registry_v01.json
+  training_use: UNCONFIRMED
+  untouched_final_eligible: false
+  reason: Already used for reference statistics and appearance development.
+  license: UNCONFIRMED
+- group_id: font_del_truffe
+  identity: Font del Truffe; cave-level grouping is conservative.
+  identity_confirmed: false
+  asset_ids:
+  - 46c5b87b385b4e48858926d0db642732
+  - b15476c708f7424ba77b0cd0a4c411e0
+  prior_or_development_used: true
+  use_evidence: docs/sketchfab_texture_inventory_v01.md
+  training_use: UNCONFIRMED
+  untouched_final_eligible: false
+  reason: Entrance and Sump 2 derivatives share a prior-used physical source group.
+  license: Existing local attribution records require author review before redistribution.
+- group_id: porth_yr_ogof
+  identity: Porth Yr Ogof; Sump 9 and Upper Cave Water Chamber are conservatively
+    grouped.
+  identity_confirmed: false
+  asset_ids:
+  - 3cf9f626271f47c2be9dc7e7ad1ecf9e
+  - 10056f5a22c6477db660e58b2a7c526f
+  prior_or_development_used: true
+  use_evidence: materials/reference_rock_v01/library.json
+  training_use: UNCONFIRMED
+  untouched_final_eligible: false
+  reason: Previously used texture references cannot become untouched OOD through cropping
+    or renaming.
+  license: Existing local attribution records require author review before redistribution.
+- group_id: sketchfab_fifth_unconfirmed
+  identity: UNCONFIRMED
+  identity_confirmed: false
+  asset_ids: []
+  prior_or_development_used: UNCONFIRMED
+  use_evidence: User intends five assets; historical local inventory records four.
+  training_use: UNCONFIRMED
+  untouched_final_eligible: false
+  reason: Need exact asset ID, source relationship and historical use before eligibility.
+  license: UNCONFIRMED
+- group_id: qixingyan_zhaoqing
+  identity: Qixingyan, Zhaoqing, Guangdong (user-reported acquisition)
+  identity_confirmed: false
+  asset_ids:
+  - zhaoqing_train_long
+  - zhaoqing_val_short
+  prior_or_development_used: UNCONFIRMED
+  use_evidence: exports/metashape_crops_v01/validation_exports.json
+  use_scope: Asset inspection/cropping and proposed training split; generator fitting
+    not established.
+  acquisition: AC1 and Insight9, user report; not independently checked.
+  reconstruction: Metashape
+  acquisition_date: UNCONFIRMED
+  acquisition_environment: UNCONFIRMED; do not call underwater acquisition without
+    records.
+  calibration_and_metric_scale: UNCONFIRMED
+  training_use: Long crop designated for training; actual training use UNCONFIRMED.
+  untouched_final_eligible: false
+  reason: Short crop is a same-source spatial holdout if the long crop is used; scale
+    and use history unresolved.
+  license: Team/author decision pending.
+  source_preparation_operations:
+  - inspection
+  - cropping
+  - export
+  - proposed long/short split
+  preparation_scope_note: These known preparation operations alone do not establish
+    generator fitting or actual policy-training use; keep that history separate.
+- group_id: catacombs_reconstruction
+  identity: Catacombs Visual-Inertial Data reconstruction; physical extent/group relationships
+    UNCONFIRMED.
+  identity_confirmed: false
+  asset_ids:
+  - catacombs_train_long
+  - catacombs_val_short
+  prior_or_development_used: UNCONFIRMED
+  use_evidence: exports/metashape_crops_v01/validation_exports.json
+  use_scope: Asset inspection/cropping and proposed training split; generator fitting
+    not established.
+  reconstruction: Metashape
+  calibration_and_metric_scale: UNCONFIRMED
+  training_use: Long crop designated for training; actual training use UNCONFIRMED.
+  untouched_final_eligible: false
+  reason: Same-source short crop is not independently unseen cave geometry; original
+    scan holes remain.
+  license: Original dataset and derivative redistribution terms UNCONFIRMED.
+  source_preparation_operations:
+  - inspection
+  - cropping
+  - export
+  - proposed long/short split
+  preparation_scope_note: These known preparation operations alone do not establish
+    generator fitting or actual policy-training use; keep that history separate.

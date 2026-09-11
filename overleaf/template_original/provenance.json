@@ -1,0 +1,33 @@
+{
+  "downloaded_utc": "2026-09-10T12:59:24.372452+00:00",
+  "files": {
+    "ieeeconf.zip": {
+      "url": "https://ras.papercept.net/conferences/support/files/ieeeconf.zip",
+      "resolved_url": "https://ras.papercept.net/conferences/support/files/ieeeconf.zip",
+      "sha256": "11d1051d5fe3dafd1e25bc7a8b66265cbe65dc135e26440cc6661baeeeb90c76",
+      "bytes": 102812,
+      "downloaded_utc": "2026-09-10T12:59:25.661576+00:00"
+    },
+    "IEEEtranBST.zip": {
+      "url": "https://ras.papercept.net/conferences/support/files/IEEEtranBST.zip",
+      "resolved_url": "https://ras.papercept.net/conferences/support/files/IEEEtranBST.zip",
+      "sha256": "c6c0aa0ef6794eb502223eb6bf0ca6dfc5be0d8f6d288d06bbc8c9de3e5287a3",
+      "bytes": 209528,
+      "downloaded_utc": "2026-09-10T12:59:27.171034+00:00"
+    },
+    "icra2027_call.html": {
+      "url": "https://2027.ieee-icra.org/contribute/call-for-icra-2027-papers-now-accepting-submissions/",
+      "resolved_url": "https://2027.ieee-icra.org/contribute/call-for-icra-2027-papers-now-accepting-submissions/",
+      "sha256": "82440888436c00296eebd936a79b419b12a3f6ca73b084adfdff101720f109fb",
+      "bytes": 256888,
+      "downloaded_utc": "2026-09-10T12:59:29.946134+00:00"
+    },
+    "papercept_tex.html": {
+      "url": "https://ras.papercept.net/conferences/support/tex.php",
+      "resolved_url": "https://ras.papercept.net/conferences/support/tex.php",
+      "sha256": "eea3d869723aefafe6d3d82e8b25155c8ad587d14fa216c94ba578863a7640aa",
+      "bytes": 23359,
+      "downloaded_utc": "2026-09-10T12:59:31.052109+00:00"
+    }
+  }
+}

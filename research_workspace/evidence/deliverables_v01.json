@@ -1,0 +1,13 @@
+{
+  "scope": "delivery hashes, no policy result",
+  "files": {
+    "overleaf/build/main.pdf": "7e9d4af717b5f678400d779a469d49029287070d07db789d5d7e1b7f6b4e0851",
+    "outputs/cavern_paper_v01/overleaf_draft.zip": "ccd6ad468b44403db235f505bae8d35cd3db813ee69699efe785e6bd354e5eea",
+    "overleaf/CLAIM_EVIDENCE.yaml": "249c7301d0806bcabde607d83a4c3dc525feaa965506022fab875a4560468748",
+    "outputs/cavern_handoff_review_v01/manifest.json": "d24f3c10939c12326cad667cf58531a55dcd288f5120a93b33dd7606bf35924d",
+    "research_workspace/evidence/local_audit_final_v01.json": "c96115bbf6eb1f8ee55f375a3daaa1c1c88e827772ad1d4513520728d4769fbb",
+    "outputs/cavern_workspace_v01/final_tests.xml": "1ab584c1790f072d3a0d3685022860de3e4a707dbb445efb71c85658b30a23a5",
+    "overleaf/build/paper_check.json": "e38cd6c794b73186da5cc2bd928ce3c931098e08020f34e21485a81178bf7a85"
+  },
+  "official_class_and_bst_unchanged": true
+}

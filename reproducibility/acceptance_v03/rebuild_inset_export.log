@@ -1,0 +1,16 @@
+request_00_full PASS 7.3
+request_00_restricted PASS 7.5
+request_01_full PASS 8.3
+request_01_restricted PASS 7.5
+request_02_full PASS 7.8
+request_02_restricted PASS 7.2
+request_03_full PASS 7.4
+request_03_restricted PASS 7.1
+request_00_full textures, geometry, two portals, crossing path PASS
+request_00_restricted textures, geometry, two portals, crossing path PASS
+request_01_full textures, geometry, two portals, crossing path PASS
+request_01_restricted textures, geometry, two portals, crossing path PASS
+request_02_full textures, geometry, two portals, crossing path PASS
+request_02_restricted textures, geometry, two portals, crossing path PASS
+request_03_full textures, geometry, two portals, crossing path PASS
+request_03_restricted textures, geometry, two portals, crossing path PASS

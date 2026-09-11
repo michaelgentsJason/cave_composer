@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-10",
+  "auditor": "gpt-5.5-xhigh",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "checks": {
+    "gt_provenance": {
+      "status": "warn",
+      "details": "Simulation-only / mesh-derived geometric proxies"
+    },
+    "score_normalization": {
+      "status": "pass"
+    },
+    "result_existence": {
+      "status": "warn",
+      "details": "Declared exact-position seam recheck is canonical; original import rejects retained"
+    },
+    "dead_code": {
+      "status": "pass",
+      "scope": "Listed C1 scripts"
+    },
+    "scope": {
+      "status": "warn",
+      "details": "6 fixed base requests x 3 arms, descriptive pilot"
+    },
+    "eval_type": [
+      "simulation_only",
+      "self_supervised_proxy",
+      "analytic_controls"
+    ]
+  },
+  "claims": [
+    {
+      "id": "C1.6",
+      "impact": "needs_qualifier"
+    },
+    {
+      "id": "C1.7",
+      "impact": "analytic_fixture_scope_only"
+    },
+    {
+      "id": "C1.9",
+      "impact": "unsupported"
+    }
+  ],
+  "response": "experiment_audit_v02_reviewer.md",
+  "actions": "EXPERIMENT_AUDIT_v02.md"
+}

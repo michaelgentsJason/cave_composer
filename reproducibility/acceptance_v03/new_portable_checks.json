@@ -1,0 +1,64 @@
+[
+  {
+    "difficulty": "reproduction",
+    "name": "cave",
+    "folder": "portable",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "3aac9596865628e7471b5d8cd65a6e2d50071ba8bf82609bb7cdf181f2cfc339"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "85897bf2e38836db4f7842903071d6d4d439c0eddc71fc66527b90d133fdd0ea"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 120178,
+        "openings": 2,
+        "geometry_max_position_difference_m": 5.785366462132784e-07,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 367,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.3709360782200788,
+          "continuous_clearance_lower_bound": 1.2709350782200788,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 120178,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.1529450103073974e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 367,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.3709362183011589,
+          "continuous_clearance_lower_bound": 1.2709352183011589,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  }
+]

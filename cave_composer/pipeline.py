@@ -48,8 +48,9 @@ def attach_intersection_audit(report,audit):
     report['status']='VALID' if all(report['checks'].values()) else 'INVALID'
 
 
-def generate(config,seed=42,output=None,render=False,blender=None,save_blend=False):
+def generate(config,seed=42,output=None,render=False,blender=None,save_blend=False,*,protect_passage=True):
     if isinstance(seed,bool) or int(seed)!=seed or seed<0: raise ValueError('seed must be a nonnegative integer')
+    if not isinstance(protect_passage,bool): raise ValueError('protect_passage must be boolean')
     spec=load_spec(config)
     if 'texture_library' in spec['material']:
         from .reference_material import read_library
@@ -69,6 +70,7 @@ def generate(config,seed=42,output=None,render=False,blender=None,save_blend=Fal
     for name in ['visual','collision','materials','navigation','metadata','previews']: (temp/name).mkdir()
     started=time.perf_counter(); timings={}
     run={'schema_version':1,'seed':int(seed),'config_sha256':digest(spec),
+         'experimental_controls': {'protect_passage': protect_passage},
          'environment_sha256':digest(environment),'render':bool(render),'save_blend':bool(save_blend),
          'status':'RUNNING','started_utc':datetime.now(timezone.utc).isoformat(),'stages':[]}
     def stage(name):
@@ -79,7 +81,8 @@ def generate(config,seed=42,output=None,render=False,blender=None,save_blend=Fal
         atomic_json(temp/'metadata/run.json',run)
     try:
         stage('topology')
-        routes=build_routes(spec); field=CaveField(spec,routes,int(seed))
+        routes=build_routes(spec)
+        field=CaveField(spec,routes,int(seed)) if protect_passage else CaveField(spec,routes,int(seed),protect_passage=False)
         graph=navigation_graph(routes,field.chamber_records,spec['bottlenecks'])
         dump(temp/'metadata/config.json',spec)
         (temp/'metadata/config.yaml').write_text(yaml.safe_dump(spec,sort_keys=False),encoding='utf-8')
@@ -128,6 +131,8 @@ def generate(config,seed=42,output=None,render=False,blender=None,save_blend=Fal
         stage('topology_preview')
         topology_preview(routes,graph,visibility,temp/'previews',spec['name'],planning)
         geometry_spec={k:v for k,v in spec.items() if k not in ['name','description','material','split','ood_factors']}
+        if not protect_passage:
+            geometry_spec['experimental_protection_disabled']=True
         provenance={'composer_version':'0.3.0','seed':int(seed),'geometry_config_sha256':digest(geometry_spec),
                     'visual_mesh_sha256':mesh_digest(visual),'collision_mesh_sha256':mesh_digest(collision),
                     'appearance_sha256':digest(spec['material']),'platform':platform.platform(),'python':platform.python_version(),

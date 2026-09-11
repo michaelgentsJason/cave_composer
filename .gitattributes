@@ -13,3 +13,21 @@ docs/figures/showcase_hard_v02/** -text whitespace=blank-at-eol,blank-at-eof,spa
 materials/reference_rock_v01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Matplotlib vector exports retain generator formatting and checksum-bearing bytes.
 exports/**/section_comparison.svg -diff -whitespace
+# Published historical evidence includes hash-bound JSON and source snapshots.
+outputs/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research_workspace/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+overleaf/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.pdf binary
+*.zip binary
+# Preserve archived log formatting, intentional Markdown breaks and official templates.
+outputs/** -whitespace
+research_workspace/** -whitespace
+overleaf/template_original/** -whitespace
+overleaf/ieeeconf.cls -whitespace
+overleaf/IEEEtran.bst -whitespace
+overleaf/figures/** -whitespace
+overleaf/refs.bib -whitespace
+# This source-role record is bound by the published evidence ledger.
+configs/reference_registry_v01.json -text -whitespace
+# Acceptance receipts are also bound by exact byte hashes.
+reproducibility/acceptance_v03/** -text -whitespace

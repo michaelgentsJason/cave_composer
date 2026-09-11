@@ -1,0 +1,24 @@
+{
+  "template_only": true,
+  "algorithm": null,
+  "training_seed": null,
+  "dataset_id": null,
+  "inference_rule": null,
+  "policy_frozen": null,
+  "in_episode_interventions": null,
+  "episodes_fixed_before_policy_evaluation": null,
+  "platform_versions": null,
+  "termination_precedence": [
+    "out_of_bounds",
+    "collision",
+    "success",
+    "timeout"
+  ],
+  "raw_runtime_receipt": null,
+  "checkpoint_sha256": null,
+  "dataset_manifest_sha256": null,
+  "config_sha256": null,
+  "normalizer_sha256": null,
+  "preprocessing_sha256": null,
+  "episode_manifest_sha256": null
+}

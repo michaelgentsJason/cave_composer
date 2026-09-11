@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "scenes": 8,
+  "fixed_episodes": 24,
+  "primary_episodes": 16,
+  "manifest_sha256": "75c7d29263fc66b43d763959ca4a14289e288d8f4826503be8227ea444eb5c2f",
+  "training_approved": false,
+  "simulator_lab_vehicle_runtime_pending": true
+}

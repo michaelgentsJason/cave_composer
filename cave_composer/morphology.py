@@ -155,5 +155,6 @@ class Morphology:
         return {'version':1,'config':self.config,'features':self.records,
                 'solid_primitive_count':sum(p['solid'] for p in self.primitives),
                 'void_primitive_count':sum(not p['solid'] for p in self.primitives),
-                'protection':'All modifiers precede the final protected-passage union; intrusive features may be clipped.',
+                'protection':('All modifiers precede the final protected-passage union; intrusive features may be clipped.'
+                              if self.field.protect_passage else 'EXPERIMENTAL: protected-passage union disabled.'),
                 'scope':'Parameterized structural variation; not a fitted real-cave distribution or erosion simulation.'}

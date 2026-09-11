@@ -149,6 +149,8 @@ def surface_path_certificate(mesh, points, safety, sample_step=.20):
         raise ValueError('Expected a finite polyline with at least two points')
     if not np.isfinite(safety) or safety <= 0 or not np.isfinite(sample_step) or sample_step <= 0:
         raise ValueError('Safety and sampling step must be positive and finite')
+    if not len(mesh.faces) or not np.isfinite(mesh.vertices).all():
+        raise ValueError('Expected a nonempty finite open surface')
     samples = [points[0]]
     maximum_step = 0.
     for a, b in zip(points[:-1], points[1:]):
@@ -157,8 +159,12 @@ def surface_path_certificate(mesh, points, safety, sample_step=.20):
         maximum_step = max(maximum_step, length / count)
         samples.extend(np.linspace(a, b, count + 1)[1:])
     distances = mesh_clearance(mesh, np.asarray(samples))
-    lower = float(distances.min() - maximum_step / 2)
+    from .planning import distance_allowance
+    epsilon = distance_allowance(mesh)
+    lower = float(distances.min() - maximum_step / 2 - epsilon)
     return {'status': 'PASS' if lower > safety else 'FAIL', 'samples': len(samples),
+            'numerical_allowance': epsilon,
+            'numerical_scope': 'floating-point proximity; engineering tolerance, not interval arithmetic',
             'sample_max_step': maximum_step, 'minimum_sampled_clearance': float(distances.min()),
             'continuous_clearance_lower_bound': lower, 'required_radius': float(safety),
             'method': 'distance to open triangles minus half maximum sample spacing; no open-mesh contains test'}

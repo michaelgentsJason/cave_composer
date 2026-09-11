@@ -1,0 +1,118 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(ieeeconf.cls
+Document Class: ieeeconf 2016/4/23 revision V1.6b by Pradeep Misra
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.f
+d)
+-- This is a 10 point document.
+)
+** ATTENTION: Overriding IEEE standard margins (line 2).
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.st
+y
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
+))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath
+.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext
+.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.
+sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.
+sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.
+sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssym
+b.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfon
+ts.sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cx.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
+.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cs.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
+aphics.cfg)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
+ftex.def)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\bookta
+bs.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.s
+ty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\co
+lor.cfg)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
+lor.ltx))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
+kend-pdftex.def) (main.aux)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
+p-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
+stopdf-base.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
+df-sys.cfg)) (sections/abstract.tex) (sections/introduction.tex [1{C:/Users/Adm
+inistrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Administr
+ator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}])
+(sections/related_work.tex [2 <./figures/showcase_hard_v02/cave_showcase.pdf>])
+(sections/method.tex
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.f
+d)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.f
+d) [3]) (sections/platform.tex [4 <./figures/generated/cave_composer_method.pdf
+>]
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+)) (sections/evaluation.tex [5] (tables/generator.tex) (tables/navigation.tex)
+[6 <./figures/generated/cavern_framework.pdf>] [7 <./figures/generated/c1_v02/p
+ilot_quantitative.pdf> <./figures/generated/c1_v02/fixed_cave_cases.pdf>])
+(sections/limitations.tex) (main.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active [8 <./figu
+res/generated/c1_v02/protection_actual_geometry.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 71--74
+\T1/ptm/m/n/8 ``Prox-i-mal Pol-icy Op-ti-miza-tion Al-go-rithms,'' \T1/ptm/m/it
+/8 arXiv preprint
+)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the US letter (8.5in X 11in) paper size.
+
+[9] (main.aux) )
+(see the transcript file for additional information)<C:/Users/Administrator/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/
+Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Administrator/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Administrator/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/User
+s/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/urw/c
+ourier/ucrr8a.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/urw/times/utmb8a.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX
+/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Administrator/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Administrator/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (9 pages, 15428236 bytes).
+Transcript written on main.log.
+pdflatex: major issue: So far, you have not checked for MiKTeX updates.

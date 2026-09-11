@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "status": "eligibility_blocked_no_policy_evaluation",
+  "source_registry": "research_workspace/source_registry_v02.yaml",
+  "generator_tuning_from_final_sources": false,
+  "scope": "Frozen-policy local goal navigation on real-source assets in simulation; no physical sim-to-real claim",
+  "eligibility_gates": ["verified source group and use history", "known metric scale with calibration record", "legal local use and paper-image permissions reviewed", "collision surface and scan holes audited", "pose/goal channel compatible with approved interface"],
+  "initial_segment_rules": {
+    "robot_radius_m": 0.35,
+    "margin_m": 0.2,
+    "path_length_m": [8, 20],
+    "continuous_clearance_lower_bound_m": [0.7, 4.0],
+    "turn_strata_degrees": [[0, 30], [30, 90]],
+    "maximum_abs_slope_degrees": 20,
+    "goal_tolerance_m": 0.5,
+    "time_budget_seconds": 120,
+    "max_segments_per_source": 2,
+    "selection": "Among independently eligible, timestamp-ordered source camera subtrajectories, take the earliest nonoverlapping segment in each turn stratum. Freeze all IDs/poses/hashes before checkpoint evaluation. Missing timestamps or valid route evidence blocks automatic selection.",
+    "scan_holes": "No shortcut through missing observations. Open-surface unsigned distance alone is insufficient to identify the intended interior; require audited region boundaries and source observations."
+  },
+  "termination_precedence": ["infrastructure_abort", "out_of_bounds", "collision", "success", "timeout"],
+  "success": "No earlier terminal failure and goal reached within tolerance and budget",
+  "progress": "D(start, goal)-D(final, goal) using a frozen obstacle-aware estimator on the independently audited admissible domain; otherwise null with reason. Never substitute Euclidean distance silently.",
+  "path_efficiency": "For successful episodes only, reference obstacle-aware shortest-path length divided by executed trajectory length. Name approximation, grid resolution and domain; do not substitute clearance-weighted A* length as Euclidean optimum. Record all failures separately.",
+  "freeze_before_evaluation": ["asset and region hashes", "metric scale", "eligible-source ledger", "episode list", "checkpoint", "normalizer", "preprocessing", "goal/localization channel", "sensor rig", "action/controller", "inference and memory reset", "seed schedule", "distance estimator"],
+  "scheduled_episodes": [],
+  "blocking_reasons": ["No currently untouched eligible physical source group", "Metashape metric scale remains UNCONFIRMED", "Fifth Sketchfab asset identity missing", "Actual platform actor/actions and policy checkpoint not supplied"],
+  "preparation_vs_training": "Existing inspection/crops are known preparation. Actual use for geometry fitting or policy training remains separately UNCONFIRMED; do not infer either from file existence.",
+  "raw_data_release": "No raw third-party model or self-acquired scan is published by this protocol."
+}

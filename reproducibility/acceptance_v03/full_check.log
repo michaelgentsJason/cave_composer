@@ -1,0 +1,41 @@
+Archived evidence and 8-scene release PASS
+scene_a PASS
+scene_b PASS
+tasks PASS
+portals PASS
+blender_audit PASS
+portable_export PASS
+cave textures, geometry, two portals, crossing path PASS
+cave_easy textures, geometry, two portals, crossing path PASS
+cave_easy_002 textures, geometry, two portals, crossing path PASS
+cave_easy_003 textures, geometry, two portals, crossing path PASS
+cave_easy_004 textures, geometry, two portals, crossing path PASS
+cave_easy_005 textures, geometry, two portals, crossing path PASS
+cave_easy_006 textures, geometry, two portals, crossing path PASS
+cave_easy_007 textures, geometry, two portals, crossing path PASS
+cave_easy_008 textures, geometry, two portals, crossing path PASS
+cave_easy_009 textures, geometry, two portals, crossing path PASS
+cave_easy_010 textures, geometry, two portals, crossing path PASS
+cave_easy_011 textures, geometry, two portals, crossing path PASS
+cave_easy_012 textures, geometry, two portals, crossing path PASS
+cave_easy_013 textures, geometry, two portals, crossing path PASS
+cave_easy_014 textures, geometry, two portals, crossing path PASS
+cave_easy_015 textures, geometry, two portals, crossing path PASS
+cave_medium_001 textures, geometry, two portals, crossing path PASS
+cave_medium_002 textures, geometry, two portals, crossing path PASS
+cave_medium_003 textures, geometry, two portals, crossing path PASS
+cave_medium_004 textures, geometry, two portals, crossing path PASS
+cave_medium_005 textures, geometry, two portals, crossing path PASS
+cave_medium_006 textures, geometry, two portals, crossing path PASS
+cave_medium_007 textures, geometry, two portals, crossing path PASS
+cave_medium_008 textures, geometry, two portals, crossing path PASS
+cave_medium_009 textures, geometry, two portals, crossing path PASS
+cave_medium_010 textures, geometry, two portals, crossing path PASS
+cave_hard_001 textures, geometry, two portals, crossing path PASS
+cave_hard_002 textures, geometry, two portals, crossing path PASS
+cave_hard_003 textures, geometry, two portals, crossing path PASS
+cave_hard_004 textures, geometry, two portals, crossing path PASS
+cave_hard_005 textures, geometry, two portals, crossing path PASS
+analysis PASS
+paper PASS
+D:\Desktop\cave-composer\outputs\github_release_v03\checkout\outputs\reproduction_full_v03\verification.json

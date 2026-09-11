@@ -7,7 +7,12 @@ import trimesh
 
 
 class CaveField:
-    def __init__(self, spec, routes, seed):
+    def __init__(self, spec, routes, seed, *, protect_passage=True):
+        # Explicit experimental intervention; production callers retain protection.
+        # A zero radius would still union in the centerline and is NOT 'off'.
+        if not isinstance(protect_passage, bool):
+            raise ValueError('protect_passage must be boolean')
+        self.protect_passage = protect_passage
         self.spec, self.routes = spec, routes
         rng = np.random.default_rng(np.random.SeedSequence([int(seed), 17]))
         self.phase = rng.uniform(-np.pi, np.pi, 12)
@@ -120,7 +125,8 @@ class CaveField:
                 rock += 0.065*np.sin(x*5.1+y*3.7)*np.sin(z*4.2-x*1.8)
                 f = np.minimum(f,rock)
             if self.morphology:f=self.morphology.apply_features(q,f,solid=True)
-            f = np.maximum(f, self.protected_radius-distance)
+            if self.protect_passage:
+                f = np.maximum(f, self.protected_radius-distance)
             out[start:start+len(q)] = f
         return out
 

@@ -10,3 +10,8 @@ dist/
 exports/*.zip
 # Local downloaded reference scans; reviewed attributed patches are published separately.
 /sketchfab_caves/
+# External reconstructions are local inputs, not generated release assets.
+/exports/metashape_crops_v01/
+/overleaf/figures/generated/c1_v02/real_source_preparation.*
+# Cached third-party paper pages are lookup inputs; publish verified metadata and links.
+/research_workspace/bibliography/*.html

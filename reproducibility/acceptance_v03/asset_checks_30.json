@@ -1,0 +1,1862 @@
+[
+  {
+    "difficulty": "easy",
+    "name": "cave_easy",
+    "folder": "easy",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "feebb9b9ff854304c8e78a9474314064254f0279d856964a817bcbd68662d144"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "dc7b1e07dc49d8e1bf84bb8025ba9c231ab7b831f1c149a79649cce2356fcf16"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 66963,
+        "openings": 2,
+        "geometry_max_position_difference_m": 5.690471516035006e-07,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 367,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.7090805786180518,
+          "continuous_clearance_lower_bound": 1.6090795786180518,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 66963,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.1024990598761663e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 367,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.7090806578148967,
+          "continuous_clearance_lower_bound": 1.6090796578148967,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_002",
+    "folder": "easy/scene_002",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "ff89eac7bb49a889e2d54d1596c7ba0dda61bb43ef95d46f5e312024323c6ca3"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "b9f6d644bf8321b578cd6d2aaa115478668a37f8f6cbf59aee7696dcdc406ce7"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 83115,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5715110802648713e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 427,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.9426079834550791,
+          "continuous_clearance_lower_bound": 1.8426069834550791,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 83115,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5143097114622742e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 427,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.9426079528273332,
+          "continuous_clearance_lower_bound": 1.8426069528273332,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_003",
+    "folder": "easy/scene_003",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "6a3dd1db8d54ebbc0ae9d9a2a000c36f900d9532aecf0953c7c63be8f382a1b0"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "e62bf07929c0e61805207ac4f628a0833e2151b3a57801ddf09c2d1550073443"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 76240,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.6643056573435133e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 379,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.287195664305899,
+          "continuous_clearance_lower_bound": 1.187194664305899,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 76006,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.215273563450097e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 379,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.2871954589762193,
+          "continuous_clearance_lower_bound": 1.1871944589762193,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_004",
+    "folder": "easy/scene_004",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "f47fe68f9bb8696efa0ae35d2257d4f1efe87dfb272a36ba5161832ea34395bc"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "59a1f287b0b4791528bd75d0afe2f0f9976ba71e1b1fca0b10c99ceb5d866bd9"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 84281,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.3295735751048327e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 423,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.4110574720969975,
+          "continuous_clearance_lower_bound": 1.3110564720969975,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 84180,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5775827843996163e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 423,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.411057449491338,
+          "continuous_clearance_lower_bound": 1.311056449491338,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_005",
+    "folder": "easy/scene_005",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "2d8e1d822d1f3a7f943f70afcb371447e7d90e3041b88ee73f8ee5173d1fbb15"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "6fde11c558beb275017b85dab9e7b7f4e8103bdaebd8b409441fb25a1cb7505f"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 68685,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.1258784886257985e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 375,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.548297609008574,
+          "continuous_clearance_lower_bound": 1.448296609008574,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 68685,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.6503037342469866e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 375,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.548297443631846,
+          "continuous_clearance_lower_bound": 1.448296443631846,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_006",
+    "folder": "easy/scene_006",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "32857755f050ceade6f2b054ccfa01096ab948948ac1ccc5a142e452a42b1bf5"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "bda84a4b6ab17412eecba57c471a3b8d350af719aad81d422ee32b8094879f35"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 72396,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.0709047848131215e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 379,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.988079346440096,
+          "continuous_clearance_lower_bound": 1.888078346440096,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 72290,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5457127692188493e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 379,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.988079821687751,
+          "continuous_clearance_lower_bound": 1.888078821687751,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_007",
+    "folder": "easy/scene_007",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "c004814a52b55bf9b7f3587dd457ed594a6c9ad9badc7b1f947900f7425b48c5"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "208259b6c272f0c5ca6d8462ff7da2f04a9b10f6696b6aafb89ffbcc54aa4a23"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 78265,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.587946492956873e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 389,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 2.1189552246384755,
+          "continuous_clearance_lower_bound": 2.0189542246384753,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 78178,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.1994081083707487e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 389,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 2.1189551666729525,
+          "continuous_clearance_lower_bound": 2.0189541666729522,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_008",
+    "folder": "easy/scene_008",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "90b1513a29b461a74cb76a5f691a1465ec0cd15de0624b8dc7de1b6f4abbdb30"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "a3275876e1788c021ec4a22a00c80f678f72d86033beb026da935e517ea6c763"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 73392,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5757285744633149e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 387,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.8385881964429374,
+          "continuous_clearance_lower_bound": 1.7385871964429374,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 73150,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.2324261770200336e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 387,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.838588054179682,
+          "continuous_clearance_lower_bound": 1.738587054179682,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_009",
+    "folder": "easy/scene_009",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "6fcc20105173d31011e603b340faffd9d2484ad7f21abde9ce304eeb515b4ca3"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "18b9982e5cf182760ce78dcff8eeeab49fc0e731b1f77de22b50edd659cfecc7"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 74415,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5757285748933547e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 397,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.8563864332222142,
+          "continuous_clearance_lower_bound": 1.7563854332222142,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 74180,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.2363620713139316e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 397,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.8563863057223504,
+          "continuous_clearance_lower_bound": 1.7563853057223504,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_010",
+    "folder": "easy/scene_010",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "57fc85f748953f0bd496c4fb3d4f3b2a5aecb2c138bfcd30585cae11d9dfc81d"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "6ea55b3eedb4641140bcef3cd006397ac45901e9b095acc0264e646c0487e3f5"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 72714,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.7760193996998296e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 381,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.7966845914633607,
+          "continuous_clearance_lower_bound": 1.6966835914633607,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 72714,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.963096122808624e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 381,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.796684676731285,
+          "continuous_clearance_lower_bound": 1.696683676731285,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_011",
+    "folder": "easy/scene_011",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "21aab7e556d14c0150310d07f744e9f992ead08f9898c6f57ea86b202d719393"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "3e8a5dcef32517939fd9fd440a683cff306944e1846489f3ac5c516272422cb2"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 75294,
+        "openings": 2,
+        "geometry_max_position_difference_m": 8.5432400148368e-07,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 386,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 2.056800190727435,
+          "continuous_clearance_lower_bound": 1.9567991907274351,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 75200,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5743320610040919e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 386,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 2.056800500784167,
+          "continuous_clearance_lower_bound": 1.956799500784167,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_012",
+    "folder": "easy/scene_012",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "387f12952845b49c70dcfa2f3a1978d5d7f8463a0f9ecc8bcbded5d57a4c0616"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "0dba7f218eaf55114af6cf42f69b8155f3b7cf73634ef5ac4454765e730da6de"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 76755,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.57572857408703e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 367,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.8222208487716531,
+          "continuous_clearance_lower_bound": 1.7222198487716531,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 76664,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.23776542628386e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 367,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.8222212692230872,
+          "continuous_clearance_lower_bound": 1.7222202692230872,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_013",
+    "folder": "easy/scene_013",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "43e0fe1d150d0e873dc1bee3b5a73960ba9576d7888eb9f2fac016112863d384"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "0b882ec462e7048ad7e150f884a635f4ef7662313279532f5ffcdf9b752ecb9f"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 74224,
+        "openings": 2,
+        "geometry_max_position_difference_m": 8.289609129514012e-07,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 399,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.7820255076482707,
+          "continuous_clearance_lower_bound": 1.6820245076482707,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 74224,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.3386157036600533e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 399,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.782025444133047,
+          "continuous_clearance_lower_bound": 1.682024444133047,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_014",
+    "folder": "easy/scene_014",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "534a4e47dad902b209c543601b74522ec9d05f35a21a857efdbbb62598be6ef9"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "50fdf8e155b15445b940dd932df60ab6ef8847ac418f532f3a034fca990dc24f"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 77229,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.9342192666100952e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 401,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.6332943370991095,
+          "continuous_clearance_lower_bound": 1.5332933370991095,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 77127,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.9448991180131233e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 401,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.6332943964885809,
+          "continuous_clearance_lower_bound": 1.5332933964885809,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "easy",
+    "name": "cave_easy_015",
+    "folder": "easy/scene_015",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "906c08ae7733a8657ff5b1290efd6fe961b18893f5bc3e504f05652b7d5c6791"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "64d43a9540ff585b5aab69c236c11e63734a07e97b0de4374f614d37cb717f42"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 76690,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.8179816736445738e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 379,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.6655582544582117,
+          "continuous_clearance_lower_bound": 1.5655572544582117,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 76609,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.41048705070823e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 379,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.6655580019741132,
+          "continuous_clearance_lower_bound": 1.5655570019741132,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_001",
+    "folder": "medium/scene_001",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "4ca8ee1a008099ac73fd4f51cf1ce8467ad6e9673f25f4a541f888980c5ab466"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "1afee79f12716d45180951021170fa11e5f2997c19872bb0dbe7ab7e800962b4"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 166475,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.5014173478262565e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 835,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0417742812400392,
+          "continuous_clearance_lower_bound": 0.9417732812400392,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 166393,
+        "openings": 2,
+        "geometry_max_position_difference_m": 4.0152365868559036e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 835,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0417741541068302,
+          "continuous_clearance_lower_bound": 0.9417731541068302,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_002",
+    "folder": "medium/scene_002",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "046d0ad91e2cfc44ce2b622928beb01891cab9880a1ba0984b0a2a8dfebba265"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "e3bf71b852e6066a3c2884ccb5f5c7a934be8f02af2a79636d2a03ee8f954456"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 211218,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.575626720366209e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 913,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.7504998540618152,
+          "continuous_clearance_lower_bound": 0.6504988540618152,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 211025,
+        "openings": 2,
+        "geometry_max_position_difference_m": 4.068821613938226e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 913,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.7504994163515397,
+          "continuous_clearance_lower_bound": 0.6504984163515397,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_003",
+    "folder": "medium/scene_003",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "fa2acb98d18bddaff797a857cfd0a7f0405d8cbe8fccef8c3280dbc5db40e61b"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "91bbc73489c446561e24d7e4536029419327942fc93d90372ca2000618aae1e6"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 205170,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.232305461124855e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 733,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9188425650990664,
+          "continuous_clearance_lower_bound": 0.8188415650990664,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 205090,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.6561130891419305e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 733,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9188426406580354,
+          "continuous_clearance_lower_bound": 0.8188416406580354,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_004",
+    "folder": "medium/scene_004",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "487b6fbaccd459731354eaa9b95e9eff450062be1aa217fe97717b6b4c695de3"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "544fd80c97f8ecf2c3d1a5759f29505851e0b4e9fdeeb2915183cb192469d83d"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 184199,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.513074126732875e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 827,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9121165145485545,
+          "continuous_clearance_lower_bound": 0.8121155145485545,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 184199,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.996222921514719e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 827,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9121167304753274,
+          "continuous_clearance_lower_bound": 0.8121157304753274,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_005",
+    "folder": "medium/scene_005",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "89ee6b1937512ab153c055d7d4649005bac713cb5ea9bb5a3c2e3f4666a7bcac"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "0963eeea3daa25435d0b0a4a6442bd7e02ff6a3f3746f96a45d4d06316f59d99"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 190694,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.750200107991281e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 895,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9516699805612954,
+          "continuous_clearance_lower_bound": 0.8516689805612954,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 190622,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.8126738738221043e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 895,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9516695713284261,
+          "continuous_clearance_lower_bound": 0.8516685713284261,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_006",
+    "folder": "medium/scene_006",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "a66a9af54340005599c9c93e8d9cafd11e7c5a7c84e3bf1ece74939d703f8b2d"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "3a2a44e84b09caabfff46d3bff39bc7f407dbb4dfd95c41cc889642857758c6e"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 284604,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.782012765626156e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1212,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.7314614975306635,
+          "continuous_clearance_lower_bound": 0.6314604975306635,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 284604,
+        "openings": 2,
+        "geometry_max_position_difference_m": 4.136067706657614e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1212,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.7314616783509618,
+          "continuous_clearance_lower_bound": 0.6314606783509618,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_007",
+    "folder": "medium/scene_007",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "03ce160aee62002c12a46dddb2db5b3d1fe66d5793683e1ccde8b57027ae82d3"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "d60e1bdecfe2a0db9370888e897e6abba57d000a74b1bc3e7b4ef0ad13202d87"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 157598,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.8452303296462384e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 701,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0138992940147142,
+          "continuous_clearance_lower_bound": 0.9138982940147142,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 157598,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.848232880840731e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 701,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0138993195569959,
+          "continuous_clearance_lower_bound": 0.9138983195569959,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_008",
+    "folder": "medium/scene_008",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "69bafc091b8f4ceef0a46bd0cad733212fc58b7aff3b50f7576a740f010bd43e"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "bfea41ebd43aff466dce1740542b7a676c60a21ca1e34b399066f5c82303be3b"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 212585,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.4921355115538227e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 943,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.8220785782897368,
+          "continuous_clearance_lower_bound": 0.7220775782897368,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 212386,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.5387457155983558e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 943,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.8220782017311187,
+          "continuous_clearance_lower_bound": 0.7220772017311187,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_009",
+    "folder": "medium/scene_009",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "6355b6afe175d0002443bc39c40b236cfe9f7b360023165e406058f8f2040833"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "c1b362abf45ed738552bf37ebddc933e4cb291bbd0d2eecb06761ec289537cd6"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 210116,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.6296393868197663e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 779,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0576677373002275,
+          "continuous_clearance_lower_bound": 0.9576667373002274,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 210040,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.2700216284222535e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 779,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0576680152574223,
+          "continuous_clearance_lower_bound": 0.9576670152574223,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "medium",
+    "name": "cave_medium_010",
+    "folder": "medium/scene_010",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "ea7c7884fcc8440d81f58a7f8a43a32a8ddb8ee6a6b951192014d66327882e4c"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "0de53e65d21f3fb9395a0eac78be6313632961e40b953b1b6c5e3fa6168cbb30"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 279528,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.70864800296736e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1019,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0067274436380609,
+          "continuous_clearance_lower_bound": 0.9067264436380609,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 279450,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.4250574521841743e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1019,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0067273885739885,
+          "continuous_clearance_lower_bound": 0.9067263885739885,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "hard",
+    "name": "cave_hard_001",
+    "folder": "hard/scene_001",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "70dd852d4dcb8ea264aabe639e051c7ffb9b59bab881be020311143e6baf52cd"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "6b28042860c66a0bc6bc32a4f1b3a046e6920dcd64a2f1ebcfbc81be2b5b56c7"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 285865,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.1456799541149916e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1189,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.7322729029086456,
+          "continuous_clearance_lower_bound": 0.6322719029086455,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 285865,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.7803202935916363e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1189,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.7322726089189737,
+          "continuous_clearance_lower_bound": 0.6322716089189737,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "hard",
+    "name": "cave_hard_002",
+    "folder": "hard/scene_002",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "ca77b1fc2a745760ffc90cef5da90b8eeac7375d44cd6c874a6c6da585056b12"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "1831d04c7b0cc09eb495b7357d4464a56d9f06839a8e840334ed039533ab9138"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 260029,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.1340732361201378e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 968,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.8867519417017604,
+          "continuous_clearance_lower_bound": 0.7867509417017604,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 260029,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.2387643677696863e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 968,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.886751955505677,
+          "continuous_clearance_lower_bound": 0.786750955505677,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "hard",
+    "name": "cave_hard_003",
+    "folder": "hard/scene_003",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "2d4f16ae512957c1eb5e80c31f03e307e91df2421fe7527df504f35370ee90c4"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "7dcf671a4557d9bd11f2f784cf1780217538c1e7a6756f35e0eec6d0ea57b4e5"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 224902,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.8950129901221702e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1208,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.911073643815064,
+          "continuous_clearance_lower_bound": 0.8110726438150639,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 224843,
+        "openings": 2,
+        "geometry_max_position_difference_m": 2.887900500073014e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1208,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9110734795502351,
+          "continuous_clearance_lower_bound": 0.8110724795502351,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "hard",
+    "name": "cave_hard_004",
+    "folder": "hard/scene_004",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "5fb37d2598dd78eedd0e0d77896c2bfd4c8e324edeabcec202e358c221b1fa81"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "5e2250572ce0989f95ecb44dc479490bb3f5a493ecf30a994b952ba690ad2f18"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 244778,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.183044297073249e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1055,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.977147970541322,
+          "continuous_clearance_lower_bound": 0.877146970541322,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 244629,
+        "openings": 2,
+        "geometry_max_position_difference_m": 3.820194235992192e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 1055,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 0.9771484234373027,
+          "continuous_clearance_lower_bound": 0.8771474234373027,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  },
+  {
+    "difficulty": "hard",
+    "name": "cave_hard_005",
+    "folder": "hard/scene_005",
+    "status": "PASS",
+    "embedded_glb_images": [
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "6de7eda49220ca473355078e34b7d85a3cdcdccb092667d7e8059e2982fc0592"
+      },
+      {
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "sha256": "291b00bd16098f3cf026567a39b46b63b35970e45f98f6d8215b13ccadc61d28"
+      }
+    ],
+    "obj_relative_texture_paths": [
+      "textures/basecolor.png",
+      "textures/normal.png"
+    ],
+    "formats": {
+      "glb": {
+        "triangles": 272239,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.2930055751509198e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 951,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.0112362672194288,
+          "continuous_clearance_lower_bound": 0.9112352672194288,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      },
+      "obj": {
+        "triangles": 272239,
+        "openings": 2,
+        "geometry_max_position_difference_m": 1.5264774890801711e-06,
+        "crossing_certificate": {
+          "status": "PASS",
+          "samples": 951,
+          "numerical_allowance": 1e-06,
+          "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+          "sample_max_step": 0.2,
+          "minimum_sampled_clearance": 1.01123648846027,
+          "continuous_clearance_lower_bound": 0.91123548846027,
+          "required_radius": 0.55,
+          "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+        }
+      }
+    }
+  }
+]

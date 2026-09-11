@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CAVERN per-episode receipt v1",
+  "description": "Schema is a format aid; handoff.validate_results adds semantic, completeness and file-integrity checks. No outcomes are supplied.",
+  "type": "object",
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checkpoint_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "outcome": {
+      "enum": [
+        "success",
+        "collision",
+        "out_of_bounds",
+        "timeout",
+        "not_run"
+      ]
+    },
+    "elapsed_seconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "remaining_traversable_distance_m": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "remaining_distance_method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trajectory": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "trajectory_sha256": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "collision": {
+      "type": "boolean"
+    },
+    "out_of_bounds": {
+      "type": "boolean"
+    },
+    "timeout": {
+      "type": "boolean"
+    },
+    "elapsed_seconds_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "remaining_traversable_distance_m_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "not_run_reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "episode_id",
+    "scene_id",
+    "dataset_id",
+    "checkpoint_sha256",
+    "outcome",
+    "elapsed_seconds",
+    "remaining_traversable_distance_m",
+    "remaining_distance_method",
+    "success",
+    "collision",
+    "out_of_bounds",
+    "timeout"
+  ],
+  "additionalProperties": false
+}

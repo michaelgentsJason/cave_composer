@@ -1,0 +1,34 @@
+\documentclass[letterpaper,10pt,conference]{ieeeconf}
+\overrideIEEEmargins
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,graphicx,booktabs,cite,xcolor}
+% Official class and margins are unmodified. No author identifiers or active URLs.
+\pdfinfo{/Author () /Subject (Anonymous working draft) /Keywords (procedural environments, robot navigation)}
+\newcommand{\todo}[1]{\textcolor{red!65!black}{\textbf{TODO:} #1}}
+\newcommand{\missing}{\textemdash}
+\newcommand{\resultplaceholder}[2]{\textcolor{red!65!black}{[\textbf{#1}: #2]}}
+\title{\LARGE\bf CAVERN: Controllable and Validated Environments for Robotic Navigation in Underwater Caves}
+\author{Anonymous Authors}
+\begin{document}
+\maketitle
+\thispagestyle{empty}\pagestyle{empty}
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/platform}
+\input{sections/evaluation}
+\input{sections/limitations}
+\section*{Acknowledgments and AI disclosure}
+OpenAI Codex assisted with drafting the manuscript sections, writing workspace
+utilities, and writing the deterministic figure-rendering code. The diagrams
+include architectural schematics and plots from recorded geometry experiments.
+Case images are Blender renders of actual meshes. No policy trajectories were
+synthesized. Author review of technical content, the complete AI-use inventory,
+disclosure and anonymization remains pending for this working draft.
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}
