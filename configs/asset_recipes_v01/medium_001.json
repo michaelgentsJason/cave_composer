@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "name": "medium_organic_001",
+  "split": "difficulty_diversity_v02",
+  "corridor": {
+    "width": 4.909859185590259,
+    "height": 4.314869898594029,
+    "variation": 0.18,
+    "section": "irregular"
+  },
+  "robot": {
+    "radius": 0.35,
+    "margin": 0.2
+  },
+  "geology": {
+    "amplitude": 0.3879065871186943,
+    "strata": 0.1855078821747016,
+    "formations": 13
+  },
+  "mesh": {
+    "visual_voxel": 0.2,
+    "collision_voxel": 0.34,
+    "max_voxels": 24000000
+  },
+  "material": {
+    "style": "sandstone",
+    "seed": 1370100,
+    "roughness": 0.87
+  },
+  "branches": [],
+  "chambers": [
+    {
+      "at": 0.27090909090909093,
+      "radii": [
+        4.145813624569724,
+        3.7410240998294473,
+        3.157168032344748
+      ],
+      "lobes": 6
+    },
+    {
+      "at": 0.4745454545454546,
+      "radii": [
+        4.5279225775378364,
+        3.422526780545483,
+        3.8256773598758245
+      ],
+      "lobes": 5
+    }
+  ],
+  "bottlenecks": [],
+  "validation": {
+    "max_slope_degrees": 40.0
+  },
+  "description": "Organic meander; mixed morphology, not a calibrated navigation difficulty label.",
+  "route": [
+    {
+      "straight": 14
+    },
+    {
+      "curve": [
+        [
+          9.799609491841387,
+          0.0,
+          0.0
+        ],
+        [
+          7.107950349158969,
+          22.629624797344917,
+          0.15878274637331433
+        ],
+        [
+          11.557720840553237,
+          27.030821097517197,
+          0.21193277035646152
+        ]
+      ],
+      "width": 4.711428639444251,
+      "height": 3.886893028930868,
+      "section": "tall"
+    },
+    {
+      "curve": [
+        [
+          6.258672886382013,
+          -2.220446049250313e-15,
+          0.05315002398314722
+        ],
+        [
+          8.99514843112401,
+          -6.115257852514468,
+          0.06822577081672193
+        ],
+        [
+          10.32627268057823,
+          -11.090714139583143,
+          0.1069673735424217
+        ]
+      ],
+      "width": 5.3848165777629795,
+      "height": 4.031281404927215,
+      "section": "irregular"
+    },
+    {
+      "curve": [
+        [
+          5.150442411290148,
+          -1.3322676295501878e-15,
+          0.038741602725699764
+        ],
+        [
+          11.633799809382346,
+          -5.722081802793977,
+          0.1963476806316189
+        ],
+        [
+          17.519937050228958,
+          -7.10905915875153,
+          0.12548224281177678
+        ]
+      ],
+      "width": 5.713297908225121,
+      "height": 4.846434210677498,
+      "section": "tall"
+    },
+    {
+      "curve": [
+        [
+          6.047339729502584,
+          -3.1086244689504383e-15,
+          -0.07086543781984217
+        ],
+        [
+          13.292295040927513,
+          -1.2008247347079237,
+          -0.5506748697308297
+        ],
+        [
+          17.600639881511203,
+          2.9012991960157226,
+          -0.5506748697308297
+        ]
+      ],
+      "width": 4.463992603412666,
+      "height": 3.8976099251804164,
+      "section": "flattened"
+    },
+    {
+      "straight": 14,
+      "width": 4.909859185590259,
+      "height": 4.314869898594029,
+      "section": "irregular"
+    }
+  ],
+  "sampling": {
+    "algorithm": "organic_cubic_v02",
+    "family": "meander",
+    "layout_attempts": 1,
+    "rejected_layouts": {},
+    "factor_scope": "designed morphology; cubic meanders, blind branches, bypass loops, chambers and width/elevation variation"
+  }
+}

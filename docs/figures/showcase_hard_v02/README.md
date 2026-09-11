@@ -4,7 +4,7 @@
 
 - [7200 × 3600 PNG](figures/cave_showcase.png) / [paper PDF](figures/cave_showcase.pdf)
 - [Offline interactive demo](index.html): clone and open locally; GitHub displays HTML source.
-- [Packed Blender scene](cave_showcase.blend): timeline frames 1–12 select cameras and inspection lights.
+- Packed Blender scenes are local-only; use the reproduction instructions below.
 - [English caption](figures/caption.txt) / [LaTeX inclusion](figures/latex_include.tex)
 - [12 original 1600 × 1200 renders](views/) / [camera registration](views/registered_views.json)
 - [Asset manifest](assets/manifest.json) / [geometric validation](validation.json) / [delivery checks](verification.json)
@@ -27,3 +27,5 @@ in the PDF; rendered images and the mesh-sampled map are raster graphics.
 
 The full preparation/verification bundle stays under
 `outputs/cave_showcase_hard_v02/`. See [reproduction instructions](../../cave_showcase_hard_v02.md).
+The stored validation/checksum files describe the original full delivery;
+the source checkout keeps its figures and records, not its generated Blender file.

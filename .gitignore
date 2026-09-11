@@ -3,11 +3,16 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 outputs/
+/exports/
 .venv/
 *.blend1
 build/
 dist/
 exports/*.zip
+# Generated paper archives and packed demo scenes stay on the producing machine.
+/overleaf/main.pdf
+/overleaf/cave_composer_overleaf.zip
+/docs/figures/showcase_hard_v02/cave_showcase.blend
 # Local downloaded reference scans; reviewed attributed patches are published separately.
 /sketchfab_caves/
 # External reconstructions are local inputs, not generated release assets.

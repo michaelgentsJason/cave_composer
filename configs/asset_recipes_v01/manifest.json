@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "purpose": "Saved requests for current-code regeneration, not byte-identical historical results",
+  "scenes": [
+    {
+      "id": "easy_001",
+      "difficulty": "easy",
+      "seed": 83001,
+      "config": "configs/asset_recipes_v01/easy_001.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy"
+    },
+    {
+      "id": "easy_002",
+      "difficulty": "easy",
+      "seed": 940020,
+      "config": "configs/asset_recipes_v01/easy_002.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_002"
+    },
+    {
+      "id": "easy_003",
+      "difficulty": "easy",
+      "seed": 940030,
+      "config": "configs/asset_recipes_v01/easy_003.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_003"
+    },
+    {
+      "id": "easy_004",
+      "difficulty": "easy",
+      "seed": 940040,
+      "config": "configs/asset_recipes_v01/easy_004.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_004"
+    },
+    {
+      "id": "easy_005",
+      "difficulty": "easy",
+      "seed": 940050,
+      "config": "configs/asset_recipes_v01/easy_005.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_005"
+    },
+    {
+      "id": "easy_006",
+      "difficulty": "easy",
+      "seed": 940060,
+      "config": "configs/asset_recipes_v01/easy_006.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_006"
+    },
+    {
+      "id": "easy_007",
+      "difficulty": "easy",
+      "seed": 940070,
+      "config": "configs/asset_recipes_v01/easy_007.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_007"
+    },
+    {
+      "id": "easy_008",
+      "difficulty": "easy",
+      "seed": 940080,
+      "config": "configs/asset_recipes_v01/easy_008.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_008"
+    },
+    {
+      "id": "easy_009",
+      "difficulty": "easy",
+      "seed": 940090,
+      "config": "configs/asset_recipes_v01/easy_009.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_009"
+    },
+    {
+      "id": "easy_010",
+      "difficulty": "easy",
+      "seed": 940100,
+      "config": "configs/asset_recipes_v01/easy_010.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_010"
+    },
+    {
+      "id": "easy_011",
+      "difficulty": "easy",
+      "seed": 940110,
+      "config": "configs/asset_recipes_v01/easy_011.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_011"
+    },
+    {
+      "id": "easy_012",
+      "difficulty": "easy",
+      "seed": 940120,
+      "config": "configs/asset_recipes_v01/easy_012.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_012"
+    },
+    {
+      "id": "easy_013",
+      "difficulty": "easy",
+      "seed": 940130,
+      "config": "configs/asset_recipes_v01/easy_013.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_013"
+    },
+    {
+      "id": "easy_014",
+      "difficulty": "easy",
+      "seed": 940140,
+      "config": "configs/asset_recipes_v01/easy_014.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_014"
+    },
+    {
+      "id": "easy_015",
+      "difficulty": "easy",
+      "seed": 940150,
+      "config": "configs/asset_recipes_v01/easy_015.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/easy/scene_015"
+    },
+    {
+      "id": "medium_001",
+      "difficulty": "medium",
+      "seed": 1070100,
+      "config": "configs/asset_recipes_v01/medium_001.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_001"
+    },
+    {
+      "id": "medium_002",
+      "difficulty": "medium",
+      "seed": 1070200,
+      "config": "configs/asset_recipes_v01/medium_002.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_002"
+    },
+    {
+      "id": "medium_003",
+      "difficulty": "medium",
+      "seed": 1070300,
+      "config": "configs/asset_recipes_v01/medium_003.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_003"
+    },
+    {
+      "id": "medium_004",
+      "difficulty": "medium",
+      "seed": 1070400,
+      "config": "configs/asset_recipes_v01/medium_004.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_004"
+    },
+    {
+      "id": "medium_005",
+      "difficulty": "medium",
+      "seed": 1070500,
+      "config": "configs/asset_recipes_v01/medium_005.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_005"
+    },
+    {
+      "id": "medium_006",
+      "difficulty": "medium",
+      "seed": 1070600,
+      "config": "configs/asset_recipes_v01/medium_006.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_006"
+    },
+    {
+      "id": "medium_007",
+      "difficulty": "medium",
+      "seed": 1070700,
+      "config": "configs/asset_recipes_v01/medium_007.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_007"
+    },
+    {
+      "id": "medium_008",
+      "difficulty": "medium",
+      "seed": 1070800,
+      "config": "configs/asset_recipes_v01/medium_008.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_008"
+    },
+    {
+      "id": "medium_009",
+      "difficulty": "medium",
+      "seed": 1070901,
+      "config": "configs/asset_recipes_v01/medium_009.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_009"
+    },
+    {
+      "id": "medium_010",
+      "difficulty": "medium",
+      "seed": 1071000,
+      "config": "configs/asset_recipes_v01/medium_010.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/medium/scene_010"
+    },
+    {
+      "id": "hard_001",
+      "difficulty": "hard",
+      "seed": 1080100,
+      "config": "configs/asset_recipes_v01/hard_001.json",
+      "terminal_inset_metres": 0.35,
+      "original_asset_folder": "exports/caves_difficulty_v01/hard/scene_001"
+    },
+    {
+      "id": "hard_002",
+      "difficulty": "hard",
+      "seed": 1080201,
+      "config": "configs/asset_recipes_v01/hard_002.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/hard/scene_002"
+    },
+    {
+      "id": "hard_003",
+      "difficulty": "hard",
+      "seed": 1080300,
+      "config": "configs/asset_recipes_v01/hard_003.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/hard/scene_003"
+    },
+    {
+      "id": "hard_004",
+      "difficulty": "hard",
+      "seed": 1080400,
+      "config": "configs/asset_recipes_v01/hard_004.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/hard/scene_004"
+    },
+    {
+      "id": "hard_005",
+      "difficulty": "hard",
+      "seed": 1080501,
+      "config": "configs/asset_recipes_v01/hard_005.json",
+      "terminal_inset_metres": 0.0,
+      "original_asset_folder": "exports/caves_difficulty_v01/hard/scene_005"
+    }
+  ]
+}

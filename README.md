@@ -1,9 +1,12 @@
 # Automated Cave Composer
 
-**Reproduce the complete release:** [clean installation, checks, asset rebuilds and paper](reproducibility/README.md).
-The latest release includes the final-mesh/portal checks, the frozen
-[eight-cave / 24-task interface pack](exports/cavern_pretraining_v02/README.md),
-archived pilot inputs and failures, and the [current paper PDF](overleaf/main.pdf).
+**Reproduce from source:** [clean installation, checks, asset generation and paper](reproducibility/README.md).
+Git includes the generator, final-mesh/portal checks, configurations, small reference
+texture library, and paper sources and showcase figures. Generated training assets,
+experimental output bundles, packed Blender scenes and compiled paper archives
+are local-only. They were removed from Git history to keep new clones small.
+The [eight-cave / 24-task workflow](reproducibility/README.md#generate-the-pilot-and-training-interface-pack)
+can be run on a new machine without downloading old scene meshes.
 Use the pinned Python 3.12 environment in `requirements-lock.txt` for reproduction.
 
 **CAVERN research workspace:** [paper draft and build instructions](overleaf/README.md),
@@ -12,18 +15,15 @@ Use the pinned Python 3.12 environment in `requirements-lock.txt` for reproducti
 The manuscript separates checked generator artifacts from pending simulator
 and policy evidence. Cave Composer APIs and existing assets keep their names.
 
-**Latest wider caves:** [7.5 m × 6.0 m morphology comparison](exports/morphology_v02/index.html)
-and [release notes](docs/morphology_v02.md). The gallery includes matched textured
-and clay views, verified GLB/OBJ downloads and measured cross-sections.
-
-[![Wider irregular cave interior](exports/morphology_v02/after/textured_02.png)](exports/morphology_v02/after/textured_02.png)
+**Latest wider caves:** [7.5 m × 6.0 m generation config](configs/morphology_v02/after.json)
+and [release notes](docs/morphology_v02.md). Generate it locally using the commands below.
 
 **Structural morphology:** [audit, controls and measured comparison](docs/morphology_v01.md)
-with a [matched before/after geometry gallery](exports/morphology_v01/index.html).
+with [matched before/after configurations](configs/morphology_v01).
 
-**Reference textures:** [integration guide](docs/reference_texture_pipeline_v01.md)
-and [textured easy demo](exports/easy_reference_texture_v01/index.html), using
-reviewed scan-image patches with reproducible appearance selection.
+**Reference textures:** the [integration guide](docs/reference_texture_pipeline_v01.md)
+describes a [small attributed texture library](materials/reference_rock_v01/README.md)
+of reviewed scan-image patches with reproducible appearance selection.
 
 Controllable procedural cave worlds for robot navigation research. Explicit turns,
 branches, chambers and slopes become geological voids, independently validated
@@ -43,12 +43,12 @@ props, registered to a mesh-sampled map. Yellow lines show designed passage cent
 Actual Blender renders of one generated cave with 100 floor stones and three
 checkerboard props. The map is sampled from the mesh; it is not a sensor recording.
 
-**Ready-to-view textured examples:** [easy / medium / hard gallery](exports/caves_difficulty_v01/index.html)
-and [download guide](exports/caves_difficulty_v01/README.md). **30 scenes (15 easy,
-10 medium, 5 hard)** are included
-in this repository as **GLB with embedded 4K textures** and **OBJ + MTL + PNG**.
-Each has real entrance/exit openings and a checked crossing path. Open the gallery
-HTML locally after cloning; GitHub itself shows HTML source rather than running it.
+**Difficulty collection recipes:** configurations and seeds for **30 scenes
+(15 easy, 10 medium, 5 hard)** are retained in
+[asset_recipes_v01](configs/asset_recipes_v01/manifest.json).
+Generate geometry locally, then export **GLB with embedded textures** and
+**OBJ + MTL + PNG** using the [reproduction guide](reproducibility/README.md).
+Previously generated galleries and models remain on their producing machine.
 
 **New structural diversity:** continuous cubic meanders, curved dead ends,
 asymmetric single/double loops, chamber chains and varying elevation. The medium
@@ -60,8 +60,8 @@ Difficulty labels describe geometry, not measured policy performance.
 
 Click a route thumbnail in the local gallery for the full layout and, for new
 medium/hard scenes, a main-passage elevation profile. On Windows,
-`powershell -ExecutionPolicy Bypass -File scripts/open_gallery.ps1` opens the gallery
-through a loopback HTTP server. The included asset collection occupies about 2 GB.
+`powershell -ExecutionPolicy Bypass -File scripts/open_gallery.ps1` opens a locally
+generated gallery through a loopback HTTP server. Galleries must be generated first.
 
 The optional [portal export](docs/portal_export.md) preserves the closed reference
 and checks the open surface separately. [Paper figure prompt](docs/figures/cave_composer_pipeline_gpt_image2_prompt.md).
@@ -139,18 +139,17 @@ the observed CAVERS rock palette without requiring the source dataset at runtime
 - [ICRA hypotheses and required comparisons](docs/icra_generator_evidence_plan.md)
 - [V0.2 pipeline report](PIPELINE_V02_REPORT.md)
 - [V0 report (historical snapshot)](CAVE_COMPOSER_V0_REPORT.md)
-- [Interactive local gallery](outputs/final/gallery.html)
-- [Six-cave contact sheet](outputs/final/contact_sheet.jpg)
 - [Independent architecture](docs/architecture_v0.md), [final decision](docs/architecture_final.md)
 - [Specification and split contracts](docs/specification.md)
 - [CAVERS material experiment](docs/cavers_material_experiment.md)
 - [PLUME comparison](docs/plume_comparison.md)
 - [Stonefish interface](docs/stonefish_interface.md)
 
-Generated binaries normally live under ignored `outputs/`; selected historical
-pilot/task evidence is tracked for this release. Run configs to recreate
-them after cloning. `docs/independent_checkpoint.json` and Git commit `7bf8111`
-record the independent implementation before PLUME was accessed.
+Generated files live under ignored `outputs/` and `exports/`. Run configs to create
+new results after cloning. Historical reports and checksum receipts are retained
+as records, but their original binary inputs are local-only. A new run is not an
+exact replay of historical timing or results. Old commit IDs in those records
+refer to the archive before the asset-history cleanup.
 
 ## Bundle
 
@@ -179,8 +178,7 @@ python scripts/validate_scene.py outputs/my_cave
 python -m pytest -q
 ```
 
-Verify the included textured examples without Blender or the original generation
-workspace (the command does not modify the delivered files):
+Verify a locally generated difficulty collection (the command is read-only):
 
 ```bash
 python scripts/verify_textured_exports.py --root exports/caves_difficulty_v01
@@ -196,7 +194,7 @@ blender --background --python-exit-code 1 --python scripts/export_textured_cave.
 ```
 
 Portal export rejects terminal clipping planes that cross other routes. Geometry
-integrity and certificates are checked before reuse. The included samples carry
+integrity and certificates are checked before reuse. Exported samples carry
 a local reference mesh, config and navigation path for portable verification;
 absolute paths in historical provenance are descriptive only.
 
@@ -220,6 +218,6 @@ exported as a Stonefish normal map. Material statistics from a dataset prevent
 calling that same dataset entirely untouched appearance OOD.
 
 External CAVERS/Sketchfab assets are not bundled into the source repository.
-The included examples use independently generated geometry, procedural materials
+The generation pipeline uses procedural geometry and materials
 and the attributed reference patches described above. This repository does not
 yet include an owner-selected license.

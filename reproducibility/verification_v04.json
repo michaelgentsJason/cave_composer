@@ -1,0 +1,98 @@
+{
+  "version": 4,
+  "status": "PASS",
+  "scope": "Fresh source-only checkout; no pre-generated scene assets",
+  "test_count": 136,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_checkout_had_no_outputs_or_exports_before_execution": true,
+  "saved_difficulty_recipe_count": 30,
+  "local_generated_files_preserved": 1853,
+  "generated_bytes_untracked": 3318991086,
+  "historical_archive_checks": "Opt-in only; missing archives fail before generation",
+  "history_cleanup": "Remove outputs/, exports/, compiled paper snapshot/archive and packed showcase scene from the published branch history",
+  "checks": {
+    "claim_artifact_bindings": "NOT_RUN: historical data is local-only; requires --archives",
+    "frozen_release": "NOT_RUN: historical data is local-only; requires --archives",
+    "same_seed_mesh_and_material": "PASS",
+    "sampled_tasks": {
+      "requested": 3,
+      "accepted": 3
+    },
+    "portal_export": "PASS",
+    "new_textured_glb_obj": [
+      {
+        "difficulty": "reproduction",
+        "name": "cave",
+        "folder": "portable",
+        "status": "PASS",
+        "embedded_glb_images": [
+          {
+            "mime": "image/png",
+            "size": [
+              1024,
+              1024
+            ],
+            "sha256": "3dd8a218e7edab1cfdee577d79cb00e5373a222e1b847ebf30a3cdbd0faf5ee0"
+          },
+          {
+            "mime": "image/png",
+            "size": [
+              1024,
+              1024
+            ],
+            "sha256": "c7277ebad02c977da12a4337cfef6aa9db3f48a33798ecc8295ae27450dffe83"
+          }
+        ],
+        "obj_relative_texture_paths": [
+          "textures/basecolor.png",
+          "textures/normal.png"
+        ],
+        "formats": {
+          "glb": {
+            "triangles": 120178,
+            "openings": 2,
+            "geometry_max_position_difference_m": 5.785366462132784e-07,
+            "crossing_certificate": {
+              "status": "PASS",
+              "samples": 367,
+              "numerical_allowance": 1e-06,
+              "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+              "sample_max_step": 0.2,
+              "minimum_sampled_clearance": 1.3709360782200788,
+              "continuous_clearance_lower_bound": 1.2709350782200788,
+              "required_radius": 0.55,
+              "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+            }
+          },
+          "obj": {
+            "triangles": 120178,
+            "openings": 2,
+            "geometry_max_position_difference_m": 1.1529450103073974e-06,
+            "crossing_certificate": {
+              "status": "PASS",
+              "samples": 367,
+              "numerical_allowance": 1e-06,
+              "numerical_scope": "floating-point proximity; engineering tolerance, not interval arithmetic",
+              "sample_max_step": 0.2,
+              "minimum_sampled_clearance": 1.3709362183011589,
+              "continuous_clearance_lower_bound": 1.2709352183011589,
+              "required_radius": 0.55,
+              "method": "distance to open triangles minus half maximum sample spacing; no open-mesh contains test"
+            }
+          }
+        }
+      }
+    ],
+    "difficulty_assets": "NOT_RUN: supply --all-assets",
+    "pilot_analysis_and_table": "NOT_RUN: historical data is local-only; requires --archives",
+    "paper": "PASS"
+  },
+  "tested_checker_sha256": "e254f42423a3e854df112ed354fad31f2c38703eda52cb7df5556dddc61e1c2c",
+  "limits": [
+    "Original historical outcomes are not reverified without their local archives.",
+    "No policy training or new batch experiment was run.",
+    "GitHub Actions outcome is separate from this local acceptance."
+  ]
+}

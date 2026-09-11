@@ -1,7 +1,7 @@
-"""Exercise a cloned release without external scans, an RL stack or old outputs.
+"""Exercise a source checkout without external scans, an RL stack or old outputs.
 
 Writes a fresh report directory. Archived evidence and delivered assets are read-only.
-Use --blender for the actual texture bake/reimport and --all-assets for 30 scenes.
+Use --blender for texture baking. --archives and --all-assets require local data.
 """
 import argparse
 import json
@@ -27,6 +27,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--blender', help='Optional Blender executable; enables real texture baking')
     parser.add_argument('--all-assets', action='store_true')
+    parser.add_argument('--archives', action='store_true',
+                        help='Verify locally retained historical evidence and frozen assets; not included in Git')
     parser.add_argument('--paper', action='store_true', help='Compile using installed pdfLaTeX/BibTeX')
     args = parser.parse_args()
     os.chdir(ROOT)
@@ -49,14 +51,28 @@ def main():
         print(name, 'PASS', flush=True)
 
     try:
-        ledger = yaml.safe_load((ROOT / 'overleaf/CLAIM_EVIDENCE.yaml').read_text(encoding='utf-8'))
-        artifacts = [item for c in ledger['claims'] for item in c.get('raw_artifacts', [])]
-        for item in artifacts:
-            if file_sha256(ROOT / item['path']) != item['sha256']:
-                raise ValueError('Recorded claim artifact changed: ' + item['path'])
-        report['checks']['claim_artifact_bindings'] = len(artifacts)
-        report['checks']['frozen_release'] = check_release(ROOT / 'exports/cavern_pretraining_v02')
-        print('Archived evidence and 8-scene release PASS', flush=True)
+        if args.archives:
+            ledger = yaml.safe_load((ROOT / 'overleaf/CLAIM_EVIDENCE.yaml').read_text(encoding='utf-8'))
+            artifacts = [item for c in ledger['claims'] for item in c.get('raw_artifacts', [])]
+            required = [ROOT / item['path'] for item in artifacts]
+            required += [ROOT/'exports/cavern_pretraining_v02/manifest.json',
+                         ROOT/'outputs/c1_pilot_v02/summary.json']
+            missing = [str(p.relative_to(ROOT)) for p in required if not p.is_file()]
+            if missing:
+                raise FileNotFoundError('--archives requires locally retained original data, absent from this source checkout: '
+                                        + ', '.join(missing))
+            for item in artifacts:
+                if file_sha256(ROOT / item['path']) != item['sha256']:
+                    raise ValueError('Recorded claim artifact changed: ' + item['path'])
+            report['checks']['claim_artifact_bindings'] = len(artifacts)
+            report['checks']['frozen_release'] = check_release(ROOT / 'exports/cavern_pretraining_v02')
+            print('Archived evidence and 8-scene release PASS', flush=True)
+        else:
+            report['checks']['claim_artifact_bindings'] = 'NOT_RUN: historical data is local-only; requires --archives'
+            report['checks']['frozen_release'] = 'NOT_RUN: historical data is local-only; requires --archives'
+
+        if args.all_assets and not (ROOT/'exports/caves_difficulty_v01/batch_manifest.json').is_file():
+            raise FileNotFoundError('--all-assets requires a locally generated exports/caves_difficulty_v01 collection')
 
         config = ROOT / 'configs/morphology_v02/after.json'
         for name in ['scene_a', 'scene_b']:
@@ -95,14 +111,17 @@ def main():
             report['checks']['difficulty_assets'] = len(verify_exports(ROOT/'exports/caves_difficulty_v01', output/'30_assets.json'))
         else:
             report['checks']['difficulty_assets'] = 'NOT_RUN: supply --all-assets'
-        run('analysis', [sys.executable, ROOT/'scripts/analyze_c1_pilot_v02.py', '--output', output/'analysis'])
-        original = json.loads((ROOT/'outputs/c1_pilot_v02/summary.json').read_text(encoding='utf-8'))
-        reproduced = json.loads((output/'analysis/summary.json').read_text(encoding='utf-8'))
-        if any(original[key] != reproduced[key] for key in ['rows', 'groups']):
-            raise ValueError('Pilot summary differs from the archived raw results')
-        if (output/'analysis/generator.tex').read_text(encoding='utf-8') != (ROOT/'overleaf/tables/generator.tex').read_text(encoding='utf-8'):
-            raise ValueError('Rebuilt table differs from the manuscript')
-        report['checks']['pilot_analysis_and_table'] = 'PASS'
+        if args.archives:
+            run('analysis', [sys.executable, ROOT/'scripts/analyze_c1_pilot_v02.py', '--output', output/'analysis'])
+            original = json.loads((ROOT/'outputs/c1_pilot_v02/summary.json').read_text(encoding='utf-8'))
+            reproduced = json.loads((output/'analysis/summary.json').read_text(encoding='utf-8'))
+            if any(original[key] != reproduced[key] for key in ['rows', 'groups']):
+                raise ValueError('Pilot summary differs from the archived raw results')
+            if (output/'analysis/generator.tex').read_text(encoding='utf-8') != (ROOT/'overleaf/tables/generator.tex').read_text(encoding='utf-8'):
+                raise ValueError('Rebuilt table differs from the manuscript')
+            report['checks']['pilot_analysis_and_table'] = 'PASS'
+        else:
+            report['checks']['pilot_analysis_and_table'] = 'NOT_RUN: historical data is local-only; requires --archives'
         if args.paper:
             run('paper', [sys.executable, ROOT/'scripts/build_cavern_paper.py'])
             log = (ROOT/'overleaf/build/main.log').read_text(encoding='utf-8', errors='replace')

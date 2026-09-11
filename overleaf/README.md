@@ -1,12 +1,14 @@
 # CAVERN paper workspace
 
-**Latest source and PDF:** [compiled snapshot](main.pdf) and
-[clean-clone reproduction](../reproducibility/README.md). The current manuscript
+**Latest source:** [main.tex](main.tex) and
+[source-only reproduction](../reproducibility/README.md). The current manuscript
 has nine pages, including the hard-cave showcase; result placeholders remain.
 The build uses the included figure PDFs without silently regenerating them.
 Use `--render-schematics` to explicitly redraw the two schematic overviews.
-The [ready-to-import Overleaf ZIP](cave_composer_overleaf.zip) was compiled after
-extraction into a separate directory; it includes all figures used by the paper.
+Compiled PDFs and Overleaf ZIPs are generated locally and are excluded from Git.
+Use `python scripts/build_cavern_paper.py` for `overleaf/build/main.pdf` and
+`python scripts/package_cavern_overleaf.py --output outputs/paper_NEW.zip`
+for a self-contained archive with all figures used by the paper.
 
 This is an anonymous **working draft**, not a submission-ready manuscript.
 Cave Composer remains the generator and public code/API name. CAVERN denotes

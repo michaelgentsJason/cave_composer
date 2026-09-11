@@ -2,8 +2,10 @@
 
 **Latest release:** [v02 handoff](COLLABORATOR_HANDOFF_v02.md),
 [execution report](ROUND_V02_REPORT.md), and
-[clean-clone reproduction](../reproducibility/README.md). The frozen eight-cave,
-24-task pack and the recorded two-scene Isaac Sim checks are included. The
+[source-only reproduction](../reproducibility/README.md). Generated packs and
+raw simulator outputs are local-only; the eight-cave/24-task generation pipeline
+and the historical reports remain in Git. Paths under `outputs/` and `exports/`
+below require local generation or the original archive. The
 historical v01 notes below describe their original state; policy results and
 the receiving Isaac Lab configuration remain pending.
 

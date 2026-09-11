@@ -15,6 +15,12 @@ jobs:
       PYTHONNOUSERSITE: '1'
     steps:
       - uses: actions/checkout@v4
+      - name: Reject generated asset bundles in Git
+        shell: python
+        run: |
+          import subprocess
+          tracked = subprocess.check_output(['git', 'ls-files', 'outputs', 'exports'], text=True).splitlines()
+          assert not tracked, 'Generated assets must stay local: ' + ', '.join(tracked[:10])
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

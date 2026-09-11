@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "name": "easy_010",
+  "split": "difficulty_asset_collection",
+  "corridor": {
+    "width": 6.148,
+    "height": 5.034,
+    "variation": 0.1,
+    "section": "asymmetric"
+  },
+  "robot": {
+    "radius": 0.35,
+    "margin": 0.2
+  },
+  "geology": {
+    "amplitude": 0.198,
+    "strata": 0.1,
+    "formations": 4
+  },
+  "mesh": {
+    "visual_voxel": 0.2,
+    "collision_voxel": 0.34,
+    "max_voxels": 18000000
+  },
+  "material": {
+    "style": "sandstone",
+    "seed": 1040100,
+    "roughness": 0.87
+  },
+  "branches": [],
+  "chambers": [],
+  "bottlenecks": [],
+  "validation": {
+    "max_slope_degrees": 40.0
+  },
+  "description": "Wide passage, gentle paired bends, level floor, no branches.",
+  "route": [
+    {
+      "straight": 13.06
+    },
+    {
+      "turn": 29.62,
+      "radius": 9.86
+    },
+    {
+      "straight": 13.29
+    },
+    {
+      "turn": -29.62,
+      "radius": 9.86
+    },
+    {
+      "straight": 16.01
+    }
+  ]
+}
